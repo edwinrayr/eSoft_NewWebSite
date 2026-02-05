@@ -3,5 +3,5 @@
 Repositorio central para la colaboración del equipo.
 
 ## Estado Actual
+- Prueba de conexion con GitHub
 - Definiendo stack tecnológico (Lenguajes).
-- Subiendo propuestas de diseño.
