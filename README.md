@@ -4,9 +4,6 @@ Repositorio central para la colaboración del equipo.
 
 ## Estado Actual
 - Prueba de conexion con GitHub
+- Confirmaciones de conexión listas
 - Definiendo stack tecnológico (Lenguajes).
-<<<<<<< HEAD
-<<<<<<< HEAD
-//prueba de conexión (COnfirmación de Josef)
-//prueba de conexión (Confirmación de Santiago)
-//prueba de conexión (Confirmación de Iris)
+
