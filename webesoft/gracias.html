@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gracias por registrarte</title>
+  
+  <!-- Tipografías -->
+  <link href="https://fonts.cdnfonts.com/css/avenir-lt-pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --dark-orange: #1b9f88;
+      --white: #ffffff;
+      --black: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', 'Avenir LT Pro', sans-serif;
+      background-color: var(--black);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .thanks-container {
+      background-color: var(--dark-orange);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      max-width: 600px;
+      width: 100%;
+      animation: fadeIn 1s ease;
+    }
+
+    .thanks-container h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .thanks-container p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .countdown {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 500px) {
+      .thanks-container h1 {
+        font-size: 1.6rem;
+      }
+      .thanks-container p,
+      .countdown {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="thanks-container">
+    <h1>¡Gracias por registrarte!</h1>
+    <p>Hemos recibido tu información correctamente.<br>
+    Un asesor se pondrá en contacto contigo lo más pronto posible para brindarte más detalles.</p>
+    <p class="countdown">Redireccionando a la página principal en <span id="timer">15</span> segundos...</p>
+  </div>
+
+  <script>
+    let timeLeft = 10;
+    const timer = document.getElementById('timer');
+
+    const countdown = setInterval(() => {
+      timeLeft--;
+      timer.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        window.location.href = "index.html";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

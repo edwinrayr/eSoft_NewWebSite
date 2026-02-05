@@ -1,0 +1,241 @@
+/*-----------------------------------*\
+  #style.css
+\*-----------------------------------*/
+
+/**
+ * copyright 2025 eSoft Pasion
+ */
+
+
+
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+  /**
+   * colors
+   */
+
+  --green-blue-crayola: #171717;
+  --prussian-blue: #171717;
+  --eerie-black: hsl(210, 11%, 15%);
+  --dark-orange: #1b9f88;
+  --alice-blue: hsl(203, 100%, 97%);
+  --light-gray: hsl(0, 0%, 80%);
+  --indigo-dye: #1b9f88;
+  --cultured-1: hsl(0, 0%, 94%);
+  --cultured-2: hsl(0, 0%, 95%);
+  --cultured-3: hsl(0, 0%, 95%);
+  --plutinum: hsl(0, 0%, 91%);
+  --black_60: hsla(0, 0%, 0%, 0.6);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --onyx: hsl(0, 0%, 24%);
+
+  /**
+   * typography
+   */
+
+  --ff-oswald: 'Oswald', sans-serif;
+  --ff-rubik: 'Rubik', sans-serif;
+
+  --fs-1: 6rem;
+  --fs-2: 5rem;
+  --fs-3: 4rem;
+  --fs-4: 3rem;
+  --fs-5: 2.2rem;
+  --fs-6: 2rem;
+  --fs-7: 1.8rem;
+  --fs-8: 1.5rem;
+  --fs-9: 1.4rem;
+  --fs-10: 1.2rem;
+
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+
+  /**
+   * spacing
+   */
+
+  --section-padding: 50px;
+
+  /**
+   * shadow
+   */
+   
+  --shadow-1: 2px 0 50px hsla(0, 0%, 0%, 0.2);
+  --shadow-2: 0px 40px 60px var(--dark-orange);
+  --shadow-3: 0px 0px 60px var(--dark-orange);
+
+  /**
+   * transition
+   */
+
+  --transition: 0.25s ease;
+  --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+
+}
+:root {
+  --green-blue-crayola: #171717;
+  --dark-orange: #1b9f88;
+  --white: #ffffff;
+  --black: #000000;
+  --gray-bg: #f5f5f5;
+  --font-title: 'Oswald', sans-serif;
+  --font-body: 'Rubik', sans-serif;
+  --transition: 0.3s ease;
+}
+
+/* Hero principal */
+.hero {
+  background: url('../imagenes/esoft1.webp') no-repeat center center/cover;
+}
+.about-section {
+  font-family: 'Poppins', sans-serif; /* Cambia aquí a la tipografía que me diste */
+  text-align: center;
+  padding-top:  50px ;
+}
+
+.about-section .welcome-text {
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.about-section h2 {
+  color: #1b9f88;
+  font-size: 2rem;
+  margin-bottom: 15px;
+ 
+}
+.about-section p2 {
+  color: var(--green-blue-crayola);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  padding: 20px 50px;
+}
+
+.about-section p {
+  color: var(--gray-bg);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about-section .read-more {
+  background: none;
+  border: 2px solid #1b9f88;
+  padding: 10px 25px;
+  border-radius: 25px;
+  color: #1b9f88;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.about-section .read-more:hover {
+  background-color: #1b9f88;
+  color: white;
+}
+
+.info-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.box {
+  padding: 30px 20px;
+  color: white;
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.box h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.box p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+/* --- ESTILOS RESPONSIVOS --- */
+@media (max-width: 1024px) {
+  .about-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-section p2 {
+    font-size: 1.1rem;
+    padding: 15px 30px;
+  }
+
+  .box {
+    padding: 25px 15px;
+  }
+
+  .icon {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding-top: 30px;
+    
+  }
+  .welcome-text {
+   
+    padding: 30px 16px;
+  }
+
+  .about-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-section p2 {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .info-boxes {
+    grid-template-columns: 1fr; /* Una sola columna en móviles */
+   
+  }
+
+  .box {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .about-section p2 {
+    font-size: 0.95rem;
+    padding: 10px 15px;
+  }
+
+  .box h3 {
+    font-size: 1.1rem;
+  }
+
+  .box p {
+    font-size: 0.9rem;
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
+}
