@@ -5,3 +5,4 @@ Repositorio central para la colaboración del equipo.
 ## Estado Actual
 - Prueba de conexion con GitHub
 - Definiendo stack tecnológico (Lenguajes).
+//prueba de conexión (COnfirmación de Josef)
