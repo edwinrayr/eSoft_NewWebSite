@@ -1,0 +1,21 @@
+{
+  "navbar": {
+    "about": "Nosotros",
+    "services": "Servicios",
+    "solutions": "Soluciones",
+    "contact": "Contacto",
+    "history": "Nuestra Historia",
+    "team": "Equipo",
+    "web": "Desarrollo Web",
+    "mobile": "Apps Móviles"
+  },
+  "hero": {
+    "badge": "Innovación Digital v3.0",
+    "titlePart1": "Transformamos",
+    "titlePart2": "Ideas en",
+    "titlePart3": "Software",
+    "subtitle": "Desarrollo web de alto rendimiento, arquitectura cloud y diseño estratégico. Llevamos tu empresa al futuro digital con la tecnología de hoy.",
+    "btnPrimary": "Iniciar Proyecto",
+    "btnSecondary": "Ver Tecnologías"
+  }
+}

@@ -1,0 +1,22 @@
+/* Importamos las fuentes de Google: Oswald (Títulos) y Rubik (Texto) */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* Aquí aplicamos el fondo oscuro #171717 y la fuente Rubik a toda la web */
+    @apply bg-esoft-dark text-esoft-gray-lighter font-sans antialiased bg-tech-glow bg-no-repeat min-h-screen selection:bg-esoft-accent selection:text-white;
+  }
+
+  /* Todos los títulos (h1, h2...) usarán Oswald automáticamente */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading uppercase tracking-wide;
+  }
+}

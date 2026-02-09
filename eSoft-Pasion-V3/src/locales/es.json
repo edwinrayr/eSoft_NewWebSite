@@ -1,0 +1,21 @@
+{
+  "navbar": {
+    "about": "About Us",
+    "services": "Services",
+    "solutions": "Solutions",
+    "contact": "Contact",
+    "history": "Our History",
+    "team": "Team",
+    "web": "Web Development",
+    "mobile": "Mobile Apps"
+  },
+  "hero": {
+    "badge": "Digital Innovation v3.0",
+    "titlePart1": "Transforming",
+    "titlePart2": "Ideas into",
+    "titlePart3": "Software",
+    "subtitle": "High-performance web development, cloud architecture, and strategic design. We take your company to the digital future with today's technology.",
+    "btnPrimary": "Start Project",
+    "btnSecondary": "View Stack"
+  }
+}
