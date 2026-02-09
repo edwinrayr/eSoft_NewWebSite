@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion'; // <--- IMPORTANTE
 
 // Layouts Globales
 import Navbar from './components/layout/Navbar';
@@ -9,8 +11,9 @@ import SearchOverlay from './components/features/SearchOverlay';
 import { SearchProvider } from './context/SearchContext';
 import ScrollToTop from './components/utils/ScrollToTop';
 
-// IMPORTAR EL BOTÓN DE WHATSAPP (Asegúrate de haber creado el archivo en el paso anterior)
+// UI
 import WhatsAppButton from './components/ui/WhatsAppButton'; 
+import Preloader from './components/ui/Preloader'; // <--- IMPORTA EL PRELOADER
 
 // Páginas
 import Home from './pages/Home';
@@ -21,38 +24,49 @@ import ContactPage from './pages/Contact';
 import NotFound from './pages/NotFound';
 
 function App() {
+  // Estado para controlar la carga
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulamos una carga de 3 segundos (ajusta este tiempo si quieres)
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    // 1. El Proveedor de Búsqueda envuelve TODA la app
     <SearchProvider>
-      
-      {/* Estructura Flex para que el Footer siempre quede al final */}
       <div className="min-h-screen bg-esoft-dark text-white font-sans overflow-x-hidden selection:bg-esoft-accent selection:text-white flex flex-col relative">
         
-        {/* Componentes que NO cambian al navegar */}
-        <Navbar />
-        <ScrollToTop /> 
-        <SearchOverlay />
+        {/* PRELOADER: Envuelto en AnimatePresence para la animación de salida */}
+        <AnimatePresence mode="wait">
+          {isLoading && <Preloader />}
+        </AnimatePresence>
 
-        {/* Área Principal */}
-        <main className="flex-grow">
-          <Routes>
-            {/* Rutas Oficiales */}
-            <Route path="/" element={<Home />} />
-            <Route path="/nosotros" element={<About />} />
-            <Route path="/servicios" element={<Services />} />
-            <Route path="/soluciones" element={<Solutions />} />
-            <Route path="/contacto" element={<ContactPage />} />
+        {/* CONTENIDO DE LA APP: Solo se muestra (o se hace interactivo) cuando termina la carga */}
+        {!isLoading && (
+          <>
+            <Navbar />
+            <ScrollToTop /> 
+            <SearchOverlay />
 
-            {/* Ruta de Error 404 */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/nosotros" element={<About />} />
+                <Route path="/servicios" element={<Services />} />
+                <Route path="/soluciones" element={<Solutions />} />
+                <Route path="/contacto" element={<ContactPage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
 
-        {/* Pie de Página */}
-        <Footer /> 
-
-        {/* BOTÓN FLOTANTE DE WHATSAPP (Se verá encima de todo gracias a su posición 'fixed') */}
-        <WhatsAppButton />
+            <Footer /> 
+            <WhatsAppButton />
+          </>
+        )}
 
       </div>
     </SearchProvider>

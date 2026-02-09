@@ -1,4 +1,7 @@
 {
+  "preloader": {
+    "text": "Innovando la tecnología..."
+  },
   "whatsapp": {
     "message": "Hola, estoy interesado en sus servicios y me encantaría saber más.",
     "tooltip": "¡Hablemos por WhatsApp!"
