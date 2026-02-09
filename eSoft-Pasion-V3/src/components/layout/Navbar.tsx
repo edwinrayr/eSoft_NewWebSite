@@ -3,34 +3,28 @@ import { Link, useLocation } from 'react-router-dom';
 import { Search, Globe, Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { useSearch } from '../../context/SearchContext';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next'; // Hook de traducción
+import { useTranslation } from 'react-i18next';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
-  // Estado para controlar qué menú desplegable está abierto
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  // Hooks
-  const { t, i18n } = useTranslation(); // t = traducir, i18n = cambiar idioma
+  const { t, i18n } = useTranslation();
   const { openSearch } = useSearch();
   const location = useLocation();
 
-  // Función para cambiar entre Español e Inglés
   const toggleLanguage = () => {
     const newLang = i18n.language === 'es' ? 'en' : 'es';
     i18n.changeLanguage(newLang);
   };
 
-  // Detectar scroll para efecto "Glass"
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // ESTRUCTURA DE NAVEGACIÓN (Usando traducciones)
   const navLinks = [
     { 
       name: t('navbar.about'), 
@@ -81,56 +75,80 @@ export default function Navbar() {
             ? 'bg-esoft-dark/80 backdrop-blur-lg border-white/10 py-4 shadow-lg'
             : 'bg-transparent border-transparent py-6'
         }`}
-        onMouseLeave={() => setHoveredIndex(null)} // Cierra menú al salir del navbar
       >
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between relative">
           
-          {/* 1. LOGO */}
+          {/* LOGO */}
           <Link to="/" className="flex items-center gap-3 z-10 group relative">
             <img 
-              src="/esoftlogo.png" // Asegúrate que tu archivo se llame así en la carpeta public
+              src="/esoftlogo.png" 
               alt="Logo eSoft" 
               className="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300" 
             />
           </Link>
 
-          {/* 2. MENU DESKTOP */}
-          <div className="hidden md:flex items-center gap-8 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          {/* MENU DESKTOP */}
+          <div className="hidden md:flex items-center gap-6 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
             {navLinks.map((link, index) => {
               const isActive = location.pathname.startsWith(link.path);
-              const isHovered = hoveredIndex === index;
+              const isMenuOpen = hoveredIndex === index;
 
               return (
                 <div 
                   key={index}
-                  className="relative group"
-                  onMouseEnter={() => setHoveredIndex(index)}
+                  className="relative flex items-center h-full" 
+                  onMouseLeave={() => setHoveredIndex(null)} // El menú se cierra solo si sales de TODO el conjunto (texto+flecha+dropdown)
                 >
-                  {/* Enlace Principal */}
+                  {/* 1. EL TEXTO (Link) - Recuperamos la línea animada */}
                   <Link
                     to={link.path}
-                    className={`flex items-center gap-1 text-sm font-medium transition-colors py-4 ${
-                      isActive || isHovered ? 'text-white' : 'text-esoft-gray-light hover:text-white'
+                    className={`text-sm font-medium transition-colors py-2 relative group/text ${
+                      isActive || isMenuOpen ? 'text-white' : 'text-esoft-gray-light hover:text-white'
                     }`}
                   >
                     {link.name}
-                    <ChevronDown 
-                      size={14} 
-                      className={`transition-transform duration-300 ${isHovered ? 'rotate-180 text-esoft-accent' : ''}`} 
-                    />
+                    
+                    {/* LA FRANJA / LÍNEA ANIMADA (Regresa) */}
+                    <span 
+                      className={`absolute bottom-0 left-0 w-full h-0.5 bg-esoft-accent transform transition-transform duration-300 origin-center ${
+                        isActive || isMenuOpen 
+                          ? 'scale-x-100' // Si está activo o el menú abierto -> Línea visible
+                          : 'scale-x-0 group-hover/text:scale-x-100' // Si pasas mouse sobre texto -> Línea visible
+                      }`}
+                    ></span>
                   </Link>
 
-                  {/* Dropdown (Submenú) */}
+                  {/* 2. LA FLECHA (El Gatillo) - Área de contacto aumentada */}
+                  <div 
+                    className="h-full flex items-center justify-center cursor-pointer px-2 ml-1" // px-2 agranda el área lateral para que no se cierre fácil
+                    onMouseEnter={() => setHoveredIndex(index)} // Solo al tocar la flecha se abre
+                  >
+                    <div className={`p-1 rounded-full transition-colors ${isMenuOpen ? 'bg-white/10' : 'hover:bg-white/5'}`}>
+                        <ChevronDown 
+                        size={14} 
+                        className={`transition-transform duration-300 ${
+                            isMenuOpen ? 'rotate-180 text-esoft-accent' : 'text-esoft-gray-light'
+                        }`} 
+                        />
+                    </div>
+                  </div>
+
+                  {/* 3. EL MENÚ DESPLEGABLE */}
                   <AnimatePresence>
-                    {isHovered && link.subItems && (
+                    {isMenuOpen && link.subItems && (
                       <motion.div
-                        initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-64"
+                        // pt-6 crea un "puente" invisible grueso entre la flecha y el menú
+                        // para que el mouse no "caiga" en el espacio vacío
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-6 w-64 z-50" 
                       >
-                        <div className="bg-esoft-charcoal/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-2xl overflow-hidden">
+                         {/* Triangulito decorativo (Opcional, estilo tooltip) */}
+                         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 bg-esoft-charcoal rotate-45 border-l border-t border-white/10"></div>
+
+                        <div className="bg-esoft-charcoal/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden relative z-10">
                           {link.subItems.map((sub, subIndex) => (
                             <Link
                               key={subIndex}
@@ -150,16 +168,11 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* 3. ACCIONES (Buscador, Idioma, Menú Móvil) */}
+          {/* ACCIONES */}
           <div className="flex items-center gap-3 z-10">
-            <button 
-              onClick={openSearch} 
-              className="p-2 text-esoft-gray-light hover:text-white hover:bg-white/10 rounded-full transition-all"
-            >
+            <button onClick={openSearch} className="p-2 text-esoft-gray-light hover:text-white hover:bg-white/10 rounded-full transition-all">
               <Search size={18} />
             </button>
-
-            {/* Botón de Idioma */}
             <button 
               onClick={toggleLanguage}
               className="flex items-center gap-2 text-xs font-medium text-esoft-gray-light hover:text-white transition-colors border border-white/10 px-3 py-1.5 rounded-full hover:border-esoft-accent/50 hover:bg-white/5 backdrop-blur-sm group"
@@ -167,19 +180,14 @@ export default function Navbar() {
               <Globe size={14} className="group-hover:text-esoft-accent transition-colors" />
               <span className="hidden sm:inline uppercase">{i18n.language}</span>
             </button>
-
-            {/* Botón Hamburguesa Móvil */}
-            <button 
-              className="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
+            <button className="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* 4. MENÚ MÓVIL (Con Sub-secciones) */}
+      {/* MENÚ MÓVIL */}
       <div className={`fixed inset-0 z-40 bg-esoft-dark/95 backdrop-blur-xl transition-transform duration-300 md:hidden flex flex-col pt-32 px-6 overflow-y-auto ${
         isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
@@ -192,8 +200,6 @@ export default function Navbar() {
             >
               {link.name}
             </Link>
-            
-            {/* Lista de sub-items en móvil */}
             <div className="pl-4 space-y-3 border-l-2 border-white/10 ml-1 mt-2">
               {link.subItems?.map((sub, subIndex) => (
                 <Link
