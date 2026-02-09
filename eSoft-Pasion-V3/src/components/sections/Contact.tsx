@@ -1,39 +1,59 @@
 import { motion } from 'framer-motion';
-import { Send, ArrowRight } from 'lucide-react';
+import { Send, ArrowRight, MapPin, Phone } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Contact() {
+  const { t } = useTranslation();
+
   return (
-    <section id="contacto" className="py-24 relative">
+    <section id="contacto" className="py-24 relative bg-esoft-dark">
       <div className="max-w-7xl mx-auto px-6">
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           
-          {/* Columna Izquierda: Texto de Venta */}
-          <div className="space-y-8">
-            <h2 className="text-5xl md:text-6xl font-heading font-bold uppercase leading-tight">
-              ¿Tienes un <br />
-              <span className="text-esoft-accent">proyecto</span> en mente?
+          {/* Columna Izquierda: Información eSoft */}
+          <div className="space-y-8 sticky top-24">
+            <h2 className="text-5xl md:text-6xl font-heading font-bold uppercase leading-tight text-white">
+              {t('contact.titleLine1')} <br />
+              <span className="text-esoft-accent">{t('contact.titleLine2')}</span>
             </h2>
-            <p className="text-xl text-esoft-gray-light font-light">
-              Hablemos de cómo podemos llevar tu empresa al siguiente nivel. 
-              La primera asesoría técnica va por nuestra cuenta.
+            <p className="text-xl text-esoft-gray-light font-light leading-relaxed">
+              {t('contact.subtitle')}
             </p>
             
-            <div className="flex items-center gap-4 text-white font-medium">
-              <div className="w-12 h-1 bg-esoft-accent"></div>
-              <span>Respuesta en menos de 24 horas</span>
+            {/* Promesa de respuesta */}
+            <div className="flex items-center gap-4 text-white font-medium py-2">
+              <div className="w-12 h-1 bg-esoft-accent rounded-full"></div>
+              <span>{t('contact.response')}</span>
             </div>
 
-            <ul className="space-y-4 pt-4">
-              {['Consultoría Gratuita', 'Presupuesto a Medida', 'Sin Compromiso'].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-esoft-gray-light">
-                  <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-esoft-accent">
-                    <ArrowRight size={14} />
+            {/* Lista de beneficios */}
+            <ul className="space-y-4">
+              {[1, 2, 3].map((num) => (
+                <li key={num} className="flex items-center gap-3 text-esoft-gray-light">
+                  <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-esoft-accent shrink-0">
+                    <ArrowRight size={16} />
                   </div>
-                  {item}
+                  <span className="text-lg">{t(`contact.list.item${num}`)}</span>
                 </li>
               ))}
             </ul>
+
+            {/* Datos de contacto directos (Extraídos de nosotros.html) */}
+            <div className="pt-8 border-t border-white/10 mt-8 space-y-4">
+               <div className="flex items-start gap-4 text-gray-400 hover:text-white transition-colors">
+                  <MapPin className="text-esoft-accent mt-1" size={20} />
+                  <p className="text-sm max-w-xs leading-relaxed">
+                    {t('contact.info.address')}
+                  </p>
+               </div>
+               <div className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors">
+                  <Phone className="text-esoft-accent" size={20} />
+                  <p className="text-sm font-mono tracking-wide">
+                    {t('contact.info.phone')}
+                  </p>
+               </div>
+            </div>
           </div>
 
           {/* Columna Derecha: Formulario */}
@@ -41,38 +61,47 @@ export default function Contact() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white/5 border border-white/10 p-8 md:p-10 rounded-3xl backdrop-blur-sm space-y-6 shadow-2xl"
+            className="bg-white/5 border border-white/10 p-8 md:p-10 rounded-3xl backdrop-blur-sm space-y-6 shadow-2xl relative"
           >
+            {/* Destello decorativo */}
+            <div className="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-esoft-accent/20 rounded-full blur-3xl pointer-events-none" />
+
             <div className="space-y-2">
-              <label className="text-sm font-bold text-white uppercase tracking-wider">Nombre</label>
+              <label className="text-xs font-bold text-esoft-accent uppercase tracking-widest ml-1">
+                {t('contact.form.name')}
+              </label>
               <input 
                 type="text" 
-                placeholder="Tu nombre o empresa"
-                className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-esoft-accent focus:ring-1 focus:ring-esoft-accent transition-all placeholder:text-gray-600"
+                placeholder={t('contact.form.namePh')}
+                className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-esoft-accent focus:ring-1 focus:ring-esoft-accent transition-all placeholder:text-gray-600"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-white uppercase tracking-wider">Correo</label>
+              <label className="text-xs font-bold text-esoft-accent uppercase tracking-widest ml-1">
+                {t('contact.form.email')}
+              </label>
               <input 
                 type="email" 
-                placeholder="ejemplo@correo.com"
-                className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-esoft-accent focus:ring-1 focus:ring-esoft-accent transition-all placeholder:text-gray-600"
+                placeholder={t('contact.form.emailPh')}
+                className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-esoft-accent focus:ring-1 focus:ring-esoft-accent transition-all placeholder:text-gray-600"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-white uppercase tracking-wider">Mensaje</label>
+              <label className="text-xs font-bold text-esoft-accent uppercase tracking-widest ml-1">
+                {t('contact.form.message')}
+              </label>
               <textarea 
-                rows={4}
-                placeholder="Cuéntanos sobre tu proyecto..."
-                className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-esoft-accent focus:ring-1 focus:ring-esoft-accent transition-all placeholder:text-gray-600 resize-none"
+                rows={5}
+                placeholder={t('contact.form.messagePh')}
+                className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-esoft-accent focus:ring-1 focus:ring-esoft-accent transition-all placeholder:text-gray-600 resize-none"
               ></textarea>
             </div>
 
-            <button className="w-full py-4 bg-esoft-accent hover:bg-opacity-90 text-white font-bold rounded-lg uppercase tracking-wide transition-all flex items-center justify-center gap-2 group">
-              Enviar Mensaje
-              <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+            <button className="w-full py-5 bg-esoft-accent hover:bg-emerald-600 text-white font-bold rounded-xl uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-3 group shadow-lg shadow-esoft-accent/20">
+              {t('contact.form.btn')}
+              <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
           </motion.form>
 

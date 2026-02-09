@@ -1,21 +1,155 @@
 {
-  "navbar": {
-    "about": "About Us",
-    "services": "Services",
-    "solutions": "Solutions",
-    "contact": "Contact",
-    "history": "Our History",
-    "team": "Team",
-    "web": "Web Development",
-    "mobile": "Mobile Apps"
+  "whatsapp": {
+    "message": "Hola, estoy interesado en sus servicios y me encantaría saber más.",
+    "tooltip": "¡Hablemos por WhatsApp!"
   },
+  "footer": {
+    "description": "Transformamos ideas complejas en experiencias digitales fluidas. Tu socio tecnológico para el futuro.",
+    "col1": "Servicios",
+    "col2": "Compañía",
+    "col3": "Contacto",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "cookies": "Cookies",
+    "links": {
+      "renewal": "Renovación con Fabricantes",
+      "support": "Soporte Técnico",
+      "presales": "Preventa",
+      "consulting": "Consultoría",
+      "about": "Sobre Nosotros",
+      "portfolio": "Portafolio",
+      "careers": "Carreras",
+      "blog": "Blog",
+      "terms": "Términos Legales"
+    }
+  },
+  "contact": {
+    "titleLine1": "¿Listo para innovar",
+    "titleLine2": "con nosotros?",
+    "subtitle": "Cuéntanos tus desafíos tecnológicos. Desde CDMX para toda Latinoamérica, aplicamos nuestra Pasión por la Tecnología para escalar tu negocio.",
+    "response": "Respuesta garantizada en < 24h",
+    "list": {
+      "item1": "Asesoría Técnica Especializada",
+      "item2": "Soluciones de Ciberseguridad",
+      "item3": "Transformación Digital a Medida"
+    },
+    "form": {
+      "name": "Nombre Completo",
+      "namePh": "Tu nombre o empresa",
+      "email": "Correo Corporativo",
+      "emailPh": "ejemplo@empresa.com",
+      "message": "Detalles del Proyecto",
+      "messagePh": "¿Necesitas desarrollo, seguridad o infraestructura? Cuéntanos...",
+      "btn": "Iniciar Conversación"
+    },
+    "info": {
+      "address": "Montecito 38, Piso 33, Nápoles, CDMX",
+      "phone": "+52 55 6460 4183"
+    }
+  },
+  "architecture": {
+    "badge": "Por qué elegirnos",
+    "titleLine1": "Valor Estratégico",
+    "titleLine2": "Empresarial",
+    "subtitle": "Más allá del código, ofrecemos una gestión integral de tu tecnología para garantizar el crecimiento continuo.",
+    "cards": {
+      "security": {
+        "title": "Seguridad de la Información",
+        "desc": "Protegemos tus activos más valiosos con estrategias de defensa integral y normativas de cumplimiento internacional."
+      },
+      "automation": {
+        "title": "Automatización de Operaciones",
+        "desc": "Reducimos la carga operativa manual automatizando procesos clave para que tu equipo se enfoque en innovar."
+      },
+      "lifecycle": {
+        "title": "Ciclo de Vida de Aplicaciones",
+        "desc": "Gestionamos desde la concepción hasta el retiro de tu software, asegurando actualizaciones y mantenimiento óptimo."
+      },
+      "assets": {
+        "title": "Gestión de Activos TI",
+        "desc": "Control total sobre tu infraestructura tecnológica. Optimizamos el uso y costos de tu hardware y software."
+      },
+      "support": {
+        "title": "Soporte Continuo",
+        "desc": "Asistencia técnica efectiva y oportuna 24/7. Un staff calificado listo para resolver incidencias críticas."
+      },
+      "digital": {
+        "title": "Transformación Digital",
+        "desc": "Te guiamos en la adopción de nuevas tecnologías para mantener a tu organización competitiva en la era digital."
+      }
+    }
+  },
+  "aboutTeaser": {
+    "titleLine1": "Más que tecnología,",
+    "titleLine2": "somos tu socio estratégico.",
+    "description": "Con más de 16 años de experiencia en Latinoamérica, gestionamos tu negocio de TI con un equipo de ingenieros especializados en seguridad, automatización y ciclo de vida de aplicaciones.",
+    "stats": {
+      "exp": "16+ Años de Experiencia",
+      "region": "Presencia en Latam",
+      "team": "Ingenieros Certificados",
+      "focus": "Innovación Continua"
+    },
+    "cta": "Conoce nuestra historia"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones tecnológicas integrales diseñadas para escalar tu negocio.",
+    "cards": {
+      "devsecops": {
+        "title": "Soluciones DevSecOps",
+        "desc": "Integra la seguridad en todo el ciclo de desarrollo de software, garantizando aplicaciones seguras desde el inicio. Mejora la calidad y minimiza vulnerabilidades."
+      },
+      "automic": {
+        "title": "Soluciones Automic",
+        "desc": "Automatiza aplicaciones, plataformas y tecnologías para optimizar la operación, reducir tiempos de entrega y aumentar la eficiencia de tu equipo."
+      },
+      "mainframe": {
+        "title": "Mainframe",
+        "desc": "Controla el acceso de usuarios privilegiados y minimiza riesgos mediante una gestión robusta y centralizada. Asegura la continuidad del negocio."
+      },
+      "cybersecurity": {
+        "title": "Ciberseguridad",
+        "desc": "Protege tu entorno digital con Symantec Integrated Cyberdefense. Previene ataques cibernéticos y asegura la integridad de tu información."
+      },
+      "infra": {
+        "title": "Infraestructura",
+        "desc": "Implementa VMware Cloud Foundation para una nube híbrida empresarial. Garantiza escalabilidad, seguridad y disponibilidad de tus sistemas."
+      },
+      "business": {
+        "title": "Business Management",
+        "desc": "Implementa ITSM, ITAM y gestión de proyectos para una administración eficiente. Optimiza recursos y asegura el éxito estratégico."
+      }
+    }
+  },
+  "navbar": {
+  "about": "Nosotros",
+  "history": "Historia",
+  "team": "Equipo",
+  "values": "Valores",
+  "careers": "Carreras",
+  "services": "Servicios",
+  "renewal": "Renovación de Licencias",
+  "support": "Soporte Técnico",
+  "presales": "Preventa",
+  "consulting": "Consultoría",
+  "solutions": "Soluciones",
+  "devsecops": "Soluciones DevSecOps",
+  "automic": "Soluciones Automic",
+  "mainframe": "Mainframe",
+  "cybersecurity": "Ciberseguridad",
+  "infrastructure": "Infraestructura",
+  "business_mgmt": "Business Management",
+  "contact": "Contáctanos",
+  "sales": "Ventas",
+  "location": "Ubicación"
+},
   "hero": {
-    "badge": "Digital Innovation v3.0",
-    "titlePart1": "Transforming",
-    "titlePart2": "Ideas into",
-    "titlePart3": "Software",
-    "subtitle": "High-performance web development, cloud architecture, and strategic design. We take your company to the digital future with today's technology.",
-    "btnPrimary": "Start Project",
-    "btnSecondary": "View Stack"
+    "badge": "eSoft - Pasión por la Tecnología",
+    "titleMain": "Nuestra",
+    "titleIdeas": "Misión y",
+    "titleSoftware": "Visión",
+    "description": "Somos una empresa de servicios y soluciones de tecnología de información de excelente calidad, que propende por el desarrollo continuo de las organizaciones en Latinoamérica.",
+    "btnPrimary": "Contáctanos",
+    "btnSecondary": "Descargar Portafolio"
   }
 }

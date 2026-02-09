@@ -1,21 +1,155 @@
 {
-  "navbar": {
-    "about": "Nosotros",
-    "services": "Servicios",
-    "solutions": "Soluciones",
-    "contact": "Contacto",
-    "history": "Nuestra Historia",
-    "team": "Equipo",
-    "web": "Desarrollo Web",
-    "mobile": "Apps Móviles"
+  "whatsapp": {
+    "message": "Hello, I am interested in your services and would like to know more.",
+    "tooltip": "Let's chat on WhatsApp!"
   },
+  "footer": {
+    "description": "We transform complex ideas into fluid digital experiences. Your technology partner for the future.",
+    "col1": "Services",
+    "col2": "Company",
+    "col3": "Contact",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookies",
+    "links": {
+      "renewal": "Renewal with Manufacturers",
+      "support": "Technical Support",
+      "presales": "Pre-sales",
+      "consulting": "Consulting",
+      "about": "About Us",
+      "portfolio": "Portfolio",
+      "careers": "Careers",
+      "blog": "Blog",
+      "terms": "Legal Terms"
+    }
+  },
+  "contact": {
+    "titleLine1": "Ready to innovate",
+    "titleLine2": "with us?",
+    "subtitle": "Tell us about your tech challenges. From CDMX to all of Latin America, we apply our Passion for Technology to scale your business.",
+    "response": "Guaranteed response in < 24h",
+    "list": {
+      "item1": "Specialized Technical Advisory",
+      "item2": "Cybersecurity Solutions",
+      "item3": "Tailored Digital Transformation"
+    },
+    "form": {
+      "name": "Full Name",
+      "namePh": "Your name or company",
+      "email": "Corporate Email",
+      "emailPh": "name@company.com",
+      "message": "Project Details",
+      "messagePh": "Do you need development, security, or infrastructure? Tell us...",
+      "btn": "Start Conversation"
+    },
+    "info": {
+      "address": "Montecito 38, Floor 33, Nápoles, CDMX",
+      "phone": "+52 55 6460 4183"
+    }
+  },
+  "architecture": {
+    "badge": "Why Choose Us",
+    "titleLine1": "Strategic Business",
+    "titleLine2": "Value",
+    "subtitle": "Beyond code, we offer comprehensive management of your technology to ensure continuous growth.",
+    "cards": {
+      "security": {
+        "title": "Information Security",
+        "desc": "We protect your most valuable assets with comprehensive defense strategies and international compliance regulations."
+      },
+      "automation": {
+        "title": "Operations Automation",
+        "desc": "We reduce manual operational load by automating key processes so your team can focus on innovating."
+      },
+      "lifecycle": {
+        "title": "Application Lifecycle",
+        "desc": "We manage from conception to retirement of your software, ensuring optimal updates and maintenance."
+      },
+      "assets": {
+        "title": "IT Asset Management",
+        "desc": "Total control over your tech infrastructure. We optimize the usage and costs of your hardware and software."
+      },
+      "support": {
+        "title": "Continuous Support",
+        "desc": "Effective and timely technical assistance 24/7. A qualified staff ready to resolve critical incidents."
+      },
+      "digital": {
+        "title": "Digital Transformation",
+        "desc": "We guide you in adopting new technologies to keep your organization competitive in the digital age."
+      }
+    }
+  },
+  "aboutTeaser": {
+    "titleLine1": "More than technology,",
+    "titleLine2": "we are your strategic partner.",
+    "description": "With over 16 years of experience in Latin America, we manage your IT business with a team of engineers specialized in security, automation, and application lifecycle.",
+    "stats": {
+      "exp": "16+ Years Experience",
+      "region": "Latam Presence",
+      "team": "Certified Engineers",
+      "focus": "Continuous Innovation"
+    },
+    "cta": "Learn our history"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive technology solutions designed to scale your business.",
+    "cards": {
+      "devsecops": {
+        "title": "DevSecOps Solutions",
+        "desc": "Integrate security throughout the software development lifecycle, ensuring secure apps from the start. Improve quality and minimize vulnerabilities."
+      },
+      "automic": {
+        "title": "Automic Solutions",
+        "desc": "Automate applications, platforms, and technologies to optimize operations, reduce delivery times, and increase team efficiency."
+      },
+      "mainframe": {
+        "title": "Mainframe",
+        "desc": "Control privileged user access and minimize risks through robust, centralized management. Ensure business continuity."
+      },
+      "cybersecurity": {
+        "title": "Cybersecurity",
+        "desc": "Protect your digital environment with Symantec Integrated Cyberdefense. Prevent cyberattacks and ensure information integrity."
+      },
+      "infra": {
+        "title": "Infrastructure",
+        "desc": "Implement VMware Cloud Foundation for an enterprise hybrid cloud. Ensure scalability, security, and availability of your systems."
+      },
+      "business": {
+        "title": "Business Management",
+        "desc": "Implement ITSM, ITAM, and project management for efficient administration. Optimize resources and ensure strategic success."
+      }
+    }
+  },
+  "navbar": {
+  "about": "About Us",
+  "history": "History",
+  "team": "Team",
+  "values": "Values",
+  "careers": "Careers",
+  "services": "Services",
+  "renewal": "License Renewal",
+  "support": "Technical Support",
+  "presales": "Pre-sales",
+  "consulting": "Consulting",
+  "solutions": "Solutions",
+  "devsecops": "DevSecOps Solutions",
+  "automic": "Automic Solutions",
+  "mainframe": "Mainframe",
+  "cybersecurity": "Cybersecurity",
+  "infrastructure": "Infrastructure",
+  "business_mgmt": "Business Management",
+  "contact": "Contact",
+  "sales": "Sales",
+  "location": "Location"
+},
   "hero": {
-    "badge": "Innovación Digital v3.0",
-    "titlePart1": "Transformamos",
-    "titlePart2": "Ideas en",
-    "titlePart3": "Software",
-    "subtitle": "Desarrollo web de alto rendimiento, arquitectura cloud y diseño estratégico. Llevamos tu empresa al futuro digital con la tecnología de hoy.",
-    "btnPrimary": "Iniciar Proyecto",
-    "btnSecondary": "Ver Tecnologías"
+    "badge": "eSoft - Passion for Technology",
+    "titleMain": "Our",
+    "titleIdeas": "Mission &",
+    "titleSoftware": "Vision",
+    "description": "We are an information technology services and solutions company of excellent quality, aiming for the continuous development of organizations in Latin America.",
+    "btnPrimary": "Contact Us",
+    "btnSecondary": "Download Portfolio"
   }
 }

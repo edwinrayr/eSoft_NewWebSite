@@ -30,39 +30,42 @@ export default function Navbar() {
       name: t('navbar.about'), 
       path: '/nosotros',
       subItems: [
-        { name: t('navbar.history') || 'Nuestra Historia', path: '/nosotros#historia' },
-        { name: t('navbar.team') || 'Equipo', path: '/nosotros#equipo' },
-        { name: 'Valores', path: '/nosotros#valores' },
-        { name: 'Carreras', path: '/nosotros#carreras' }
+        { name: t('navbar.history'), path: '/nosotros#historia' },
+        { name: t('navbar.team'), path: '/nosotros#equipo' },
+        { name: t('navbar.values'), path: '/nosotros#valores' },
+        { name: t('navbar.careers'), path: '/nosotros#carreras' }
       ]
     },
     { 
       name: t('navbar.services'), 
       path: '/servicios',
       subItems: [
-        { name: t('navbar.web') || 'Desarrollo Web', path: '/servicios#web' },
-        { name: t('navbar.mobile') || 'Apps Móviles', path: '/servicios#mobile' },
-        { name: 'Cloud & DevOps', path: '/servicios#cloud' },
-        { name: 'Diseño UX/UI', path: '/servicios#design' }
+        { name: t('navbar.renewal'), path: '/servicios#renovacion' },
+        { name: t('navbar.support'), path: '/servicios#soporte' },
+        { name: t('navbar.presales'), path: '/servicios#preventa' },
+        { name: t('navbar.consulting'), path: '/servicios#consultoria' }
       ]
     },
     { 
       name: t('navbar.solutions'), 
       path: '/soluciones',
+      // ACTUALIZADO: Las 6 soluciones principales de eSoft
       subItems: [
-        { name: 'E-Commerce', path: '/soluciones#ecommerce' },
-        { name: 'Fintech', path: '/soluciones#fintech' },
-        { name: 'Salud', path: '/soluciones#health' },
-        { name: 'Casos de Éxito', path: '/soluciones#casos' }
+        { name: t('navbar.devsecops'), path: '/soluciones#devsecops' },
+        { name: t('navbar.automic'), path: '/soluciones#automic' },
+        { name: t('navbar.mainframe'), path: '/soluciones#mainframe' },
+        { name: t('navbar.cybersecurity'), path: '/soluciones#cybersecurity' },
+        { name: t('navbar.infrastructure'), path: '/soluciones#infraestructura' },
+        { name: t('navbar.business_mgmt'), path: '/soluciones#business' }
       ]
     },
     { 
       name: t('navbar.contact'), 
       path: '/contacto',
       subItems: [
-        { name: 'Soporte Técnico', path: '/contacto#soporte' },
-        { name: 'Ventas', path: '/contacto#ventas' },
-        { name: 'Ubicación', path: '/contacto#mapa' }
+        { name: t('navbar.support'), path: '/contacto#soporte' },
+        { name: t('navbar.sales'), path: '/contacto#ventas' },
+        { name: t('navbar.location'), path: '/contacto#mapa' }
       ] 
     },
   ];
@@ -97,9 +100,8 @@ export default function Navbar() {
                 <div 
                   key={index}
                   className="relative flex items-center h-full" 
-                  onMouseLeave={() => setHoveredIndex(null)} // El menú se cierra solo si sales de TODO el conjunto (texto+flecha+dropdown)
+                  onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  {/* 1. EL TEXTO (Link) - Recuperamos la línea animada */}
                   <Link
                     to={link.path}
                     className={`text-sm font-medium transition-colors py-2 relative group/text ${
@@ -107,33 +109,27 @@ export default function Navbar() {
                     }`}
                   >
                     {link.name}
-                    
-                    {/* LA FRANJA / LÍNEA ANIMADA (Regresa) */}
                     <span 
                       className={`absolute bottom-0 left-0 w-full h-0.5 bg-esoft-accent transform transition-transform duration-300 origin-center ${
-                        isActive || isMenuOpen 
-                          ? 'scale-x-100' // Si está activo o el menú abierto -> Línea visible
-                          : 'scale-x-0 group-hover/text:scale-x-100' // Si pasas mouse sobre texto -> Línea visible
+                        isActive || isMenuOpen ? 'scale-x-100' : 'scale-x-0 group-hover/text:scale-x-100'
                       }`}
                     ></span>
                   </Link>
 
-                  {/* 2. LA FLECHA (El Gatillo) - Área de contacto aumentada */}
                   <div 
-                    className="h-full flex items-center justify-center cursor-pointer px-2 ml-1" // px-2 agranda el área lateral para que no se cierre fácil
-                    onMouseEnter={() => setHoveredIndex(index)} // Solo al tocar la flecha se abre
+                    className="h-full flex items-center justify-center cursor-pointer px-2 ml-1" 
+                    onMouseEnter={() => setHoveredIndex(index)}
                   >
                     <div className={`p-1 rounded-full transition-colors ${isMenuOpen ? 'bg-white/10' : 'hover:bg-white/5'}`}>
-                        <ChevronDown 
+                      <ChevronDown 
                         size={14} 
                         className={`transition-transform duration-300 ${
-                            isMenuOpen ? 'rotate-180 text-esoft-accent' : 'text-esoft-gray-light'
+                          isMenuOpen ? 'rotate-180 text-esoft-accent' : 'text-esoft-gray-light'
                         }`} 
-                        />
+                      />
                     </div>
                   </div>
 
-                  {/* 3. EL MENÚ DESPLEGABLE */}
                   <AnimatePresence>
                     {isMenuOpen && link.subItems && (
                       <motion.div
@@ -141,13 +137,9 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        // pt-6 crea un "puente" invisible grueso entre la flecha y el menú
-                        // para que el mouse no "caiga" en el espacio vacío
                         className="absolute top-full left-1/2 -translate-x-1/2 pt-6 w-64 z-50" 
                       >
-                         {/* Triangulito decorativo (Opcional, estilo tooltip) */}
-                         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 bg-esoft-charcoal rotate-45 border-l border-t border-white/10"></div>
-
+                        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 bg-esoft-charcoal rotate-45 border-l border-t border-white/10"></div>
                         <div className="bg-esoft-charcoal/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden relative z-10">
                           {link.subItems.map((sub, subIndex) => (
                             <Link
