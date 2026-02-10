@@ -1,4 +1,49 @@
 {
+  "servicesPage": {
+    "hero": {
+      "titleStart": "Soluciones",
+      "titleEnd": "Integrales",
+      "subtitle": "Desde la ciberseguridad avanzada hasta la transformación de infraestructura. Cubrimos todo el ciclo de vida tecnológico de tu empresa con el respaldo de líderes mundiales."
+    },
+    "items": {
+      "security": {
+        "title": "Seguridad y Ciberseguridad",
+        "desc": "Protección integral para tu ecosistema digital. Implementamos defensas en profundidad para salvaguardar datos críticos, identidades y redes contra amenazas avanzadas.",
+        "features": [
+          "Symantec: Protección de Endpoint y DLP",
+          "Broadcom: Seguridad de Red y Gateway",
+          "Gestión de Identidades (PAM/IAM)",
+          "Prevención de Ransomware y Phishing"
+        ]
+      },
+      "consulting": {
+        "title": "Consultoría de Software",
+        "desc": "Transformamos tu estrategia tecnológica. Nuestros expertos analizan tu arquitectura actual para diseñar hojas de ruta de modernización, nube y eficiencia operativa.",
+        "features": [
+          "AppNeta: Monitoreo de Experiencia Digital",
+          "Evaluación de Arquitectura Empresarial",
+          "Migración a la Nube (VMware Cloud)",
+          "Optimización de Costos TI (ITAM)"
+        ]
+      },
+      "packaged": {
+        "title": "Soluciones Empaquetadas",
+        "desc": "Automatización inteligente y gestión simplificada. Desplegamos soluciones 'llave en mano' para orquestar flujos de trabajo complejos y operaciones de misión crítica.",
+        "features": [
+          "Automic: Automatización de Workflows",
+          "Gestión de Mainframe y Operaciones",
+          "Monitoreo de Infraestructura AIOps",
+          "Service Management (ESM)"
+        ]
+      }
+    },
+    "partnersTitle": "Nuestros Aliados Estratégicos",
+    "cta": {
+      "title": "¿Buscas una solución específica?",
+      "desc": "Trabajamos directamente con Broadcom, VMware y Symantec para diseñar arquitecturas a la medida de tus necesidades empresariales.",
+      "btn": "Consultar con un Especialista"
+    }
+  },
   "aboutPage": {
     "hero": {
       "badge": "Nuestra Identidad",

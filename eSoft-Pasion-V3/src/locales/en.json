@@ -1,4 +1,49 @@
 {
+  "servicesPage": {
+    "hero": {
+      "titleStart": "Comprehensive",
+      "titleEnd": "Solutions",
+      "subtitle": "From advanced cybersecurity to infrastructure transformation. We cover your company's entire technological lifecycle backed by global leaders."
+    },
+    "items": {
+      "security": {
+        "title": "Security and Cybersecurity",
+        "desc": "Comprehensive protection for your digital ecosystem. We implement defense-in-depth to safeguard critical data, identities, and networks against advanced threats.",
+        "features": [
+          "Symantec: Endpoint Protection & DLP",
+          "Broadcom: Network & Gateway Security",
+          "Identity Management (PAM/IAM)",
+          "Ransomware & Phishing Prevention"
+        ]
+      },
+      "consulting": {
+        "title": "Software Consulting",
+        "desc": "We transform your technology strategy. Our experts analyze your current architecture to design modernization, cloud, and operational efficiency roadmaps.",
+        "features": [
+          "AppNeta: Digital Experience Monitoring",
+          "Enterprise Architecture Assessment",
+          "Cloud Migration (VMware Cloud)",
+          "IT Cost Optimization (ITAM)"
+        ]
+      },
+      "packaged": {
+        "title": "Packaged Solutions",
+        "desc": "Intelligent automation and simplified management. We deploy turnkey solutions to orchestrate complex workflows and mission-critical operations.",
+        "features": [
+          "Automic: Workflow Automation",
+          "Mainframe & Operations Management",
+          "AIOps Infrastructure Monitoring",
+          "Service Management (ESM)"
+        ]
+      }
+    },
+    "partnersTitle": "Our Strategic Partners",
+    "cta": {
+      "title": "Looking for a specific solution?",
+      "desc": "We work directly with Broadcom, VMware, and Symantec to design architectures tailored to your business needs.",
+      "btn": "Consult with a Specialist"
+    }
+  },
   "aboutPage": {
     "hero": {
       "badge": "Our Identity",
