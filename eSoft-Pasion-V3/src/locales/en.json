@@ -1,4 +1,58 @@
 {
+  "aboutPage": {
+    "hero": {
+      "badge": "Our Identity",
+      "titleStart": "Who",
+      "titleEnd": "We Are",
+      "description": "We are a company providing high-quality information technology services and solutions, striving for the continuous development of organizations in Latin America and analyzing their development alternatives in the implementation and monitoring of their technological solutions."
+    },
+    "commitment": {
+      "title": "About Us",
+      "p1": "eSoft Passion for Technology 2006 SA de CV establishes itself as a leader in Latin America, committed to innovation, excellence, and customer satisfaction.",
+      "p2": "With a highly trained team and a corporate culture focused on continuous improvement, we set the standard for regional technological innovation."
+    },
+    "mission": {
+      "title": "Mission",
+      "desc": "To offer Latin American institutions quality technological software products and services, supported by their organizations' strategic processes, all within the framework of continuous, effective, and timely support provided by a highly qualified staff."
+    },
+    "vision": {
+      "title": "Vision",
+      "desc": "To be recognized as the leading integrator of products and services in digital transformation in Latin America, reliable and pioneering in delivering high-impact technological solutions with the best quality standards, generating value for each of our clients and partners."
+    },
+    "values": {
+      "title": "Our Values and Talent",
+      "desc": "We have a team of software engineers specialized in information security, operations automation, information asset management, application lifecycles, and system platforms.",
+      "btnCEO": "Meet Our CEO",
+      "btnTeam": "Meet the Team"
+    },
+    "history": {
+      "badge": "Our Roots",
+      "titleStart": "Our",
+      "titleEnd": "History",
+      "items": {
+        "2006": {
+          "year": "2006",
+          "title": "The Beginning",
+          "desc": "eSoft Pasión por la Tecnología SA de CV is born with the firm vision of transforming the technological landscape and the development of organizations in Mexico and Latin America."
+        },
+        "2012": {
+          "year": "2012",
+          "title": "Portfolio Expansion",
+          "desc": "We established ourselves as regional leaders by expanding our solutions to include advanced automation and enterprise application lifecycle management."
+        },
+        "2018": {
+          "year": "2018",
+          "title": "Cybersecurity Leadership",
+          "desc": "We strengthened our service architecture by integrating robust DevSecOps and cyber defense solutions to protect our clients' critical assets."
+        },
+        "current": {
+          "year": "Present",
+          "title": "Continuous Digital Transformation",
+          "desc": "With over 16 years of experience, we continue to set the standard in innovation, implementing cloud and ITAM/ITSM strategies with the best talent in the market."
+        }
+      }
+    }
+  },
   "preloader": {
     "text": "Innovating technology..."
   },

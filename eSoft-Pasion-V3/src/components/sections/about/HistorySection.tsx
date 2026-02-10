@@ -1,27 +1,30 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next'; // <--- Importar hook
 
 export default function HistorySection() {
-  // Datos de la historia de la empresa basados en su trayectoria
+  const { t } = useTranslation(); // <--- Iniciar hook
+
+  // Datos de la historia dinámicos (Traducidos)
   const milestones = [
     {
-      year: '2006',
-      title: 'El Comienzo',
-      description: 'Nace eSoft Pasión por la Tecnología SA de CV con la firme visión de transformar el panorama tecnológico y el desarrollo de las organizaciones en México y Latinoamérica.'
+      year: t('aboutPage.history.items.2006.year'),
+      title: t('aboutPage.history.items.2006.title'),
+      description: t('aboutPage.history.items.2006.desc')
     },
     {
-      year: '2012',
-      title: 'Expansión de Portafolio',
-      description: 'Nos consolidamos como líderes regionales ampliando nuestras soluciones para incluir automatización avanzada y gestión del ciclo de vida de aplicaciones empresariales.'
+      year: t('aboutPage.history.items.2012.year'),
+      title: t('aboutPage.history.items.2012.title'),
+      description: t('aboutPage.history.items.2012.desc')
     },
     {
-      year: '2018',
-      title: 'Liderazgo en Ciberseguridad',
-      description: 'Fortalecimos nuestra arquitectura de servicios integrando soluciones robustas de DevSecOps y defensa cibernética para proteger los activos críticos de nuestros clientes.'
+      year: t('aboutPage.history.items.2018.year'),
+      title: t('aboutPage.history.items.2018.title'),
+      description: t('aboutPage.history.items.2018.desc')
     },
     {
-      year: 'Actualidad',
-      title: 'Transformación Digital Continua',
-      description: 'Con más de 16 años de experiencia, seguimos marcando la pauta en innovación, implementando estrategias cloud e ITAM/ITSM con el mejor talento del mercado.'
+      year: t('aboutPage.history.items.current.year'),
+      title: t('aboutPage.history.items.current.title'),
+      description: t('aboutPage.history.items.current.desc')
     }
   ];
 
@@ -40,10 +43,10 @@ export default function HistorySection() {
           className="text-center mb-16"
         >
           <span className="text-esoft-accent font-bold tracking-widest uppercase text-sm mb-2 block">
-            Nuestras Raíces
+            {t('aboutPage.history.badge')}
           </span>
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white">
-            Nuestra <span className="text-transparent bg-clip-text bg-gradient-to-r from-esoft-accent to-emerald-400">Historia</span>
+            {t('aboutPage.history.titleStart')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-esoft-accent to-emerald-400">{t('aboutPage.history.titleEnd')}</span>
           </h2>
         </motion.div>
 

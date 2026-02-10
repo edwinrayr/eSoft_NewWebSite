@@ -1,4 +1,58 @@
 {
+  "aboutPage": {
+    "hero": {
+      "badge": "Nuestra Identidad",
+      "titleStart": "¿Quiénes",
+      "titleEnd": "Somos?",
+      "description": "Somos una empresa de servicios y soluciones de tecnología de información de excelente calidad, que propende por el desarrollo continuo de las organizaciones en Latinoamérica y el análisis de sus alternativas de desarrollo en la implantación y seguimiento de sus soluciones tecnológicas."
+    },
+    "commitment": {
+      "title": "Acerca de Nosotros",
+      "p1": "eSoft Pasión por la Tecnología 2006 SA de CV se consolida como líder en América Latina, comprometida con la innovación, la excelencia y la satisfacción del cliente.",
+      "p2": "Con un equipo altamente capacitado y una cultura empresarial centrada en la mejora continua, marcamos la pauta en la innovación tecnológica regional."
+    },
+    "mission": {
+      "title": "Misión",
+      "desc": "Ofrecer a las instituciones de América Latina productos y servicios de software tecnológico de calidad, apoyados en los procesos estratégicos de sus organizaciones, todo ello dentro del marco de un soporte continuo, efectivo y oportuno, brindado por un staff altamente calificado."
+    },
+    "vision": {
+      "title": "Visión",
+      "desc": "Ser reconocidos como el integrador de productos y servicios líder en transformación digital en América Latina, confiable y pionera en la entrega de soluciones de alto impacto tecnológico con los mejores estándares de calidad y generando valor a cada uno de nuestros clientes y aliados."
+    },
+    "values": {
+      "title": "Nuestros Valores y Talento",
+      "desc": "Contamos con un equipo de ingenieros de software especializados en seguridad de la información, automatización de operaciones, administración de activos de información, ciclo de vida de aplicaciones y plataformas de sistemas.",
+      "btnCEO": "Conoce a Nuestro CEO",
+      "btnTeam": "Conoce al Equipo"
+    },
+    "history": {
+      "badge": "Nuestras Raíces",
+      "titleStart": "Nuestra",
+      "titleEnd": "Historia",
+      "items": {
+        "2006": {
+          "year": "2006",
+          "title": "El Comienzo",
+          "desc": "Nace eSoft Pasión por la Tecnología SA de CV con la firme visión de transformar el panorama tecnológico y el desarrollo de las organizaciones en México y Latinoamérica."
+        },
+        "2012": {
+          "year": "2012",
+          "title": "Expansión de Portafolio",
+          "desc": "Nos consolidamos como líderes regionales ampliando nuestras soluciones para incluir automatización avanzada y gestión del ciclo de vida de aplicaciones empresariales."
+        },
+        "2018": {
+          "year": "2018",
+          "title": "Liderazgo en Ciberseguridad",
+          "desc": "Fortalecimos nuestra arquitectura de servicios integrando soluciones robustas de DevSecOps y defensa cibernética para proteger los activos críticos de nuestros clientes."
+        },
+        "current": {
+          "year": "Actualidad",
+          "title": "Transformación Digital Continua",
+          "desc": "Con más de 16 años de experiencia, seguimos marcando la pauta en innovación, implementando estrategias cloud e ITAM/ITSM con el mejor talento del mercado."
+        }
+      }
+    }
+  },
   "preloader": {
     "text": "Innovando la tecnología..."
   },
