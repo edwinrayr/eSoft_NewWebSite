@@ -1,4 +1,28 @@
 {
+  "contact": {
+    "titleLine1": "Ready to",
+    "titleLine2": "start the change?",
+    "subtitle": "Tell us about your technological challenges. Our team of experts will design a strategy tailored to your business goals.",
+    "response": "Response within 24 hours",
+    "list": {
+      "item1": "Preliminary technical assessment",
+      "item2": "Detailed commercial proposal",
+      "item3": "Non-Disclosure Agreement (NDA)"
+    },
+    "info": {
+      "address": "Av. Benito Juárez, San Mateo Cuautepec, 54948 Fuentes del Valle, Méx.",
+      "phone": "+52 (55) 5889 5472"
+    },
+    "form": {
+      "name": "Full Name",
+      "namePh": "Ex. John Doe",
+      "email": "Corporate Email",
+      "emailPh": "john@company.com",
+      "message": "How can we help you?",
+      "messagePh": "I am looking to implement a cybersecurity solution for...",
+      "btn": "Send Message"
+    }
+  },
   "servicesPage": {
     "hero": {
       "titleStart": "Comprehensive",

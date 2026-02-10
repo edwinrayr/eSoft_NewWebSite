@@ -86,6 +86,12 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3 group">
+                <Mail size={18} className="text-esoft-accent shrink-0 group-hover:text-white transition-colors" />
+                <a href="mailto:karla.garcia@esoftpasion.com" className="hover:text-white transition-colors break-all">
+                  karla.garcia@esoftpasion.com
+                </a>
+              </li>
+              <li className="flex items-center gap-3 group">
                 <Phone size={18} className="text-esoft-accent shrink-0 group-hover:text-white transition-colors" />
                 <a href="tel:+525564604183" className="hover:text-white transition-colors">
                   +52 55 6460 4183

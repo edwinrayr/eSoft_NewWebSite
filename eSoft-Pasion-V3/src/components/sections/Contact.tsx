@@ -1,9 +1,37 @@
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Send, ArrowRight, MapPin, Phone } from 'lucide-react';
+import { Send, ArrowRight, MapPin, Phone, Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const { t } = useTranslation();
+  const form = useRef<HTMLFormElement>(null);
+  const [isSending, setIsSending] = useState(false);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    // TUS CREDENCIALES DE EMAILJS (Ya integradas)
+    const SERVICE_ID = 'service_24mhenf';
+    const TEMPLATE_ID = 'template_vvr9ic9';
+    const PUBLIC_KEY = 'H7lIYN47SEVm6KZyI';
+
+    if (form.current) {
+      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+        .then((result) => {
+            console.log(result.text);
+            alert('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.');
+            setIsSending(false);
+            form.current?.reset(); // Limpia el formulario
+        }, (error) => {
+            console.log(error.text);
+            alert('Hubo un error al enviar el mensaje. Por favor intenta nuevamente.');
+            setIsSending(false);
+        });
+    }
+  };
 
   return (
     <section id="contacto" className="py-24 relative bg-esoft-dark">
@@ -34,12 +62,13 @@ export default function Contact() {
                   <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-esoft-accent shrink-0">
                     <ArrowRight size={16} />
                   </div>
+                  {/* Nota: Asegúrate de que las claves en tu JSON sean contact.list.item1, item2, etc. */}
                   <span className="text-lg">{t(`contact.list.item${num}`)}</span>
                 </li>
               ))}
             </ul>
 
-            {/* Datos de contacto directos (Extraídos de nosotros.html) */}
+            {/* Datos de contacto directos */}
             <div className="pt-8 border-t border-white/10 mt-8 space-y-4">
                <div className="flex items-start gap-4 text-gray-400 hover:text-white transition-colors">
                   <MapPin className="text-esoft-accent mt-1" size={20} />
@@ -58,6 +87,8 @@ export default function Contact() {
 
           {/* Columna Derecha: Formulario */}
           <motion.form 
+            ref={form}
+            onSubmit={sendEmail}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -72,6 +103,8 @@ export default function Contact() {
               </label>
               <input 
                 type="text" 
+                name="user_name" // Coincide con {{user_name}} en EmailJS
+                required
                 placeholder={t('contact.form.namePh')}
                 className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-esoft-accent focus:ring-1 focus:ring-esoft-accent transition-all placeholder:text-gray-600"
               />
@@ -83,6 +116,8 @@ export default function Contact() {
               </label>
               <input 
                 type="email" 
+                name="user_email" // Coincide con {{user_email}} en EmailJS
+                required
                 placeholder={t('contact.form.emailPh')}
                 className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-esoft-accent focus:ring-1 focus:ring-esoft-accent transition-all placeholder:text-gray-600"
               />
@@ -94,14 +129,23 @@ export default function Contact() {
               </label>
               <textarea 
                 rows={5}
+                name="message" // Coincide con {{message}} en EmailJS
+                required
                 placeholder={t('contact.form.messagePh')}
                 className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-esoft-accent focus:ring-1 focus:ring-esoft-accent transition-all placeholder:text-gray-600 resize-none"
               ></textarea>
             </div>
 
-            <button className="w-full py-5 bg-esoft-accent hover:bg-emerald-600 text-white font-bold rounded-xl uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-3 group shadow-lg shadow-esoft-accent/20">
-              {t('contact.form.btn')}
-              <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <button 
+              type="submit"
+              disabled={isSending}
+              className={`w-full py-5 bg-esoft-accent hover:bg-emerald-600 text-white font-bold rounded-xl uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-3 group shadow-lg shadow-esoft-accent/20 ${isSending ? 'opacity-70 cursor-not-allowed' : ''}`}
+            >
+              {isSending ? (
+                <>Enviando... <Loader2 className="animate-spin" size={18}/></>
+              ) : (
+                <>{t('contact.form.btn')} <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></>
+              )}
             </button>
           </motion.form>
 

@@ -1,4 +1,28 @@
 {
+  "contact": {
+    "titleLine1": "¿Listo para",
+    "titleLine2": "iniciar el cambio?",
+    "subtitle": "Cuéntanos tus desafíos tecnológicos. Nuestro equipo de expertos diseñará una estrategia a la medida de tus objetivos de negocio.",
+    "response": "Respuesta en menos de 24 horas",
+    "list": {
+      "item1": "Evaluación técnica preliminar",
+      "item2": "Propuesta comercial detallada",
+      "item3": "Acuerdo de confidencialidad (NDA)"
+    },
+    "info": {
+      "address": "Av. Benito Juárez, San Mateo Cuautepec, 54948 Fuentes del Valle, Méx.",
+      "phone": "+52 (55) 5889 5472"
+    },
+    "form": {
+      "name": "Nombre Completo",
+      "namePh": "Ej. Juan Pérez",
+      "email": "Correo Corporativo",
+      "emailPh": "juan@empresa.com",
+      "message": "¿Cómo podemos ayudarte?",
+      "messagePh": "Estoy buscando implementar una solución de ciberseguridad para...",
+      "btn": "Enviar Mensaje"
+    }
+  },
   "servicesPage": {
     "hero": {
       "titleStart": "Soluciones",
