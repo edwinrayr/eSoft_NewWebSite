@@ -96,31 +96,19 @@
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "Comprehensive technology solutions designed to scale your business.",
+    "subtitle": "Comprehensive technology solutions designed to protect and scale your business.",
     "cards": {
-      "devsecops": {
-        "title": "DevSecOps Solutions",
-        "desc": "Integrate security throughout the software development lifecycle, ensuring secure apps from the start. Improve quality and minimize vulnerabilities."
+      "security": {
+        "title": "Security and Cybersecurity",
+        "desc": "We protect your company's information, systems, and operations against threats like ransomware, phishing, and unauthorized access."
       },
-      "automic": {
-        "title": "Automic Solutions",
-        "desc": "Automate applications, platforms, and technologies to optimize operations, reduce delivery times, and increase team efficiency."
+      "consulting": {
+        "title": "Software Consulting",
+        "desc": "We support companies in strategic technological decision-making. We analyze your current situation, identifying risks and opportunities."
       },
-      "mainframe": {
-        "title": "Mainframe",
-        "desc": "Control privileged user access and minimize risks through robust, centralized management. Ensure business continuity."
-      },
-      "cybersecurity": {
-        "title": "Cybersecurity",
-        "desc": "Protect your digital environment with Symantec Integrated Cyberdefense. Prevent cyberattacks and ensure information integrity."
-      },
-      "infra": {
-        "title": "Infrastructure",
-        "desc": "Implement VMware Cloud Foundation for an enterprise hybrid cloud. Ensure scalability, security, and availability of your systems."
-      },
-      "business": {
-        "title": "Business Management",
-        "desc": "Implement ITSM, ITAM, and project management for efficient administration. Optimize resources and ensure strategic success."
+      "packaged": {
+        "title": "Packaged Solutions",
+        "desc": "We offer ready-to-implement solutions that automate and optimize key IT processes, such as management, monitoring, and operations."
       }
     }
   },
@@ -149,9 +137,9 @@
 },
   "hero": {
     "badge": "eSoft - Passion for Technology",
-    "titleMain": "Our",
-    "titleIdeas": "Mission &",
-    "titleSoftware": "Vision",
+    "titleMain": "Solutions in",
+    "titleIdeas": "Consulting and",
+    "titleSoftware": "Cybersecurity",
     "description": "We are an information technology services and solutions company of excellent quality, aiming for the continuous development of organizations in Latin America.",
     "btnPrimary": "Contact Us",
     "btnSecondary": "Download Portfolio"

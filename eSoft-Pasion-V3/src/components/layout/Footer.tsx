@@ -77,7 +77,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-esoft-gray-light">
               <li className="flex items-start gap-3 group">
                 <MapPin size={18} className="text-esoft-accent shrink-0 mt-0.5 group-hover:text-white transition-colors" />
-                <span>Estado de México, México.</span>
+                <span>Montecito 38, Piso 33, Nápoles, CDMX</span>
               </li>
               <li className="flex items-center gap-3 group">
                 <Mail size={18} className="text-esoft-accent shrink-0 group-hover:text-white transition-colors" />

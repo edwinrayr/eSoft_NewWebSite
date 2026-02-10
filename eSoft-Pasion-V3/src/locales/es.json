@@ -96,31 +96,19 @@
   },
   "services": {
     "title": "Nuestros Servicios",
-    "subtitle": "Soluciones tecnológicas integrales diseñadas para escalar tu negocio.",
+    "subtitle": "Soluciones tecnológicas integrales diseñadas para proteger y escalar tu negocio.",
     "cards": {
-      "devsecops": {
-        "title": "Soluciones DevSecOps",
-        "desc": "Integra la seguridad en todo el ciclo de desarrollo de software, garantizando aplicaciones seguras desde el inicio. Mejora la calidad y minimiza vulnerabilidades."
+      "security": {
+        "title": "Seguridad y Ciberseguridad",
+        "desc": "Protegemos la información, los sistemas y la operación de tu empresa frente a amenazas como ransomware, phishing y accesos no autorizados."
       },
-      "automic": {
-        "title": "Soluciones Automic",
-        "desc": "Automatiza aplicaciones, plataformas y tecnologías para optimizar la operación, reducir tiempos de entrega y aumentar la eficiencia de tu equipo."
+      "consulting": {
+        "title": "Consultoría de Software",
+        "desc": "Acompañamos a las empresas en la toma de decisiones tecnológicas estratégicas. Analizamos su situación actual, identificamos riesgos y oportunidades."
       },
-      "mainframe": {
-        "title": "Mainframe",
-        "desc": "Controla el acceso de usuarios privilegiados y minimiza riesgos mediante una gestión robusta y centralizada. Asegura la continuidad del negocio."
-      },
-      "cybersecurity": {
-        "title": "Ciberseguridad",
-        "desc": "Protege tu entorno digital con Symantec Integrated Cyberdefense. Previene ataques cibernéticos y asegura la integridad de tu información."
-      },
-      "infra": {
-        "title": "Infraestructura",
-        "desc": "Implementa VMware Cloud Foundation para una nube híbrida empresarial. Garantiza escalabilidad, seguridad y disponibilidad de tus sistemas."
-      },
-      "business": {
-        "title": "Business Management",
-        "desc": "Implementa ITSM, ITAM y gestión de proyectos para una administración eficiente. Optimiza recursos y asegura el éxito estratégico."
+      "packaged": {
+        "title": "Soluciones Empaquetadas",
+        "desc": "Ofrecemos soluciones listas para implementar que automatizan y optimizan procesos clave de TI, como gestión, monitoreo y operación."
       }
     }
   },
@@ -149,9 +137,9 @@
 },
   "hero": {
     "badge": "eSoft - Pasión por la Tecnología",
-    "titleMain": "Nuestra",
-    "titleIdeas": "Misión y",
-    "titleSoftware": "Visión",
+    "titleMain": "Soluciones en",
+    "titleIdeas": "Consultoría y",
+    "titleSoftware": "Ciberseguridad",
     "description": "Somos una empresa de servicios y soluciones de tecnología de información de excelente calidad, que propende por el desarrollo continuo de las organizaciones en Latinoamérica.",
     "btnPrimary": "Contáctanos",
     "btnSecondary": "Descargar Portafolio"

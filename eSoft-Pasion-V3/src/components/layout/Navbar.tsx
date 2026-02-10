@@ -39,11 +39,11 @@ export default function Navbar() {
     { 
       name: t('navbar.services'), 
       path: '/servicios',
+      // ACTUALIZADO: Ahora usa los 3 pilares definidos en tu BentoGrid
       subItems: [
-        { name: t('navbar.renewal'), path: '/servicios#renovacion' },
-        { name: t('navbar.support'), path: '/servicios#soporte' },
-        { name: t('navbar.presales'), path: '/servicios#preventa' },
-        { name: t('navbar.consulting'), path: '/servicios#consultoria' }
+        { name: t('services.cards.security.title'), path: '/servicios' },
+        { name: t('services.cards.consulting.title'), path: '/servicios' },
+        { name: t('services.cards.packaged.title'), path: '/servicios' }
       ]
     },
     { 
@@ -141,7 +141,6 @@ export default function Navbar() {
                         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 bg-esoft-charcoal rotate-45 border-l border-t border-white/10"></div>
                         <div className="bg-esoft-charcoal/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden relative z-10">
                           {link.subItems.map((sub, subIndex) => {
-                            // AGREGADO: Lógica para renderizar enlaces externos en Desktop
                             if (sub.isExternal) {
                               return (
                                 <a
@@ -156,7 +155,6 @@ export default function Navbar() {
                                 </a>
                               );
                             }
-                            // Enlace interno normal
                             return (
                               <Link
                                 key={subIndex}
@@ -211,7 +209,6 @@ export default function Navbar() {
             </Link>
             <div className="pl-4 space-y-3 border-l-2 border-white/10 ml-1 mt-2">
               {link.subItems?.map((sub, subIndex) => {
-                // AGREGADO: Lógica para renderizar enlaces externos en Móvil
                 if (sub.isExternal) {
                   return (
                     <a
@@ -226,7 +223,6 @@ export default function Navbar() {
                     </a>
                   );
                 }
-                // Enlace interno normal
                 return (
                   <Link
                     key={subIndex}
