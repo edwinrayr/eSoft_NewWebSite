@@ -31,9 +31,9 @@ export default function Navbar() {
       path: '/nosotros',
       subItems: [
         { name: t('navbar.history'), path: '/nosotros#historia' },
-        { name: t('navbar.team'), path: '/nosotros#equipo' },
+        { name: t('navbar.ceo'), path: 'https://soyjesusrivas.com/', isExternal: true },
+        { name: t('navbar.team'), path: '/nosotros#nuestro-equipo' },
         { name: t('navbar.values'), path: '/nosotros#valores' },
-        { name: t('navbar.careers'), path: '/nosotros#carreras' }
       ]
     },
     { 
@@ -49,7 +49,6 @@ export default function Navbar() {
     { 
       name: t('navbar.solutions'), 
       path: '/soluciones',
-      // ACTUALIZADO: Las 6 soluciones principales de eSoft
       subItems: [
         { name: t('navbar.devsecops'), path: '/soluciones#devsecops' },
         { name: t('navbar.automic'), path: '/soluciones#automic' },
@@ -141,16 +140,34 @@ export default function Navbar() {
                       >
                         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 bg-esoft-charcoal rotate-45 border-l border-t border-white/10"></div>
                         <div className="bg-esoft-charcoal/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden relative z-10">
-                          {link.subItems.map((sub, subIndex) => (
-                            <Link
-                              key={subIndex}
-                              to={sub.path}
-                              className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm text-esoft-gray-light hover:text-white transition-colors group/item flex items-center justify-between"
-                            >
-                              {sub.name}
-                              <ChevronRight size={14} className="opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-esoft-accent" />
-                            </Link>
-                          ))}
+                          {link.subItems.map((sub, subIndex) => {
+                            // AGREGADO: Lógica para renderizar enlaces externos en Desktop
+                            if (sub.isExternal) {
+                              return (
+                                <a
+                                  key={subIndex}
+                                  href={sub.path}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm text-esoft-gray-light hover:text-white transition-colors group/item flex items-center justify-between"
+                                >
+                                  {sub.name}
+                                  <ChevronRight size={14} className="opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-esoft-accent" />
+                                </a>
+                              );
+                            }
+                            // Enlace interno normal
+                            return (
+                              <Link
+                                key={subIndex}
+                                to={sub.path}
+                                className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm text-esoft-gray-light hover:text-white transition-colors group/item flex items-center justify-between"
+                              >
+                                {sub.name}
+                                <ChevronRight size={14} className="opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-esoft-accent" />
+                              </Link>
+                            );
+                          })}
                         </div>
                       </motion.div>
                     )}
@@ -193,16 +210,34 @@ export default function Navbar() {
               {link.name}
             </Link>
             <div className="pl-4 space-y-3 border-l-2 border-white/10 ml-1 mt-2">
-              {link.subItems?.map((sub, subIndex) => (
-                <Link
-                  key={subIndex}
-                  to={sub.path}
-                  className="block text-sm text-esoft-gray-light hover:text-esoft-accent transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {sub.name}
-                </Link>
-              ))}
+              {link.subItems?.map((sub, subIndex) => {
+                // AGREGADO: Lógica para renderizar enlaces externos en Móvil
+                if (sub.isExternal) {
+                  return (
+                    <a
+                      key={subIndex}
+                      href={sub.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-sm text-esoft-gray-light hover:text-esoft-accent transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {sub.name}
+                    </a>
+                  );
+                }
+                // Enlace interno normal
+                return (
+                  <Link
+                    key={subIndex}
+                    to={sub.path}
+                    className="block text-sm text-esoft-gray-light hover:text-esoft-accent transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {sub.name}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         ))}
