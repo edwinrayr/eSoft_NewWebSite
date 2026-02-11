@@ -1,23 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Search, Globe, Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
-import { useSearch } from '../../context/SearchContext';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   const { t, i18n } = useTranslation();
-  const { openSearch } = useSearch();
   const location = useLocation();
-
-  const toggleLanguage = () => {
-    const newLang = i18n.language === 'es' ? 'en' : 'es';
-    i18n.changeLanguage(newLang);
-  };
+  
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -25,219 +18,189 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => setIsMobileMenuOpen(false), [location]);
+
+  const toggleLanguage = () => {
+    i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en');
+  };
+
+  // NAVEGACIÓN CONECTADA A LAS TRADUCCIONES (i18n)
   const navLinks = [
-    { 
-      name: t('navbar.about'), 
+    {
+      id: 'about',
+      title: t('navbar.about'), // "About Us" / "Nosotros"
       path: '/nosotros',
-      subItems: [
-        { name: t('navbar.history'), path: '/nosotros#historia' },
-        { name: t('navbar.ceo'), path: 'https://soyjesusrivas.com/', isExternal: true },
-        { name: t('navbar.team'), path: '/nosotros#nuestro-equipo' },
-        { name: t('navbar.values'), path: '/nosotros#valores' },
+      submenu: [
+        { title: t('navbar.history'), path: '/nosotros#historia' },
+        { title: t('navbar.ceo'), path: '/nosotros#ceo' },
+        { title: t('navbar.team'), path: '/nosotros#equipo' },
+        { title: t('navbar.values'), path: '/nosotros#valores' },
       ]
     },
-    { 
-      name: t('navbar.services'), 
+    {
+      id: 'services',
+      title: t('navbar.services'), // "Services" / "Servicios"
       path: '/servicios',
-      // ACTUALIZADO: Ahora usa los 3 pilares definidos en tu BentoGrid
-      subItems: [
-        { name: t('services.cards.security.title'), path: '/servicios' },
-        { name: t('services.cards.consulting.title'), path: '/servicios' },
-        { name: t('services.cards.packaged.title'), path: '/servicios' }
+      submenu: [
+        { title: t('navbar.cybersecurity'), path: '/servicios#security' },
+        { title: t('navbar.consulting'), path: '/servicios#consulting' },
+        { title: t('navbar.infrastructure'), path: '/servicios#infra' },
       ]
     },
-    { 
-      name: t('navbar.solutions'), 
+    {
+      id: 'solutions',
+      title: t('navbar.solutions'), // "Solutions" / "Soluciones"
       path: '/soluciones',
-      subItems: [
-        { name: t('navbar.devsecops'), path: '/soluciones#devsecops' },
-        { name: t('navbar.automic'), path: '/soluciones#automic' },
-        { name: t('navbar.mainframe'), path: '/soluciones#mainframe' },
-        { name: t('navbar.cybersecurity'), path: '/soluciones#cybersecurity' },
-        { name: t('navbar.infrastructure'), path: '/soluciones#infraestructura' },
-        { name: t('navbar.business_mgmt'), path: '/soluciones#business' }
+      // Actualizado para coincidir con tu JSON (DevSecOps, Automic, Mainframe)
+      submenu: [
+        { title: t('navbar.devsecops'), path: '/soluciones/devsecops' },
+        { title: t('navbar.automic'), path: '/soluciones/automic' },
+        { title: t('navbar.mainframe'), path: '/soluciones/mainframe' },
       ]
     },
-    { 
-      name: t('navbar.contact'), 
+    {
+      id: 'contact',
+      title: t('navbar.contact'), // "Contact" / "Contáctanos"
       path: '/contacto',
-      subItems: [
-        { name: t('navbar.support'), path: '/contacto#soporte' },
-        { name: t('navbar.sales'), path: '/contacto#ventas' },
-        { name: t('navbar.location'), path: '/contacto#mapa' }
-      ] 
-    },
+      submenu: [
+         { title: t('navbar.support'), path: '/contacto#soporte' }, // "Technical Support"
+         { title: t('navbar.sales'), path: '/contacto#ventas' },    // "Sales"
+         { title: t('navbar.location'), path: '/contacto#ubicacion' }, // "Location"
+      ]
+    }
   ];
 
   return (
-    <>
-      <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${
-          isScrolled
-            ? 'bg-esoft-dark/80 backdrop-blur-lg border-white/10 py-4 shadow-lg'
-            : 'bg-transparent border-transparent py-6'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between relative">
-          
-          {/* LOGO */}
-          <Link to="/" className="flex items-center gap-3 z-10 group relative">
-            <img 
-              src="/esoftlogo.png" 
-              alt="Logo eSoft" 
-              className="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300" 
-            />
-          </Link>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-esoft-dark/95 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'}`}>
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        
+        {/* LOGO */}
+        <Link to="/" className="flex items-center gap-2 group">
+            <img src="/esoftlogo.png" alt="eSoft Logo" className="h-10 w-auto group-hover:opacity-80 transition-opacity" />
+        </Link>
 
-          {/* MENU DESKTOP */}
-          <div className="hidden md:flex items-center gap-6 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            {navLinks.map((link, index) => {
-              const isActive = location.pathname.startsWith(link.path);
-              const isMenuOpen = hoveredIndex === index;
+        {/* --- DESKTOP NAV --- */}
+        <div className="hidden lg:flex items-center gap-10">
+          {navLinks.map((item) => (
+            <div 
+              key={item.id}
+              className="relative group h-full flex items-center justify-center"
+              onMouseEnter={() => setHoveredItem(item.id)}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              {/* ENLACE PRINCIPAL */}
+              <Link 
+                to={item.path}
+                className={`flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors py-4 ${
+                    hoveredItem === item.id ? 'text-esoft-accent' : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                {item.title}
+                {item.submenu.length > 0 && (
+                  <ChevronDown 
+                    size={14} 
+                    className={`transition-transform duration-300 ${hoveredItem === item.id ? 'rotate-180' : ''}`} 
+                  />
+                )}
+              </Link>
 
-              return (
-                <div 
-                  key={index}
-                  className="relative flex items-center h-full" 
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  <Link
-                    to={link.path}
-                    className={`text-sm font-medium transition-colors py-2 relative group/text ${
-                      isActive || isMenuOpen ? 'text-white' : 'text-esoft-gray-light hover:text-white'
-                    }`}
+              {/* DROPDOWN MENU FLOTANTE */}
+              <AnimatePresence>
+                {item.submenu.length > 0 && hoveredItem === item.id && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 5 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 w-64 pt-2 z-50" 
                   >
-                    {link.name}
-                    <span 
-                      className={`absolute bottom-0 left-0 w-full h-0.5 bg-esoft-accent transform transition-transform duration-300 origin-center ${
-                        isActive || isMenuOpen ? 'scale-x-100' : 'scale-x-0 group-hover/text:scale-x-100'
-                      }`}
-                    ></span>
-                  </Link>
+                    {/* Contenido Real del Menú */}
+                    <div className="bg-esoft-charcoal border border-white/10 rounded-xl shadow-2xl overflow-hidden backdrop-blur-md relative">
+                        
+                        {/* Triangulito decorativo */}
+                        <div className="absolute top-0 left-8 -mt-1 w-4 h-4 bg-esoft-charcoal border-t border-l border-white/10 transform rotate-45"></div>
 
-                  <div 
-                    className="h-full flex items-center justify-center cursor-pointer px-2 ml-1" 
-                    onMouseEnter={() => setHoveredIndex(index)}
-                  >
-                    <div className={`p-1 rounded-full transition-colors ${isMenuOpen ? 'bg-white/10' : 'hover:bg-white/5'}`}>
-                      <ChevronDown 
-                        size={14} 
-                        className={`transition-transform duration-300 ${
-                          isMenuOpen ? 'rotate-180 text-esoft-accent' : 'text-esoft-gray-light'
-                        }`} 
-                      />
-                    </div>
-                  </div>
-
-                  <AnimatePresence>
-                    {isMenuOpen && link.subItems && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 pt-6 w-64 z-50" 
-                      >
-                        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 bg-esoft-charcoal rotate-45 border-l border-t border-white/10"></div>
-                        <div className="bg-esoft-charcoal/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden relative z-10">
-                          {link.subItems.map((sub, subIndex) => {
-                            if (sub.isExternal) {
-                              return (
-                                <a
-                                  key={subIndex}
-                                  href={sub.path}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm text-esoft-gray-light hover:text-white transition-colors group/item flex items-center justify-between"
-                                >
-                                  {sub.name}
-                                  <ChevronRight size={14} className="opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-esoft-accent" />
-                                </a>
-                              );
-                            }
-                            return (
-                              <Link
-                                key={subIndex}
-                                to={sub.path}
-                                className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm text-esoft-gray-light hover:text-white transition-colors group/item flex items-center justify-between"
-                              >
-                                {sub.name}
-                                <ChevronRight size={14} className="opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-esoft-accent" />
-                              </Link>
-                            );
-                          })}
+                        <div className="relative z-10 py-2">
+                           {item.submenu.map((subItem, index) => (
+                            <Link 
+                                key={index}
+                                to={subItem.path}
+                                className="block px-6 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-esoft-accent"
+                            >
+                                {subItem.title}
+                            </Link>
+                           ))}
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* ACCIONES */}
-          <div className="flex items-center gap-3 z-10">
-            <button onClick={openSearch} className="p-2 text-esoft-gray-light hover:text-white hover:bg-white/10 rounded-full transition-all">
-              <Search size={18} />
-            </button>
-            <button 
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 text-xs font-medium text-esoft-gray-light hover:text-white transition-colors border border-white/10 px-3 py-1.5 rounded-full hover:border-esoft-accent/50 hover:bg-white/5 backdrop-blur-sm group"
-            >
-              <Globe size={14} className="group-hover:text-esoft-accent transition-colors" />
-              <span className="hidden sm:inline uppercase">{i18n.language}</span>
-            </button>
-            <button className="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* MENÚ MÓVIL */}
-      <div className={`fixed inset-0 z-40 bg-esoft-dark/95 backdrop-blur-xl transition-transform duration-300 md:hidden flex flex-col pt-32 px-6 overflow-y-auto ${
-        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}>
-        {navLinks.map((link, index) => (
-          <div key={index} className="border-b border-white/10 pb-4 mb-4">
-            <Link
-              to={link.path}
-              className="flex items-center justify-between text-2xl font-heading text-white mb-2 active:text-esoft-accent"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {link.name}
-            </Link>
-            <div className="pl-4 space-y-3 border-l-2 border-white/10 ml-1 mt-2">
-              {link.subItems?.map((sub, subIndex) => {
-                if (sub.isExternal) {
-                  return (
-                    <a
-                      key={subIndex}
-                      href={sub.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-sm text-esoft-gray-light hover:text-esoft-accent transition-colors"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {sub.name}
-                    </a>
-                  );
-                }
-                return (
-                  <Link
-                    key={subIndex}
-                    to={sub.path}
-                    className="block text-sm text-esoft-gray-light hover:text-esoft-accent transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {sub.name}
-                  </Link>
-                );
-              })}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-          </div>
-        ))}
+          ))}
+
+          {/* Selector de Idioma */}
+          <button 
+            onClick={toggleLanguage}
+            className="flex items-center gap-2 text-gray-300 hover:text-white border border-white/20 px-3 py-1.5 rounded-full text-xs uppercase font-bold transition-all hover:border-esoft-accent hover:bg-white/5 ml-4"
+          >
+            <Globe size={14} /> 
+            <span>{i18n.language.toUpperCase()}</span>
+          </button>
+        </div>
+
+        {/* MOBILE TOGGLE */}
+        <button 
+          className="lg:hidden text-white hover:text-esoft-accent transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
-    </>
+
+      {/* --- MOBILE MENU --- */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-esoft-dark border-t border-white/10 overflow-hidden shadow-2xl"
+          >
+            <div className="px-6 py-8 space-y-6">
+              {navLinks.map((item) => (
+                <div key={item.id}>
+                    <Link 
+                        to={item.path} 
+                        className="block text-lg font-bold text-white mb-2"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                        {item.title}
+                    </Link>
+                    {item.submenu.length > 0 && (
+                        <div className="pl-4 border-l-2 border-white/10 space-y-3 ml-2">
+                            {item.submenu.map((sub, i) => (
+                                <Link 
+                                    key={i} 
+                                    to={sub.path}
+                                    className="block text-sm text-gray-400 hover:text-esoft-accent"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    {sub.title}
+                                </Link>
+                            ))}
+                        </div>
+                    )}
+                </div>
+              ))}
+              <div className="pt-4 border-t border-white/10">
+                <button onClick={toggleLanguage} className="text-sm font-bold text-gray-400 uppercase">
+                    Change Language ({i18n.language.toUpperCase()})
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 }

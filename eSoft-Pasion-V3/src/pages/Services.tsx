@@ -1,34 +1,49 @@
+import { useEffect } from 'react'; // 1. Importar useEffect
 import { motion } from 'framer-motion';
 import { ShieldCheck, Server, Briefcase, CheckCircle, ArrowRight, Layers } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'; // 2. Importar useLocation
 
 export default function Services() {
   const { t } = useTranslation();
-  
+  const { hash } = useLocation(); // 3. Obtener el hash de la URL (ej: #security)
+
+  // 4. Lógica de Scroll Automático
+  useEffect(() => {
+    if (hash) {
+      // Si hay un hash, esperamos un poquito a que renderice y hacemos scroll
+      const element = document.getElementById(hash.replace('#', ''));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      }
+    } else {
+      // Si no hay hash, vamos al inicio
+      window.scrollTo(0, 0);
+    }
+  }, [hash]);
+
   const services = [
     {
-      id: 'security',
+      id: 'security', // Coincide con /servicios#security
       icon: <ShieldCheck size={40} />, 
-      // IMAGEN CORREGIDA: Ciberseguridad / Código Binario / Matrix Style
       image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
       title: t('servicesPage.items.security.title'),
       desc: t('servicesPage.items.security.desc'),
       features: t('servicesPage.items.security.features', { returnObjects: true }) as string[]
     },
     {
-      id: 'consulting',
+      id: 'consulting', // Coincide con /servicios#consulting
       icon: <Briefcase size={40} />,
-      // Imagen: Análisis de Datos / Dashboard profesional
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
       title: t('servicesPage.items.consulting.title'),
       desc: t('servicesPage.items.consulting.desc'),
       features: t('servicesPage.items.consulting.features', { returnObjects: true }) as string[]
     },
     {
-      id: 'packaged',
+      id: 'infra', // ¡CAMBIO IMPORTANTE! Antes era 'packaged', lo cambié a 'infra' para coincidir con tu Navbar
       icon: <Server size={40} />,
-      // Imagen: Servidores / Datacenter (Limpia y tecnológica)
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1374&auto=format&fit=crop",
       title: t('servicesPage.items.packaged.title'),
       desc: t('servicesPage.items.packaged.desc'),
@@ -69,7 +84,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            id={service.id} 
+            id={service.id} // AQUÍ ES DONDE EL NAVEGADOR BUSCA EL OBJETIVO
             className={`flex flex-col md:flex-row gap-12 items-center ${
               index % 2 === 1 ? 'md:flex-row-reverse' : ''
             }`}
