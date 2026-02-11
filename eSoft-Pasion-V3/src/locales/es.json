@@ -1,4 +1,10 @@
 {
+  "cookieBanner": {
+    "text": "Utilizamos cookies para analizar nuestro tráfico y brindarte un servicio personalizado. Al continuar navegando, aceptas nuestra",
+    "link": "Política de Privacidad",
+    "accept": "Aceptar Cookies",
+    "decline": "Declinar"
+  },
   "privacyPage": {
     "title": "Nuestras Políticas",
     "subtitle": "ESOFT PASIÓN",
@@ -410,7 +416,7 @@
     "col3": "Contacto",
     "rights": "Todos los derechos reservados.",
     "privacy": "Política de Privacidad",
-    "cookies": "Cookies",
+    "cookies": "",
     "links": {
       "renewal": "Renovación con Fabricantes",
       "support": "Soporte Técnico",

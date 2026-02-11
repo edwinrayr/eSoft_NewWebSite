@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion'; // <--- IMPORTANTE
+import { AnimatePresence } from 'framer-motion';
 
 // Layouts Globales
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import CookieBanner from './components/layout/CookieBanner'; // <--- YA ESTABA IMPORTADO
 
 // Funcionalidades
 import SearchOverlay from './components/features/SearchOverlay';
@@ -13,7 +14,7 @@ import ScrollToTop from './components/utils/ScrollToTop';
 
 // UI
 import WhatsAppButton from './components/ui/WhatsAppButton'; 
-import Preloader from './components/ui/Preloader'; // <--- IMPORTA EL PRELOADER
+import Preloader from './components/ui/Preloader';
 
 // Páginas
 import Home from './pages/Home';
@@ -26,7 +27,7 @@ import SearchResults from './pages/SearchResults';
 import Internships from './pages/Internships';
 import Privacy from './pages/Privacy';
 
-// AGREGADO: Importaciones de las nuevas páginas independientes
+// Páginas independientes
 import History from './pages/about/History';
 import Team from './pages/about/Team';
 
@@ -35,7 +36,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulamos una carga de 3 segundos (ajusta este tiempo si quieres)
+    // Simulamos una carga de 3 segundos
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 3000);
@@ -47,12 +48,12 @@ function App() {
     <SearchProvider>
       <div className="min-h-screen bg-esoft-dark text-white font-sans overflow-x-hidden selection:bg-esoft-accent selection:text-white flex flex-col relative">
         
-        {/* PRELOADER: Envuelto en AnimatePresence para la animación de salida */}
+        {/* PRELOADER */}
         <AnimatePresence mode="wait">
           {isLoading && <Preloader />}
         </AnimatePresence>
 
-        {/* CONTENIDO DE LA APP: Solo se muestra (o se hace interactivo) cuando termina la carga */}
+        {/* CONTENIDO DE LA APP */}
         {!isLoading && (
           <>
             <Navbar />
@@ -64,7 +65,6 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/nosotros" element={<About />} />
                 
-                {/* AGREGADO: Las nuevas rutas independientes */}
                 <Route path="/nosotros/historia" element={<History />} />
                 <Route path="/nosotros/equipo" element={<Team />} />
 
@@ -80,6 +80,7 @@ function App() {
 
             <Footer /> 
             <WhatsAppButton />
+            <CookieBanner /> {/* <--- AGREGADO AQUÍ */}
           </>
         )}
 

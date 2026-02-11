@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Lock, FileText } from 'lucide-react';
+import { ShieldCheck, Lock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Privacy() {
@@ -19,13 +19,13 @@ export default function Privacy() {
 
       <div className="max-w-4xl mx-auto relative z-10">
         
-        {/* Encabezado */}
+        {/* Encabezado CENTRADO */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-16 border-b border-white/10 pb-10"
+          className="mb-16 border-b border-white/10 pb-10 text-center"
         >
-          <div className="flex items-center gap-3 text-esoft-accent mb-4">
+          <div className="flex items-center justify-center gap-3 text-esoft-accent mb-4">
             <ShieldCheck size={32} />
             <span className="font-bold tracking-widest uppercase text-sm">Legal</span>
           </div>

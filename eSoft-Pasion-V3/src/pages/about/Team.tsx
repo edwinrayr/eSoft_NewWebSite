@@ -14,12 +14,12 @@ export default function Team() {
     {
       key: 'brandon',
       image: "/equipo/Brandon_Cosio.webp",
-      link: "https://www.linkedin.com/in/brandon-cosio/"
+      link: "https://www.linkedin.com/in/brandon-cosio-27a449348?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     },
     {
       key: 'orlando',
       image: "/equipo/Orlando_Palacios.webp",
-      link: "https://www.linkedin.com/in/orlando-palacios/"
+      link: "https://www.linkedin.com/in/orlando-palacios-1a347a25a/"
     },
     {
       key: 'brenda',
