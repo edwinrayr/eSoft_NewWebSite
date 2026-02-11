@@ -131,6 +131,10 @@
     "titleLine2": "start the change?",
     "subtitle": "Tell us about your technological challenges. Our team of experts will design a strategy tailored to your business goals.",
     "response": "Response within 24 hours",
+    "successTitle": "Message Received!",
+    "successDesc": "Thank you for contacting us. Our team has received your request and we will get back to you shortly.",
+    "sendAnother": "Send another message",
+    "error": "There was an error sending the message. Please try again.",
     "list": {
       "item1": "Preliminary technical assessment",
       "item2": "Detailed commercial proposal",
