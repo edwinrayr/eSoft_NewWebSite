@@ -6,6 +6,10 @@
       "titleLine2": "Competitive Advantages",
       "subtitle": "We don't sell software, we sell efficiency, security, and scalability. This is how we help leading companies."
     },
+    "labels": {
+      "challenge": "The Challenge",
+      "solution": "The Solution"
+    },
     "cases": {
       "fintech": {
         "sector": "FinTech",

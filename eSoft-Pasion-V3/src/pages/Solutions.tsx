@@ -11,11 +11,9 @@ export default function Solutions() {
   // Lógica de Scroll Automático
   useEffect(() => {
     if (hash) {
-      // Quitamos el # y buscamos el elemento
       const element = document.getElementById(hash.replace('#', ''));
       if (element) {
         setTimeout(() => {
-          // 'start' alinea la sección al principio de la pantalla, que es mejor para secciones grandes
           element.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
         }, 100);
       }
@@ -78,8 +76,8 @@ export default function Solutions() {
         </motion.div>
       </section>
 
-      {/* 2. SECCIÓN CASOS DE ÉXITO (FinTech, Ecommerce, Health) */}
-      <section id="casos" className="py-12 px-6 max-w-7xl mx-auto pt-24"> {/* ID AGREGADO AQUÍ */}
+      {/* 2. SECCIÓN CASOS DE ÉXITO */}
+      <section id="casos" className="py-12 px-6 max-w-7xl mx-auto pt-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {caseStudies.map((study, index) => (
             <motion.div
@@ -105,12 +103,18 @@ export default function Solutions() {
 
               <div className="space-y-4 mb-8">
                 <div>
-                  <p className="text-xs text-gray-500 uppercase font-bold mb-1">El Reto</p>
+                  {/* AQUÍ ESTÁ EL CAMBIO: Usamos t() en lugar de texto fijo */}
+                  <p className="text-xs text-gray-500 uppercase font-bold mb-1">
+                    {t('solutionsPage.labels.challenge')} 
+                  </p>
                   <p className="text-sm text-gray-300 leading-relaxed">{study.challenge}</p>
                 </div>
                 <div className="w-full h-px bg-white/10"></div>
                 <div>
-                  <p className="text-xs text-esoft-accent uppercase font-bold mb-1">La Solución</p>
+                  {/* AQUÍ TAMBIÉN */}
+                  <p className="text-xs text-esoft-accent uppercase font-bold mb-1">
+                    {t('solutionsPage.labels.solution')}
+                  </p>
                   <p className="text-sm text-gray-300 leading-relaxed">{study.solution}</p>
                 </div>
               </div>
@@ -124,8 +128,8 @@ export default function Solutions() {
         </div>
       </section>
 
-      {/* 3. SECCIÓN SECTORES (Industrias) */}
-      <section id="sectores" className="py-24 bg-black/20 pt-32"> {/* ID AGREGADO AQUÍ */}
+      {/* 3. SECCIÓN SECTORES */}
+      <section id="sectores" className="py-24 bg-black/20 pt-32">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-heading font-bold mb-12">{t('solutionsPage.sectors.title')}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -148,8 +152,8 @@ export default function Solutions() {
         </div>
       </section>
 
-      {/* 4. SECCIÓN BENEFICIOS (Por qué software a medida) */}
-      <section id="beneficios" className="py-20 px-6 max-w-5xl mx-auto pt-32"> {/* ID AGREGADO AQUÍ */}
+      {/* 4. SECCIÓN BENEFICIOS */}
+      <section id="beneficios" className="py-20 px-6 max-w-5xl mx-auto pt-32">
         <div className="bg-gradient-to-br from-esoft-charcoal to-black rounded-3xl p-8 md:p-12 border border-white/10 flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 space-y-6">
             <h2 className="text-3xl font-heading font-bold text-white">{t('solutionsPage.benefits.title')}</h2>

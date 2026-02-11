@@ -6,6 +6,10 @@
       "titleLine2": "Ventajas Competitivas",
       "subtitle": "No vendemos software, vendemos eficiencia, seguridad y escalabilidad. Así es como ayudamos a empresas líderes."
     },
+    "labels": {
+      "challenge": "El Reto",
+      "solution": "La Solución"
+    },
     "cases": {
       "fintech": {
         "sector": "FinTech",
