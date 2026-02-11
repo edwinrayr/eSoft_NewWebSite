@@ -9,27 +9,27 @@ export default function Team() {
     {
       key: 'jesus',
       image: "/equipo/Jesus_Rivas.webp", 
-      link: "https://www.linkedin.com/" 
+      link: "https://www.linkedin.com/in/jesusalexisrivas/" 
     },
     {
       key: 'brandon',
       image: "/equipo/Brandon_Cosio.webp",
-      link: "https://www.linkedin.com/"
+      link: "https://www.linkedin.com/in/brandon-cosio/"
     },
     {
       key: 'orlando',
       image: "/equipo/Orlando_Palacios.webp",
-      link: "https://www.linkedin.com/"
+      link: "https://www.linkedin.com/in/orlando-palacios/"
     },
     {
       key: 'brenda',
       image: "/equipo/Brenda_Meza.webp",
-      link: "https://www.linkedin.com/"
+      link: "https://www.linkedin.com/in/brenda-pe%C3%B1a-331060378/"
     },
     {
-      key: 'itzel',
+      key: 'tania',
       image: "/equipo/Tania.webp",
-      link: "https://www.linkedin.com/"
+      link: "https://www.linkedin.com/in/taniamorenor/"
     }
   ];
 

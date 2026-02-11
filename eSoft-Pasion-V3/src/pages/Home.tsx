@@ -3,40 +3,52 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Globe2, Users, Clock, Award } from 'lucide-react'; 
 import { useTranslation } from 'react-i18next';
 
-// Componentes externos
 import Hero from '../components/layout/Hero';
 import BentoGrid from '../components/features/BentoGrid';
 import Architecture from '../components/sections/Architecture';
 
-// --- COMPONENTE INTERNO: CINTA DE SOCIOS MODIFICADA ---
 const PartnersMarquee = () => {
-  // AGREGADO: Arreglo con las rutas a tu carpeta /marcas/ basándonos en tu captura
   const partners = [
     { name: "Broadcom", logo: "/marcas/broadcom.webp" },
-    { name: "VMware", logo: "/marcas/Vmware.webp" }, // V mayúscula respetando tu archivo
+    { name: "VMware", logo: "/marcas/Vmware.webp" }, 
     { name: "Symantec", logo: "/marcas/symantec.webp" },
     { name: "CA Technologies", logo: "/marcas/ca.webp" },
     { name: "Brocade", logo: "/marcas/brocade.webp" },
     { name: "AppNeta", logo: "/marcas/appneta.webp" }
   ];
 
+  const duplicatedPartners = [...partners, ...partners, ...partners, ...partners, ...partners, ...partners];
+
   return (
-    <div className="w-full bg-black/20 border-y border-white/5 py-10 overflow-hidden relative">
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-esoft-dark to-transparent z-10" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-esoft-dark to-transparent z-10" />
+    <div className="w-full bg-black/20 border-y border-white/5 py-10 overflow-hidden relative flex">
+      {/* Sombras en las orillas para efecto de desvanecimiento */}
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-esoft-dark to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-esoft-dark to-transparent z-10 pointer-events-none" />
       
-      <div className="flex gap-16 md:gap-24 items-center animate-scroll whitespace-nowrap min-w-full px-8">
-        {/* Duplicamos el arreglo para que el scroll sea infinito sin cortes */}
-        {[...partners, ...partners, ...partners, ...partners].map((partner, i) => (
-          // MODIFICADO: Ahora es una imagen en lugar de texto
-          <img 
+      {/* Contenedor con Framer Motion para el loop perfecto */}
+      <motion.div 
+        className="flex gap-16 md:gap-24 items-center min-w-max pr-16 md:pr-24"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ 
+          ease: "linear", 
+          // MODIFICADO: Aumentamos de 35 a 80 para que el movimiento sea mucho más lento y elegante
+          duration: 80, 
+          repeat: Infinity 
+        }}
+      >
+        {duplicatedPartners.map((partner, i) => (
+          <div 
             key={i} 
-            src={partner.logo}
-            alt={`Logo ${partner.name}`}
-            className="h-10 md:h-14 w-auto object-contain opacity-50 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0 cursor-pointer"
-          />
+            className="flex items-center justify-center w-32 md:w-48 h-12 md:h-16 flex-shrink-0"
+          >
+            <img 
+              src={partner.logo}
+              alt={`Logo ${partner.name}`}
+              className="max-w-full max-h-full object-contain opacity-50 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0 cursor-pointer"
+            />
+          </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
