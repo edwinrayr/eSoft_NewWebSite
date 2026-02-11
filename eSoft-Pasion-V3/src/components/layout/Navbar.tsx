@@ -60,21 +60,24 @@ export default function Navbar() {
       id: 'contact',
       title: t('navbar.contact', 'Contáctanos'),
       path: '/contacto',
-      submenu: [] // ¡LISTO! Submenú vacío = Enlace directo
+      submenu: [] 
     }
   ];
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-esoft-dark/95 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      {/* Usamos 'relative' aquí para que el posicionamiento absoluto del menú funcione respecto a este contenedor */}
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
         
-        {/* LOGO */}
-        <Link to="/" className="flex items-center gap-2 group">
-            <img src="/esoftlogo.png" alt="eSoft Logo" className="h-10 w-auto group-hover:opacity-80 transition-opacity" />
-        </Link>
+        {/* 1. IZQUIERDA: LOGO */}
+        <div className="flex-shrink-0 z-20">
+            <Link to="/" className="flex items-center gap-2 group">
+                <img src="/esoftlogo.png" alt="eSoft Logo" className="h-10 w-auto group-hover:opacity-80 transition-opacity" />
+            </Link>
+        </div>
 
-        {/* --- DESKTOP NAV --- */}
-        <div className="hidden lg:flex items-center gap-10">
+        {/* 2. CENTRO: MENÚ DE ESCRITORIO (Posicionamiento Absoluto para centrado perfecto) */}
+        <div className="hidden lg:flex items-center gap-8 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
           {navLinks.map((item) => (
             <div 
               key={item.id}
@@ -90,7 +93,6 @@ export default function Navbar() {
                 }`}
               >
                 {item.title}
-                {/* Solo mostramos la flecha si hay submenú */}
                 {item.submenu.length > 0 && (
                   <ChevronDown 
                     size={14} 
@@ -99,7 +101,7 @@ export default function Navbar() {
                 )}
               </Link>
 
-              {/* DROPDOWN MENU FLOTANTE (Solo si hay submenú) */}
+              {/* DROPDOWN MENU FLOTANTE */}
               <AnimatePresence>
                 {item.submenu.length > 0 && hoveredItem === item.id && (
                   <motion.div
@@ -107,10 +109,12 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 5 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 w-64 pt-2 z-50" 
+                    // left-1/2 y -translate-x-1/2 centra el submenú respecto a su padre (la opción del menú)
+                    className="absolute top-full left-1/2 -translate-x-1/2 w-64 pt-2 z-50" 
                   >
                     <div className="bg-esoft-charcoal border border-white/10 rounded-xl shadow-2xl overflow-hidden backdrop-blur-md relative">
-                        <div className="absolute top-0 left-8 -mt-1 w-4 h-4 bg-esoft-charcoal border-t border-l border-white/10 transform rotate-45"></div>
+                        {/* Triangulito centrado */}
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-1 w-4 h-4 bg-esoft-charcoal border-t border-l border-white/10 transform rotate-45"></div>
                         <div className="relative z-10 py-2">
                            {item.submenu.map((subItem, index) => (
                             <Link 
@@ -128,27 +132,31 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
           ))}
-
-          {/* Selector de Idioma */}
-          <button 
-            onClick={toggleLanguage}
-            className="flex items-center gap-2 text-gray-300 hover:text-white border border-white/20 px-3 py-1.5 rounded-full text-xs uppercase font-bold transition-all hover:border-esoft-accent hover:bg-white/5 ml-4"
-          >
-            <Globe size={14} /> 
-            <span>{i18n.language.toUpperCase()}</span>
-          </button>
         </div>
 
-        {/* MOBILE TOGGLE */}
-        <button 
-          className="lg:hidden text-white hover:text-esoft-accent transition-colors"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        {/* 3. DERECHA: IDIOMA Y HAMBURGUESA MÓVIL */}
+        <div className="flex items-center gap-4 z-20">
+            {/* Selector de Idioma */}
+            <button 
+                onClick={toggleLanguage}
+                className="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white border border-white/20 px-3 py-1.5 rounded-full text-xs uppercase font-bold transition-all hover:border-esoft-accent hover:bg-white/5"
+            >
+                <Globe size={14} /> 
+                <span>{i18n.language.toUpperCase()}</span>
+            </button>
+
+            {/* Botón Móvil */}
+            <button 
+                className="lg:hidden text-white hover:text-esoft-accent transition-colors"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+                {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+        </div>
+
       </div>
 
-      {/* --- MOBILE MENU --- */}
+      {/* --- MOBILE MENU (Mismo de siempre) --- */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
