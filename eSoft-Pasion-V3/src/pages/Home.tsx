@@ -8,15 +8,16 @@ import Hero from '../components/layout/Hero';
 import BentoGrid from '../components/features/BentoGrid';
 import Architecture from '../components/sections/Architecture';
 
-// --- COMPONENTE INTERNO: CINTA DE SOCIOS ---
+// --- COMPONENTE INTERNO: CINTA DE SOCIOS MODIFICADA ---
 const PartnersMarquee = () => {
+  // AGREGADO: Arreglo con las rutas a tu carpeta /marcas/ basándonos en tu captura
   const partners = [
-    "BROADCOM", 
-    "VMware", 
-    "Symantec", 
-    "CA Technologies", 
-    "BROCADE", 
-    "AppNeta"
+    { name: "Broadcom", logo: "/marcas/broadcom.webp" },
+    { name: "VMware", logo: "/marcas/Vmware.webp" }, // V mayúscula respetando tu archivo
+    { name: "Symantec", logo: "/marcas/symantec.webp" },
+    { name: "CA Technologies", logo: "/marcas/ca.webp" },
+    { name: "Brocade", logo: "/marcas/brocade.webp" },
+    { name: "AppNeta", logo: "/marcas/appneta.webp" }
   ];
 
   return (
@@ -24,14 +25,16 @@ const PartnersMarquee = () => {
       <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-esoft-dark to-transparent z-10" />
       <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-esoft-dark to-transparent z-10" />
       
-      <div className="flex gap-16 items-center animate-scroll whitespace-nowrap min-w-full">
+      <div className="flex gap-16 md:gap-24 items-center animate-scroll whitespace-nowrap min-w-full px-8">
+        {/* Duplicamos el arreglo para que el scroll sea infinito sin cortes */}
         {[...partners, ...partners, ...partners, ...partners].map((partner, i) => (
-          <span 
+          // MODIFICADO: Ahora es una imagen en lugar de texto
+          <img 
             key={i} 
-            className="text-2xl md:text-3xl font-heading font-bold text-white/40 uppercase tracking-tight hover:text-white transition-colors cursor-default"
-          >
-            {partner}
-          </span>
+            src={partner.logo}
+            alt={`Logo ${partner.name}`}
+            className="h-10 md:h-14 w-auto object-contain opacity-50 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0 cursor-pointer"
+          />
         ))}
       </div>
     </div>
@@ -112,7 +115,7 @@ const AboutTeaser = () => {
 
 // --- PÁGINA PRINCIPAL ---
 export default function Home() {
-  const { t } = useTranslation(); // <--- Necesitamos el hook aquí también
+  const { t } = useTranslation(); 
 
   return (
     <div className="bg-esoft-dark min-h-screen">
@@ -144,7 +147,7 @@ export default function Home() {
         <Architecture />
       </div>
 
-      {/* 6. CTA FINAL (AHORA TRADUCIDO) */}
+      {/* 6. CTA FINAL (TRADUCIDO) */}
       <section className="py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
         

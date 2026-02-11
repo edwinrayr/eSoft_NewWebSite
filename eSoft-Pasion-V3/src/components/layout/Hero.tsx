@@ -49,10 +49,10 @@ export default function Hero() {
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             
+            {/* AGREGADO: Atributo download y ruta optimizada para la descarga directa */}
             <a 
-              href="/assets/imagenes/Portafolio Empresarial eSoft México.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="/Portafolio_Empresarial_eSoft.pdf" 
+              download="Portafolio_eSoft.pdf"
               className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium rounded-full transition-all flex items-center gap-2 backdrop-blur-sm"
             >
               <Download size={20} />
