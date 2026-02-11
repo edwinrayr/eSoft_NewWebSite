@@ -86,34 +86,25 @@
   "internshipsPage": {
     "hero": {
       "badge": "Talento Joven",
-      "title": "Inicia tu Carrera Profesional",
-      "highlight": "Con Nosotros",
-      "subtitle": "Buscamos estudiantes apasionados por la tecnología y el marketing que quieran transformar el futuro digital de Latinoamérica.",
+      "title": "Tu Futuro Empieza",
+      "highlight": "Aquí y Ahora",
+      "subtitle": "En eSoft Pasión siempre estamos buscando nuevas perspectivas. Si eres estudiante y tienes ganas de aprender en un entorno real de tecnología e innovación, queremos conocerte.",
       "btn": "Aplicar Ahora"
     },
-    "tech": {
-      "title": "Área de Tecnología",
-      "desc": "Participa en la creación e implementación de estrategias tecnológicas de alto nivel.",
-      "roles": [
-        "Desarrollo de Software Full Stack",
-        "Gestión y Estrategia de Ciberseguridad",
-        "Consultoría de Soluciones Tecnológicas",
-        "Integración de Sistemas Empresariales"
-      ]
-    },
-    "marketing": {
-      "title": "Área de Marketing",
-      "desc": "Impulsa nuestra marca con estrategias digitales, contenido y diseño creativo.",
-      "roles": [
-        "Creación de Contenido & Copywriting",
-        "Diseño Gráfico y UI/UX",
-        "Gestión de Redes Sociales",
-        "Análisis de Datos de Marketing"
+    "general": {
+      "title": "¿Qué buscamos?",
+      "desc": "Más allá de una carrera específica, buscamos actitud. Valoramos la curiosidad, la capacidad de resolver problemas y la pasión por la tecnología.",
+      "benefits": [
+        "Participación en proyectos reales",
+        "Mentoría de ingenieros senior",
+        "Posibilidad de crecimiento interno",
+        "Ambiente de aprendizaje continuo"
       ]
     },
     "cta": {
-      "title": "¿Listo para el reto?",
-      "desc": "Envíanos tu CV y cuéntanos por qué quieres unirte a eSoft.",
+      "title": "Envíanos tu CV",
+      "desc": "Escríbenos un correo contándonos quién eres, qué estudias y por qué te gustaría realizar tus prácticas con nosotros.",
+      "note": "Revisamos todas las solicitudes personalmente.",
       "email": "talento@esoftpasion.com"
     }
   },

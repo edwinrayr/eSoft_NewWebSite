@@ -86,34 +86,25 @@
   "internshipsPage": {
     "hero": {
       "badge": "Young Talent",
-      "title": "Kickstart Your Career",
-      "highlight": "With Us",
-      "subtitle": "We are looking for students passionate about technology and marketing who want to transform Latin America's digital future.",
+      "title": "Your Future Starts",
+      "highlight": "Here and Now",
+      "subtitle": "At eSoft Pasión we are always looking for new perspectives. If you are a student eager to learn in a real environment of technology and innovation, we want to meet you.",
       "btn": "Apply Now"
     },
-    "tech": {
-      "title": "Technology Area",
-      "desc": "Participate in the creation and implementation of high-level technological strategies.",
-      "roles": [
-        "Full Stack Software Development",
-        "Cybersecurity Strategy & Management",
-        "Technology Solutions Consulting",
-        "Enterprise Systems Integration"
-      ]
-    },
-    "marketing": {
-      "title": "Marketing Area",
-      "desc": "Boost our brand with digital strategies, content, and creative design.",
-      "roles": [
-        "Content Creation & Copywriting",
-        "Graphic Design & UI/UX",
-        "Social Media Management",
-        "Marketing Data Analysis"
+    "general": {
+      "title": "What are we looking for?",
+      "desc": "Beyond a specific degree, we look for attitude. We value curiosity, problem-solving skills, and a passion for technology.",
+      "benefits": [
+        "Participation in real projects",
+        "Mentorship from senior engineers",
+        "Internal growth possibilities",
+        "Continuous learning environment"
       ]
     },
     "cta": {
-      "title": "Ready for the challenge?",
-      "desc": "Send us your CV and tell us why you want to join eSoft.",
+      "title": "Send us your CV",
+      "desc": "Write us an email telling us who you are, what you study, and why you would like to do your internship with us.",
+      "note": "We review all applications personally.",
       "email": "talent@esoftpasion.com"
     }
   },
