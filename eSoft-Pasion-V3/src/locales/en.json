@@ -33,6 +33,7 @@
     }
   },
   "navbar": {
+    "ceo": "Our CEO",
     "about": "About Us",
     "history": "History",
     "team": "Team",
