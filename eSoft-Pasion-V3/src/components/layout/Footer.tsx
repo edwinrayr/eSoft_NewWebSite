@@ -1,8 +1,8 @@
 import { Instagram, Linkedin, Mail, MapPin, Phone, Youtube, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom'; // <--- AGREGADO para navegación interna rápida
+import { Link } from 'react-router-dom';
 
-// Icono de TikTok personalizado (Se mantiene intacto)
+// Icono de TikTok personalizado
 const TikTokIcon = ({ size = 20, className = "" }) => (
   <svg 
     width={size} 
@@ -35,7 +35,6 @@ export default function Footer() {
           {/* Columna 1: Marca y Misión */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              {/* MODIFICADO: El logo ahora es un Link al Inicio */}
               <Link to="/">
                 <img 
                   src="/esoftlogo.png" 
@@ -97,30 +96,38 @@ export default function Footer() {
             <h4 className="text-white font-heading font-bold uppercase tracking-wider mb-6 text-sm border-b border-esoft-accent/30 pb-2 w-fit">
               {t('footer.col1')}
             </h4>
-            <ul className="space-y-4">
-              {/* MODIFICADO: Rutas reales con hover interactivo */}
+            <ul className="space-y-3">
               <li>
-                <Link to="/servicios#security" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
-                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.cybersecurity', 'Ciberseguridad')}</span>
+                <Link to="/servicios#security" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
+                  {/* Animación corregida: Ancho 0 a Ancho X */}
+                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
+                    <ChevronRight size={16} />
+                  </span>
+                  <span>{t('navbar.cybersecurity', 'Ciberseguridad')}</span>
                 </Link>
               </li>
               <li>
-                <Link to="/servicios#consulting" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
-                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.consulting', 'Consultoría')}</span>
+                <Link to="/servicios#consulting" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
+                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
+                    <ChevronRight size={16} />
+                  </span>
+                  <span>{t('navbar.consulting', 'Consultoría')}</span>
                 </Link>
               </li>
               <li>
-                <Link to="/servicios#infra" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
-                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.packaged', 'Soluciones Empaquetadas')}</span>
+                <Link to="/servicios#infra" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
+                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
+                    <ChevronRight size={16} />
+                  </span>
+                  <span>{t('navbar.packaged', 'Soluciones Empaquetadas')}</span>
                 </Link>
               </li>
               <li>
-                <Link to="/soluciones" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
-                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.cases', 'Casos de Éxito')}</span>
+                <Link to="/soluciones" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
+                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
+                    <ChevronRight size={16} />
+                  </span>
+                  <span>{t('navbar.cases', 'Casos de Éxito')}</span>
                 </Link>
               </li>
             </ul>
@@ -131,29 +138,37 @@ export default function Footer() {
             <h4 className="text-white font-heading font-bold uppercase tracking-wider mb-6 text-sm border-b border-esoft-accent/30 pb-2 w-fit">
               {t('footer.col2')}
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               <li>
-                <Link to="/nosotros" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
-                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.about', 'Acerca de Nosotros')}</span>
+                <Link to="/nosotros" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
+                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
+                    <ChevronRight size={16} />
+                  </span>
+                  <span>{t('navbar.about', 'Acerca de Nosotros')}</span>
                 </Link>
               </li>
               <li>
-                <Link to="/nosotros/historia" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
-                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.history', 'Nuestra Historia')}</span>
+                <Link to="/nosotros/historia" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
+                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
+                    <ChevronRight size={16} />
+                  </span>
+                  <span>{t('navbar.history', 'Nuestra Historia')}</span>
                 </Link>
               </li>
               <li>
-                <Link to="/nosotros/equipo" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
-                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.team', 'Nuestro Equipo')}</span>
+                <Link to="/nosotros/equipo" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
+                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
+                    <ChevronRight size={16} />
+                  </span>
+                  <span>{t('navbar.team', 'Nuestro Equipo')}</span>
                 </Link>
               </li>
               <li>
-                <Link to="/contacto" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
-                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.contact', 'Contáctanos')}</span>
+                <Link to="/contacto" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
+                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
+                    <ChevronRight size={16} />
+                  </span>
+                  <span>{t('navbar.contact', 'Contáctanos')}</span>
                 </Link>
               </li>
             </ul>
