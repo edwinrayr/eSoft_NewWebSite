@@ -212,7 +212,9 @@ export default function Footer() {
             &copy; {currentYear} eSoft Pasion. {t('footer.rights')}
           </p>
           <div className="flex gap-6 text-xs text-esoft-gray-light">
-            <Link to="/privacidad" className="hover:text-white transition-colors">{t('footer.privacy')}</Link>
+            <Link to="/privacidad" className="hover:text-esoft-accent transition-colors">
+            {t('footer.privacy')}
+          </Link>
             <Link to="/cookies" className="hover:text-white transition-colors">{t('footer.cookies')}</Link>
           </div>
         </div>
