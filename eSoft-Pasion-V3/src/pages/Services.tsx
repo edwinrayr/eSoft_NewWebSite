@@ -128,7 +128,7 @@ export default function Services() {
               
               <div className="bg-white/5 rounded-xl p-6 border border-white/5 hover:border-white/20 transition-colors">
                 <h4 className="text-sm font-bold text-white uppercase mb-4 flex items-center gap-2">
-                  <Layers size={14} className="text-esoft-accent" /> Capacidades & Tecnologías
+                  <Layers size={14} className="text-esoft-accent" /> {t('servicesPage.capabilitiesTitle')}
                 </h4>
                 <ul className="grid grid-cols-1 gap-3">
                   {service.features.map((feature, i) => (

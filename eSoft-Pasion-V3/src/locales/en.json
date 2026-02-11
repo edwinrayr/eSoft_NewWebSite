@@ -95,6 +95,7 @@
     }
   },
   "servicesPage": {
+    "capabilitiesTitle": "CAPABILITIES & TECHNOLOGIES",
     "hero": {
       "titleStart": "Comprehensive",
       "titleEnd": "Solutions",
