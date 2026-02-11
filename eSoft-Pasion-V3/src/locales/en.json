@@ -33,6 +33,22 @@
       "career": "Careers"
     }
   },
+  "homePage": {
+    "exploreServices": "Explore All Services",
+    "ctaFinal": {
+      "titleLine1": "Ready to take the",
+      "titleLine2": "next step?",
+      "subtitle": "Discover how our solutions can transform your infrastructure today.",
+      "btn": "Contact Us Now"
+    }
+  },
+  "preloader": {
+    "text": "Innovating technology..."
+  },
+  "whatsapp": {
+    "message": "Hello, I am interested in your services and would like to know more.",
+    "tooltip": "Let's chat on WhatsApp!"
+  },
   "internshipsPage": {
     "hero": {
       "badge": "Young Talent",
@@ -67,12 +83,76 @@
       "email": "talent@esoftpasion.com"
     }
   },
-  "homePage": {
-    "ctaFinal": {
-      "titleLine1": "Ready to take the",
-      "titleLine2": "next step?",
-      "subtitle": "Discover how our solutions can transform your infrastructure today.",
-      "btn": "Contact Us Now"
+  "hero": {
+    "badge": "eSoft - Passion for Technology",
+    "titleMain": "We Transform",
+    "titleIdeas": "Technology into",
+    "titleSoftware": "Competitive Advantage",
+    "description": "With years of experience across Latin America, we drive the technological transformation of organizations, turning innovation into a real enabler of growth, competitiveness, and business continuity.",
+    "btnPrimary": "Contact Us",
+    "btnSecondary": "Download Portfolio"
+  },
+  "aboutTeaser": {
+    "leaderBadge": "Digital Transformation Leaders",
+    "titleLine1": "More than technology,",
+    "titleLine2": "we are your strategic partner.",
+    "description": "With over 16 years of experience in Latin America, we manage your IT business with a team of engineers specialized in security, automation, and application lifecycle.",
+    "stats": {
+      "exp": "16+ Years Experience",
+      "region": "Latam Presence",
+      "team": "Certified Engineers",
+      "focus": "Continuous Innovation"
+    },
+    "cta": "Learn our history"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive technology solutions designed to protect and scale your business.",
+    "cards": {
+      "security": {
+        "title": "Security and Cybersecurity",
+        "desc": "We protect your company's information, systems, and operations against threats like ransomware, phishing, and unauthorized access."
+      },
+      "consulting": {
+        "title": "Software Consulting",
+        "desc": "We support companies in strategic technological decision-making. We analyze your current situation, identifying risks and opportunities."
+      },
+      "packaged": {
+        "title": "Packaged Solutions",
+        "desc": "We offer ready-to-implement solutions that automate and optimize key IT processes, such as management, monitoring, and operations."
+      }
+    }
+  },
+  "architecture": {
+    "badge": "Why Choose Us",
+    "titleLine1": "Strategic Business",
+    "titleLine2": "Value",
+    "subtitle": "Beyond code, we offer comprehensive management of your technology to ensure continuous growth.",
+    "cards": {
+      "security": {
+        "title": "Information Security",
+        "desc": "We protect your most valuable assets with comprehensive defense strategies and international compliance regulations."
+      },
+      "automation": {
+        "title": "Operations Automation",
+        "desc": "We reduce manual operational load by automating key processes so your team can focus on innovating."
+      },
+      "lifecycle": {
+        "title": "Application Lifecycle",
+        "desc": "We manage from conception to retirement of your software, ensuring optimal updates and maintenance."
+      },
+      "assets": {
+        "title": "IT Asset Management",
+        "desc": "Total control over your tech infrastructure. We optimize the usage and costs of your hardware and software."
+      },
+      "support": {
+        "title": "Continuous Support",
+        "desc": "Effective and timely technical assistance 24/7. A qualified staff ready to resolve critical incidents."
+      },
+      "digital": {
+        "title": "Digital Transformation",
+        "desc": "We guide you in adopting new technologies to keep your organization competitive in the digital age."
+      }
     }
   },
   "solutionsPage": {
@@ -290,13 +370,6 @@
       }
     }
   },
-  "preloader": {
-    "text": "Innovating technology..."
-  },
-  "whatsapp": {
-    "message": "Hello, I am interested in your services and would like to know more.",
-    "tooltip": "Let's chat on WhatsApp!"
-  },
   "footer": {
     "description": "We transform complex ideas into fluid digital experiences. Your technology partner for the future.",
     "col1": "Services",
@@ -316,76 +389,5 @@
       "blog": "Blog",
       "terms": "Legal Terms"
     }
-  },
-  "architecture": {
-    "badge": "Why Choose Us",
-    "titleLine1": "Strategic Business",
-    "titleLine2": "Value",
-    "subtitle": "Beyond code, we offer comprehensive management of your technology to ensure continuous growth.",
-    "cards": {
-      "security": {
-        "title": "Information Security",
-        "desc": "We protect your most valuable assets with comprehensive defense strategies and international compliance regulations."
-      },
-      "automation": {
-        "title": "Operations Automation",
-        "desc": "We reduce manual operational load by automating key processes so your team can focus on innovating."
-      },
-      "lifecycle": {
-        "title": "Application Lifecycle",
-        "desc": "We manage from conception to retirement of your software, ensuring optimal updates and maintenance."
-      },
-      "assets": {
-        "title": "IT Asset Management",
-        "desc": "Total control over your tech infrastructure. We optimize the usage and costs of your hardware and software."
-      },
-      "support": {
-        "title": "Continuous Support",
-        "desc": "Effective and timely technical assistance 24/7. A qualified staff ready to resolve critical incidents."
-      },
-      "digital": {
-        "title": "Digital Transformation",
-        "desc": "We guide you in adopting new technologies to keep your organization competitive in the digital age."
-      }
-    }
-  },
-  "aboutTeaser": {
-    "titleLine1": "More than technology,",
-    "titleLine2": "we are your strategic partner.",
-    "description": "With over 16 years of experience in Latin America, we manage your IT business with a team of engineers specialized in security, automation, and application lifecycle.",
-    "stats": {
-      "exp": "16+ Years Experience",
-      "region": "Latam Presence",
-      "team": "Certified Engineers",
-      "focus": "Continuous Innovation"
-    },
-    "cta": "Learn our history"
-  },
-  "services": {
-    "title": "Our Services",
-    "subtitle": "Comprehensive technology solutions designed to protect and scale your business.",
-    "cards": {
-      "security": {
-        "title": "Security and Cybersecurity",
-        "desc": "We protect your company's information, systems, and operations against threats like ransomware, phishing, and unauthorized access."
-      },
-      "consulting": {
-        "title": "Software Consulting",
-        "desc": "We support companies in strategic technological decision-making. We analyze your current situation, identifying risks and opportunities."
-      },
-      "packaged": {
-        "title": "Packaged Solutions",
-        "desc": "We offer ready-to-implement solutions that automate and optimize key IT processes, such as management, monitoring, and operations."
-      }
-    }
-  },
-  "hero": {
-    "badge": "eSoft - Passion for Technology",
-    "titleMain": "We Transform",
-    "titleIdeas": "Technology into",
-    "titleSoftware": "Competitive Advantage",
-    "description": "With years of experience across Latin America, we drive the technological transformation of organizations, turning innovation into a real enabler of growth, competitiveness, and business continuity.",
-    "btnPrimary": "Contact Us",
-    "btnSecondary": "Download Portfolio"
   }
 }

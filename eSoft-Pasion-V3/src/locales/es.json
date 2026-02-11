@@ -33,6 +33,22 @@
       "career": "Carreras"
     }
   },
+  "homePage": {
+    "exploreServices": "Explorar todos los servicios",
+    "ctaFinal": {
+      "titleLine1": "¿Listo para dar el",
+      "titleLine2": "siguiente paso?",
+      "subtitle": "Descubre cómo nuestras soluciones pueden transformar tu infraestructura hoy mismo.",
+      "btn": "Contáctanos Ahora"
+    }
+  },
+  "preloader": {
+    "text": "Innovando la tecnología..."
+  },
+  "whatsapp": {
+    "message": "Hola, estoy interesado en sus servicios y me encantaría saber más.",
+    "tooltip": "¡Hablemos por WhatsApp!"
+  },
   "internshipsPage": {
     "hero": {
       "badge": "Talento Joven",
@@ -65,6 +81,78 @@
       "title": "¿Listo para el reto?",
       "desc": "Envíanos tu CV y cuéntanos por qué quieres unirte a eSoft.",
       "email": "talento@esoftpasion.com"
+    }
+  },
+  "hero": {
+    "badge": "eSoft - Pasión por la Tecnología",
+    "titleMain": "Tu Aliado Estratégico en",
+    "titleIdeas": "Innovación",
+    "titleSoftware": "Tecnológica",
+    "description": "Con años de experiencia en Latinoamérica, impulsamos la transformación tecnológica de las organizaciones, convirtiendo la innovación en un habilitador real de crecimiento, competitividad y continuidad empresarial.",
+    "btnPrimary": "Contáctanos",
+    "btnSecondary": "Descargar Portafolio"
+  },
+  "aboutTeaser": {
+    "leaderBadge": "Líderes en Transformación Digital",
+    "titleLine1": "Más que tecnología,",
+    "titleLine2": "somos tu socio estratégico.",
+    "description": "Con más de 16 años de experiencia en Latinoamérica, gestionamos tu negocio de TI con un equipo de ingenieros especializados en seguridad, automatización y ciclo de vida de aplicaciones.",
+    "stats": {
+      "exp": "16+ Años de Experiencia",
+      "region": "Presencia en Latam",
+      "team": "Ingenieros Certificados",
+      "focus": "Innovación Continua"
+    },
+    "cta": "Conoce nuestra historia"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones tecnológicas integrales diseñadas para proteger y escalar tu negocio.",
+    "cards": {
+      "security": {
+        "title": "Seguridad y Ciberseguridad",
+        "desc": "Protegemos la información, los sistemas y la operación de tu empresa frente a amenazas como ransomware, phishing y accesos no autorizados."
+      },
+      "consulting": {
+        "title": "Consultoría de Software",
+        "desc": "Acompañamos a las empresas en la toma de decisiones tecnológicas estratégicas. Analizamos su situación actual, identificamos riesgos y oportunidades."
+      },
+      "packaged": {
+        "title": "Soluciones Empaquetadas",
+        "desc": "Ofrecemos soluciones listas para implementar que automatizan y optimizan procesos clave de TI, como gestión, monitoreo y operación."
+      }
+    }
+  },
+  "architecture": {
+    "badge": "Por qué elegirnos",
+    "titleLine1": "Valor Estratégico",
+    "titleLine2": "Empresarial",
+    "subtitle": "Más allá del código, ofrecemos una gestión integral de tu tecnología para garantizar el crecimiento continuo.",
+    "cards": {
+      "security": {
+        "title": "Seguridad de la Información",
+        "desc": "Protegemos tus activos más valiosos con estrategias de defensa integral y normativas de cumplimiento internacional."
+      },
+      "automation": {
+        "title": "Automatización de Operaciones",
+        "desc": "Reducimos la carga operativa manual automatizando procesos clave para que tu equipo se enfoque en innovar."
+      },
+      "lifecycle": {
+        "title": "Ciclo de Vida de Aplicaciones",
+        "desc": "Gestionamos desde la concepción hasta el retiro de tu software, asegurando actualizaciones y mantenimiento óptimo."
+      },
+      "assets": {
+        "title": "Gestión de Activos TI",
+        "desc": "Control total sobre tu infraestructura tecnológica. Optimizamos el uso y costos de tu hardware y software."
+      },
+      "support": {
+        "title": "Soporte Continuo",
+        "desc": "Asistencia técnica efectiva y oportuna 24/7. Un staff calificado listo para resolver incidencias críticas."
+      },
+      "digital": {
+        "title": "Transformación Digital",
+        "desc": "Te guiamos en la adopción de nuevas tecnologías para mantener a tu organización competitiva en la era digital."
+      }
     }
   },
   "solutionsPage": {
@@ -116,34 +204,6 @@
         "item2": "Sin pagos mensuales por licencia",
         "item3": "Seguridad personalizada"
       }
-    }
-  },
-  "contact": {
-    "titleLine1": "¿Listo para",
-    "titleLine2": "iniciar el cambio?",
-    "subtitle": "Cuéntanos tus desafíos tecnológicos. Nuestro equipo de expertos diseñará una estrategia a la medida de tus objetivos de negocio.",
-    "response": "Respuesta en menos de 24 horas",
-    "successTitle": "¡Mensaje Recibido!",
-    "successDesc": "Gracias por contactar con nosotros. Nuestro equipo ha recibido tu solicitud y te responderemos en breve.",
-    "sendAnother": "Enviar otro mensaje",
-    "error": "Hubo un error al enviar el mensaje. Por favor intenta nuevamente.",
-    "list": {
-      "item1": "Evaluación técnica preliminar",
-      "item2": "Propuesta comercial detallada",
-      "item3": "Acuerdo de confidencialidad (NDA)"
-    },
-    "info": {
-      "address": "Av. Benito Juárez, San Mateo Cuautepec, 54948 Fuentes del Valle, Méx.",
-      "phone": "+52 (55) 5889 5472"
-    },
-    "form": {
-      "name": "Nombre Completo",
-      "namePh": "Ej. Juan Pérez",
-      "email": "Correo Corporativo",
-      "emailPh": "juan@empresa.com",
-      "message": "¿Cómo podemos ayudarte?",
-      "messagePh": "Estoy buscando implementar una solución de ciberseguridad para...",
-      "btn": "Enviar Mensaje"
     }
   },
   "servicesPage": {
@@ -282,12 +342,33 @@
       }
     }
   },
-  "preloader": {
-    "text": "Innovando la tecnología..."
-  },
-  "whatsapp": {
-    "message": "Hola, estoy interesado en sus servicios y me encantaría saber más.",
-    "tooltip": "¡Hablemos por WhatsApp!"
+  "contact": {
+    "titleLine1": "¿Listo para",
+    "titleLine2": "iniciar el cambio?",
+    "subtitle": "Cuéntanos tus desafíos tecnológicos. Nuestro equipo de expertos diseñará una estrategia a la medida de tus objetivos de negocio.",
+    "response": "Respuesta en menos de 24 horas",
+    "successTitle": "¡Mensaje Recibido!",
+    "successDesc": "Gracias por contactar con nosotros. Nuestro equipo ha recibido tu solicitud y te responderemos en breve.",
+    "sendAnother": "Enviar otro mensaje",
+    "error": "Hubo un error al enviar el mensaje. Por favor intenta nuevamente.",
+    "list": {
+      "item1": "Evaluación técnica preliminar",
+      "item2": "Propuesta comercial detallada",
+      "item3": "Acuerdo de confidencialidad (NDA)"
+    },
+    "info": {
+      "address": "Av. Benito Juárez, San Mateo Cuautepec, 54948 Fuentes del Valle, Méx.",
+      "phone": "+52 (55) 5889 5472"
+    },
+    "form": {
+      "name": "Nombre Completo",
+      "namePh": "Ej. Juan Pérez",
+      "email": "Correo Corporativo",
+      "emailPh": "juan@empresa.com",
+      "message": "¿Cómo podemos ayudarte?",
+      "messagePh": "Estoy buscando implementar una solución de ciberseguridad para...",
+      "btn": "Enviar Mensaje"
+    }
   },
   "footer": {
     "description": "Transformamos ideas complejas en experiencias digitales fluidas. Tu socio tecnológico para el futuro.",
@@ -308,76 +389,5 @@
       "blog": "Blog",
       "terms": "Términos Legales"
     }
-  },
-  "architecture": {
-    "badge": "Por qué elegirnos",
-    "titleLine1": "Valor Estratégico",
-    "titleLine2": "Empresarial",
-    "subtitle": "Más allá del código, ofrecemos una gestión integral de tu tecnología para garantizar el crecimiento continuo.",
-    "cards": {
-      "security": {
-        "title": "Seguridad de la Información",
-        "desc": "Protegemos tus activos más valiosos con estrategias de defensa integral y normativas de cumplimiento internacional."
-      },
-      "automation": {
-        "title": "Automatización de Operaciones",
-        "desc": "Reducimos la carga operativa manual automatizando procesos clave para que tu equipo se enfoque en innovar."
-      },
-      "lifecycle": {
-        "title": "Ciclo de Vida de Aplicaciones",
-        "desc": "Gestionamos desde la concepción hasta el retiro de tu software, asegurando actualizaciones y mantenimiento óptimo."
-      },
-      "assets": {
-        "title": "Gestión de Activos TI",
-        "desc": "Control total sobre tu infraestructura tecnológica. Optimizamos el uso y costos de tu hardware y software."
-      },
-      "support": {
-        "title": "Soporte Continuo",
-        "desc": "Asistencia técnica efectiva y oportuna 24/7. Un staff calificado listo para resolver incidencias críticas."
-      },
-      "digital": {
-        "title": "Transformación Digital",
-        "desc": "Te guiamos en la adopción de nuevas tecnologías para mantener a tu organización competitiva en la era digital."
-      }
-    }
-  },
-  "aboutTeaser": {
-    "titleLine1": "Más que tecnología,",
-    "titleLine2": "somos tu socio estratégico.",
-    "description": "Con más de 16 años de experiencia en Latinoamérica, gestionamos tu negocio de TI con un equipo de ingenieros especializados en seguridad, automatización y ciclo de vida de aplicaciones.",
-    "stats": {
-      "exp": "16+ Años de Experiencia",
-      "region": "Presencia en Latam",
-      "team": "Ingenieros Certificados",
-      "focus": "Innovación Continua"
-    },
-    "cta": "Conoce nuestra historia"
-  },
-  "services": {
-    "title": "Nuestros Servicios",
-    "subtitle": "Soluciones tecnológicas integrales diseñadas para proteger y escalar tu negocio.",
-    "cards": {
-      "security": {
-        "title": "Seguridad y Ciberseguridad",
-        "desc": "Protegemos la información, los sistemas y la operación de tu empresa frente a amenazas como ransomware, phishing y accesos no autorizados."
-      },
-      "consulting": {
-        "title": "Consultoría de Software",
-        "desc": "Acompañamos a las empresas en la toma de decisiones tecnológicas estratégicas. Analizamos su situación actual, identificamos riesgos y oportunidades."
-      },
-      "packaged": {
-        "title": "Soluciones Empaquetadas",
-        "desc": "Ofrecemos soluciones listas para implementar que automatizan y optimizan procesos clave de TI, como gestión, monitoreo y operación."
-      }
-    }
-  },
-  "hero": {
-    "badge": "eSoft - Pasión por la Tecnología",
-    "titleMain": "Tu Aliado Estratégico en",
-    "titleIdeas": "Innovación",
-    "titleSoftware": "Tecnológica",
-    "description": "Con años de experiencia en Latinoamérica, impulsamos la transformación tecnológica de las organizaciones, convirtiendo la innovación en un habilitador real de crecimiento, competitividad y continuidad empresarial.",
-    "btnPrimary": "Contáctanos",
-    "btnSecondary": "Descargar Portafolio"
   }
 }

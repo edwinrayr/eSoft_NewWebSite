@@ -21,17 +21,14 @@ const PartnersMarquee = () => {
 
   return (
     <div className="w-full bg-black/20 border-y border-white/5 py-10 overflow-hidden relative flex">
-      {/* Sombras en las orillas para efecto de desvanecimiento */}
       <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-esoft-dark to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-esoft-dark to-transparent z-10 pointer-events-none" />
       
-      {/* Contenedor con Framer Motion para el loop perfecto */}
       <motion.div 
         className="flex gap-16 md:gap-24 items-center min-w-max pr-16 md:pr-24"
         animate={{ x: ["0%", "-50%"] }}
         transition={{ 
           ease: "linear", 
-          // MODIFICADO: Aumentamos de 35 a 80 para que el movimiento sea mucho más lento y elegante
           duration: 80, 
           repeat: Infinity 
         }}
@@ -90,7 +87,8 @@ const AboutTeaser = () => {
               <div className="w-3 h-3 rounded-full bg-esoft-accent animate-pulse" />
               <span className="text-xs font-bold uppercase text-white tracking-wider">Status</span>
             </div>
-            <p className="text-white font-heading text-lg">Líderes en Transformación Digital</p>
+            {/* CORRECCIÓN 1: Texto traducido */}
+            <p className="text-white font-heading text-lg">{t('aboutTeaser.leaderBadge')}</p>
           </div>
         </motion.div>
 
@@ -145,7 +143,8 @@ export default function Home() {
         
         <div className="text-center pb-20 -mt-10 relative z-10">
           <Link to="/servicios" className="inline-block px-8 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-esoft-accent hover:border-transparent transition-all text-sm uppercase tracking-widest font-bold text-white">
-            Explorar todos los servicios
+            {/* CORRECCIÓN 2: Texto traducido */}
+            {t('homePage.exploreServices')}
           </Link>
         </div>
       </div>
