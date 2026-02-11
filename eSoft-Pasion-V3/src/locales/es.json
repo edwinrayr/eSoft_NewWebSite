@@ -116,6 +116,37 @@
     }
   },
   "aboutPage": {
+    "team": {
+      "title": "Conoce a los Expertos",
+      "subtitle": "El talento humano detrás de nuestras soluciones tecnológicas.",
+      "members": {
+        "jesus": {
+          "name": "Jesús Rivas",
+          "role": "CEO",
+          "desc": "Líder visionario con más de 20 años impulsando la transformación tecnológica en Latam."
+        },
+        "orlando": {
+          "name": "Orlando Palacios",
+          "role": "CTO",
+          "desc": "Arquitecto de soluciones experto en ciberseguridad e infraestructura crítica."
+        },
+        "itzel": {
+          "name": "Itzel Hernández",
+          "role": "Account Manager",
+          "desc": "Especialista en relaciones estratégicas y éxito del cliente a largo plazo."
+        },
+        "brenda": {
+          "name": "Brenda Meza",
+          "role": "Marketing",
+          "desc": "Mente creativa encargada de posicionar nuestra marca en el ecosistema digital."
+        },
+        "brandon": {
+          "name": "Brandon Cosio",
+          "role": "Consultor Jr",
+          "desc": "Ingeniero especialista en implementación de nuevas tecnologías y soporte."
+        }
+      }
+    },
     "hero": {
       "badge": "Nuestra Identidad",
       "titleStart": "¿Quiénes",

@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
 import { Target, Eye, Shield, Users, Briefcase, Award } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next'; // <--- Importamos el hook
+import { useTranslation } from 'react-i18next';
 
-// Componente de Historia
+// Componentes internos
 import HistorySection from '../components/sections/about/HistorySection';
+import Team from '../components/sections/Team'; // <--- 1. Importamos el componente Team
 
 export default function About() {
-  const { t } = useTranslation(); // <--- Inicializamos
+  const { t } = useTranslation();
 
   return (
     <div className="pt-24 min-h-screen bg-esoft-dark relative overflow-hidden">
@@ -126,7 +126,7 @@ export default function About() {
           
           {/* Botones */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
-            {/* Link del CEO actualizado */}
+            {/* Link del CEO */}
             <a 
               href="https://soyjesusrivas.com/" 
               target="_blank" 
@@ -136,12 +136,19 @@ export default function About() {
               <Briefcase size={18} /> {t('aboutPage.values.btnCEO')}
             </a>
 
-            <Link to="/nosotros#nuestro-equipo" className="px-8 py-3 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+            {/* Enlace interno al Equipo (Updated) */}
+            <a 
+              href="#equipo" 
+              className="px-8 py-3 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+            >
               <Users size={18} /> {t('aboutPage.values.btnTeam')}
-            </Link>
+            </a>
           </div>
         </div>
       </section>
+
+      {/* 6. NUEVA SECCIÓN DE EQUIPO INTEGRADA */}
+      <Team />
       
     </div>
   );
