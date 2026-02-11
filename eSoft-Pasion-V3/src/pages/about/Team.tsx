@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Linkedin, ExternalLink } from 'lucide-react'; // Asumiendo que usas Lucide
+import { Linkedin, ExternalLink, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Team() {
@@ -7,10 +7,9 @@ export default function Team() {
 
   const teamMembers = [
     {
-      key: 'jesus', // Coincide con el JSON
-      // URL DE LA FOTO (Cámbiala después)
+      key: 'jesus',
       image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800", 
-      link: "https://www.linkedin.com/" // Enlace a su sitio/LinkedIn
+      link: "https://www.linkedin.com/" 
     },
     {
       key: 'brandon',
@@ -35,27 +34,27 @@ export default function Team() {
   ];
 
   return (
-    <section id="equipo" className="py-24 bg-esoft-dark relative overflow-hidden">
+    <div className="pt-24 min-h-screen bg-esoft-dark relative overflow-hidden pb-20">
+      
       {/* Decoración de fondo */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-esoft-accent/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
-        {/* Encabezado de la sección */}
+
+        {/* Encabezado de la página */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-20 pt-8"
         >
           <span className="text-esoft-accent font-bold tracking-widest uppercase text-sm mb-2 block">
-            {t('navbar.team')}
+            {t('navbar.team', 'Nuestro Talento')}
           </span>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
-            {t('aboutPage.team.title')}
-          </h2>
+          <h1 className="text-5xl md:text-6xl font-heading font-bold text-white mb-6">
+            {t('aboutPage.team.title', 'Conoce al Equipo')}
+          </h1>
           <p className="text-xl text-esoft-gray-light font-light max-w-2xl mx-auto">
-            {t('aboutPage.team.subtitle')}
+            {t('aboutPage.team.subtitle', 'Ingenieros, estrategas y especialistas apasionados por resolver los desafíos tecnológicos más complejos.')}
           </p>
         </motion.div>
 
@@ -107,9 +106,9 @@ export default function Team() {
                     {t(`aboutPage.team.members.${member.key}.desc`)}
                   </p>
                   
-                  {/* Redes Sociales (Opcional, decorativo por ahora) */}
+                  {/* Redes Sociales */}
                   <div className="flex justify-center gap-4 pt-4 border-t border-white/10">
-                    <a href={member.link} target="_blank" className="text-gray-500 hover:text-white transition-colors">
+                    <a href={member.link} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
                       <Linkedin size={20} />
                     </a>
                   </div>
@@ -120,7 +119,29 @@ export default function Team() {
           ))}
         </div>
 
+        {/* SECCIÓN INVITACIÓN (CARRERAS) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-32 bg-gradient-to-br from-esoft-charcoal to-black border border-white/10 p-12 rounded-3xl text-center relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-heading font-bold text-white mb-4">¿Quieres unirte a eSoft Pasión?</h2>
+            <p className="text-esoft-gray-light mb-8">
+              Buscamos mentes brillantes que compartan nuestra visión. Si eres especialista en TI, ciberseguridad o desarrollo, queremos conocerte.
+            </p>
+            <a 
+              href="mailto:talento@esoftpasion.com" 
+              className="inline-flex items-center gap-2 px-8 py-3 bg-white text-esoft-dark font-bold rounded-full hover:bg-esoft-gray-light transition-colors"
+            >
+              <Mail size={18} /> Enviar mi CV
+            </a>
+          </div>
+        </motion.div>
+
       </div>
-    </section>
+    </div>
   );
 }

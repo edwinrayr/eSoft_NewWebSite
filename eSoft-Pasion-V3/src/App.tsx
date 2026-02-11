@@ -23,6 +23,10 @@ import Solutions from './pages/Solutions';
 import ContactPage from './pages/Contact';
 import NotFound from './pages/NotFound';
 
+// AGREGADO: Importaciones de las nuevas páginas independientes
+import History from './pages/about/History';
+import Team from './pages/about/Team';
+
 function App() {
   // Estado para controlar la carga
   const [isLoading, setIsLoading] = useState(true);
@@ -56,6 +60,11 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/nosotros" element={<About />} />
+                
+                {/* AGREGADO: Las nuevas rutas independientes */}
+                <Route path="/nosotros/historia" element={<History />} />
+                <Route path="/nosotros/equipo" element={<Team />} />
+
                 <Route path="/servicios" element={<Services />} />
                 <Route path="/soluciones" element={<Solutions />} />
                 <Route path="/contacto" element={<ContactPage />} />

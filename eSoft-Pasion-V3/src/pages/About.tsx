@@ -1,10 +1,7 @@
 import { motion } from 'framer-motion';
 import { Target, Eye, Shield, Users, Briefcase, Award } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-
-// Componentes internos
-import HistorySection from '../components/sections/about/HistorySection';
-import Team from '../components/sections/Team'; // <--- 1. Importamos el componente Team
+import { Link } from 'react-router-dom'; // <--- AGREGADO: Importamos Link para la navegación interna
 
 export default function About() {
   const { t } = useTranslation();
@@ -70,10 +67,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 3. LÍNEA DE TIEMPO */}
-      <HistorySection />
-
-      {/* 4. MISIÓN Y VISIÓN */}
+      {/* 3. MISIÓN Y VISIÓN */}
       <section className="py-24 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
@@ -111,7 +105,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 5. VALORES Y TALENTO */}
+      {/* 4. VALORES Y TALENTO */}
       <section id="valores" className="py-20 px-6 text-center scroll-mt-24">
         <div className="max-w-4xl mx-auto bg-gradient-to-r from-esoft-charcoal to-black border border-white/10 rounded-3xl p-12 relative overflow-hidden shadow-2xl">
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
@@ -136,20 +130,17 @@ export default function About() {
               <Briefcase size={18} /> {t('aboutPage.values.btnCEO')}
             </a>
 
-            {/* Enlace interno al Equipo (Updated) */}
-            <a 
-              href="#equipo" 
+            {/* MODIFICADO: Enlace interno al Equipo usando Link de React Router */}
+            <Link 
+              to="/nosotros/equipo" 
               className="px-8 py-3 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-2"
             >
               <Users size={18} /> {t('aboutPage.values.btnTeam')}
-            </a>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 6. NUEVA SECCIÓN DE EQUIPO INTEGRADA */}
-      <Team />
-      
     </div>
   );
 }

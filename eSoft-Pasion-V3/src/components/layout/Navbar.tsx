@@ -30,9 +30,10 @@ export default function Navbar() {
       title: t('navbar.about', 'Nosotros'),
       path: '/nosotros',
       submenu: [
-        { title: t('navbar.history', 'Historia'), path: '/nosotros#historia' },
+        // MODIFICADO: Cambiamos el '#' por '/' para abrir las nuevas páginas
+        { title: t('navbar.history', 'Historia'), path: '/nosotros/historia' },
         { title: t('navbar.ceo', 'Nuestro CEO'), path: 'https://soyjesusrivas.com/', isExternal: true },
-        { title: t('navbar.team', 'Equipo'), path: '/nosotros#equipo' },
+        { title: t('navbar.team', 'Equipo'), path: '/nosotros/equipo' },
         { title: t('navbar.values', 'Valores'), path: '/nosotros#valores' },
       ]
     },
@@ -114,7 +115,6 @@ export default function Navbar() {
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-1 w-4 h-4 bg-esoft-charcoal border-t border-l border-white/10 transform rotate-45"></div>
                         <div className="relative z-10 py-2">
                            {item.submenu.map((subItem, index) => {
-                             // AGREGADO: Condición para saber si renderizar un enlace externo (<a>) o interno (<Link>)
                              if (subItem.isExternal) {
                                return (
                                  <a 
@@ -189,7 +189,6 @@ export default function Navbar() {
                     {item.submenu.length > 0 && (
                         <div className="pl-4 border-l-2 border-white/10 space-y-3 ml-2">
                             {item.submenu.map((sub, i) => {
-                                // AGREGADO: Lógica externa para el menú móvil también
                                 if (sub.isExternal) {
                                   return (
                                     <a 
