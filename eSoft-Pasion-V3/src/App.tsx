@@ -22,6 +22,7 @@ import Services from './pages/Services';
 import Solutions from './pages/Solutions';
 import ContactPage from './pages/Contact';
 import NotFound from './pages/NotFound';
+import SearchResults from './pages/SearchResults';
 
 // AGREGADO: Importaciones de las nuevas páginas independientes
 import History from './pages/about/History';
@@ -68,6 +69,7 @@ function App() {
                 <Route path="/servicios" element={<Services />} />
                 <Route path="/soluciones" element={<Solutions />} />
                 <Route path="/contacto" element={<ContactPage />} />
+                <Route path="/busqueda" element={<SearchResults />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>

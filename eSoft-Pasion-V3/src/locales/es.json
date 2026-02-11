@@ -1,4 +1,16 @@
 {
+  "searchResults": {
+    "title": "Resultados de búsqueda:",
+    "count": "coincidencias encontradas.",
+    "noResultsTitle": "NO ENCONTRAMOS NADA",
+    "noResultsDesc": "Intenta con otras palabras clave como \"Ciberseguridad\", \"Nube\" o \"Equipo\".",
+    "categories": {
+      "service": "Servicio",
+      "case": "Caso de Éxito",
+      "about": "Nosotros",
+      "contact": "Contacto"
+    }
+  },
   "homePage": {
     "ctaFinal": {
       "titleLine1": "¿Listo para dar el",
@@ -146,6 +158,11 @@
           "name": "Tania Moreno",
           "role": "Consultor Senior",
           "desc": "Especialista con amplia experiencia en consultoría estratégica y optimización de procesos tecnológicos."
+        },
+        "itzel": {
+          "name": "Itzel Hernández",
+          "role": "Account Manager",
+          "desc": "Especialista en relaciones estratégicas y éxito del cliente a largo plazo."
         },
         "brenda": {
           "name": "Brenda Meza",
@@ -319,9 +336,14 @@
     "benefits": "Beneficios",
     "cybersecurity": "Ciberseguridad",
     "infrastructure": "Infraestructura",
+    "packaged": "Soluciones Empaquetadas",
     "contact": "Contáctanos",
     "sales": "Ventas",
-    "location": "Ubicación"
+    "location": "Ubicación",
+    "searchPlaceholder": "Buscar en eSoft...",
+    "results": "Resultados",
+    "suggestions": "Sugerencias Rápidas",
+    "noResults": "No se encontraron resultados para"
   },
   "hero": {
     "badge": "eSoft - Pasión por la Tecnología",

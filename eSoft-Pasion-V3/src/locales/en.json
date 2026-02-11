@@ -1,4 +1,16 @@
 {
+  "searchResults": {
+    "title": "Search Results:",
+    "count": "matches found.",
+    "noResultsTitle": "NO RESULTS FOUND",
+    "noResultsDesc": "Try using other keywords like \"Cybersecurity\", \"Cloud\", or \"Team\".",
+    "categories": {
+      "service": "Service",
+      "case": "Success Story",
+      "about": "About Us",
+      "contact": "Contact"
+    }
+  },
   "homePage": {
     "ctaFinal": {
       "titleLine1": "Ready to take the",
@@ -141,6 +153,11 @@
           "name": "Orlando Palacios",
           "role": "CTO",
           "desc": "Solutions architect expert in cybersecurity and critical infrastructure."
+        },
+        "tania": {
+          "name": "Tania Moreno",
+          "role": "Senior Consultant",
+          "desc": "Specialist with extensive experience in strategic consulting and technological process optimization."
         },
         "itzel": {
           "name": "Itzel Hernández",
@@ -319,9 +336,14 @@
     "benefits": "Benefits",
     "cybersecurity": "Cybersecurity",
     "infrastructure": "Infrastructure",
-    "contact": "Contact",
+    "packaged": "Packaged Solutions",
+    "contact": "Contact Us",
     "sales": "Sales",
-    "location": "Location"
+    "location": "Location",
+    "searchPlaceholder": "Search eSoft...",
+    "results": "Results",
+    "suggestions": "Quick Suggestions",
+    "noResults": "No results found for"
   },
   "hero": {
     "badge": "eSoft - Passion for Technology",
