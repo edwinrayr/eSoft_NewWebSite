@@ -88,7 +88,8 @@ export default function Team() {
                   {/* Overlay al pasar el mouse sobre la foto */}
                   <div className="absolute inset-0 bg-esoft-accent/80 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="text-white flex items-center gap-2 font-bold uppercase tracking-wider transform translate-y-4 group-hover/image:translate-y-0 transition-transform duration-300">
-                      <span>Ver Perfil</span>
+                      {/* TRADUCCIÓN APLICADA: Ver Perfil */}
+                      <span>{t('aboutPage.team.viewProfile')}</span>
                       <ExternalLink size={18} />
                     </div>
                   </div>
@@ -119,7 +120,7 @@ export default function Team() {
           ))}
         </div>
 
-        {/* SECCIÓN INVITACIÓN (CARRERAS) */}
+        {/* SECCIÓN INVITACIÓN (CARRERAS) - TRADUCIDA */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,15 +129,17 @@ export default function Team() {
         >
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
           <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="text-3xl font-heading font-bold text-white mb-4">¿Quieres unirte a eSoft Pasión?</h2>
+            <h2 className="text-3xl font-heading font-bold text-white mb-4">
+                {t('aboutPage.team.cta.title')}
+            </h2>
             <p className="text-esoft-gray-light mb-8">
-              Buscamos mentes brillantes que compartan nuestra visión. Si eres especialista en TI, ciberseguridad o desarrollo, queremos conocerte.
+                {t('aboutPage.team.cta.desc')}
             </p>
             <a 
               href="mailto:talento@esoftpasion.com" 
               className="inline-flex items-center gap-2 px-8 py-3 bg-white text-esoft-dark font-bold rounded-full hover:bg-esoft-gray-light transition-colors"
             >
-              <Mail size={18} /> Enviar mi CV
+              <Mail size={18} /> {t('aboutPage.team.cta.btn')}
             </a>
           </div>
         </motion.div>

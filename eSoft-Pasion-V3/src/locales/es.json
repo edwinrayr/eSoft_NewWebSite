@@ -256,6 +256,12 @@
     "team": {
       "title": "Conoce a los Expertos",
       "subtitle": "El talento humano detrás de nuestras soluciones tecnológicas.",
+      "viewProfile": "Ver Perfil",  
+      "cta": {
+        "title": "¿Quieres unirte a eSoft Pasión?",
+        "desc": "Buscamos mentes brillantes que compartan nuestra visión. Si eres especialista en TI, ciberseguridad o desarrollo, queremos conocerte.",
+        "btn": "Enviar mi CV"
+      },
       "members": {
         "jesus": {
           "name": "Jesús Rivas",

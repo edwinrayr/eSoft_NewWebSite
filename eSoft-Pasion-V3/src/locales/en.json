@@ -284,6 +284,12 @@
     "team": {
       "title": "Meet the Experts",
       "subtitle": "The human talent behind our technological solutions.",
+      "viewProfile": "View Profile",
+      "cta": {
+        "title": "Do you want to join eSoft Pasión?",
+        "desc": "We are looking for brilliant minds who share our vision. If you are an IT, cybersecurity, or development specialist, we want to meet you.",
+        "btn": "Send my CV"
+      },
       "members": {
         "jesus": {
           "name": "Jesús Rivas",
