@@ -30,7 +30,6 @@ export default function Navbar() {
       title: t('navbar.about', 'Nosotros'),
       path: '/nosotros',
       submenu: [
-        // MODIFICADO: Cambiamos el '#' por '/' para abrir las nuevas páginas
         { title: t('navbar.history', 'Historia'), path: '/nosotros/historia' },
         { title: t('navbar.ceo', 'Nuestro CEO'), path: 'https://soyjesusrivas.com/', isExternal: true },
         { title: t('navbar.team', 'Equipo'), path: '/nosotros/equipo' },
@@ -44,7 +43,8 @@ export default function Navbar() {
       submenu: [
         { title: t('navbar.cybersecurity', 'Ciberseguridad'), path: '/servicios#security' },
         { title: t('navbar.consulting', 'Consultoría'), path: '/servicios#consulting' },
-        { title: t('navbar.infrastructure', 'Infraestructura'), path: '/servicios#infra' },
+        // MODIFICADO: Cambiado de Infraestructura a Soluciones Empaquetadas respetando el ancla #infra
+        { title: t('navbar.packaged', 'Soluciones Empaquetadas'), path: '/servicios#infra' },
       ]
     },
     {

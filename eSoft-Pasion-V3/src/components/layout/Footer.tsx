@@ -1,7 +1,8 @@
-import { Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from 'lucide-react';
+import { Instagram, Linkedin, Mail, MapPin, Phone, Youtube, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom'; // <--- AGREGADO para navegación interna rápida
 
-// Icono de TikTok personalizado
+// Icono de TikTok personalizado (Se mantiene intacto)
 const TikTokIcon = ({ size = 20, className = "" }) => (
   <svg 
     width={size} 
@@ -34,11 +35,14 @@ export default function Footer() {
           {/* Columna 1: Marca y Misión */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <img 
-                src="/esoftlogo.png" 
-                alt="Logo eSoft Pasion" 
-                className="h-12 w-auto object-contain opacity-90" 
-              />
+              {/* MODIFICADO: El logo ahora es un Link al Inicio */}
+              <Link to="/">
+                <img 
+                  src="/esoftlogo.png" 
+                  alt="Logo eSoft Pasion" 
+                  className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" 
+                />
+              </Link>
             </div>
             
             <p className="text-esoft-gray-light text-sm leading-relaxed">
@@ -46,7 +50,6 @@ export default function Footer() {
             </p>
             
             <div className="flex gap-4">
-              {/* Instagram */}
               <a 
                 href="https://www.instagram.com/esoftpasion?igsh=ZzlsOG1sNjJrejVt" 
                 target="_blank" 
@@ -57,7 +60,6 @@ export default function Footer() {
                 <Instagram size={20} />
               </a>
 
-              {/* LinkedIn */}
               <a 
                 href="https://www.linkedin.com/company/esoft-pasi%C3%B3n-por-la-tecnolog%C3%ADa-2006/" 
                 target="_blank" 
@@ -68,7 +70,6 @@ export default function Footer() {
                 <Linkedin size={20} />
               </a>
 
-              {/* TikTok */}
               <a 
                 href="https://www.tiktok.com/@esoft.pasion" 
                 target="_blank" 
@@ -79,7 +80,6 @@ export default function Footer() {
                 <TikTokIcon size={20} />
               </a>
 
-              {/* YouTube */}
               <a 
                 href="https://www.youtube.com/@PasionPorLaTecnologia" 
                 target="_blank" 
@@ -92,19 +92,37 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Columna 2: Servicios */}
+          {/* Columna 2: Servicios & Soluciones */}
           <div>
             <h4 className="text-white font-heading font-bold uppercase tracking-wider mb-6 text-sm border-b border-esoft-accent/30 pb-2 w-fit">
               {t('footer.col1')}
             </h4>
-            <ul className="space-y-3">
-              {['renewal', 'support', 'presales', 'consulting'].map((key) => (
-                <li key={key}>
-                  <a href="/servicios" className="text-esoft-gray-light hover:text-white transition-colors text-sm hover:translate-x-1 inline-block duration-200">
-                    {t(`footer.links.${key}`)}
-                  </a>
-                </li>
-              ))}
+            <ul className="space-y-4">
+              {/* MODIFICADO: Rutas reales con hover interactivo */}
+              <li>
+                <Link to="/servicios#security" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
+                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.cybersecurity', 'Ciberseguridad')}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios#consulting" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
+                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.consulting', 'Consultoría')}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios#infra" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
+                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.packaged', 'Soluciones Empaquetadas')}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/soluciones" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
+                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.cases', 'Casos de Éxito')}</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -113,14 +131,31 @@ export default function Footer() {
             <h4 className="text-white font-heading font-bold uppercase tracking-wider mb-6 text-sm border-b border-esoft-accent/30 pb-2 w-fit">
               {t('footer.col2')}
             </h4>
-            <ul className="space-y-3">
-              {['about', 'portfolio', 'careers', 'blog', 'terms'].map((key) => (
-                <li key={key}>
-                  <a href="#" className="text-esoft-gray-light hover:text-white transition-colors text-sm hover:translate-x-1 inline-block duration-200">
-                    {t(`footer.links.${key}`)}
-                  </a>
-                </li>
-              ))}
+            <ul className="space-y-4">
+              <li>
+                <Link to="/nosotros" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
+                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.about', 'Acerca de Nosotros')}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/nosotros/historia" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
+                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.history', 'Nuestra Historia')}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/nosotros/equipo" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
+                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.team', 'Nuestro Equipo')}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/contacto" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-all text-sm overflow-hidden">
+                  <ChevronRight size={16} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">{t('navbar.contact', 'Contáctanos')}</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -130,9 +165,9 @@ export default function Footer() {
               {t('footer.col3')}
             </h4>
             <ul className="space-y-4 text-sm text-esoft-gray-light">
-              <li className="flex items-start gap-3 group">
+              <li className="flex items-start gap-3 group cursor-default">
                 <MapPin size={18} className="text-esoft-accent shrink-0 mt-0.5 group-hover:text-white transition-colors" />
-                <span>Montecito 38, Piso 33, Nápoles, CDMX</span>
+                <span className="group-hover:text-white transition-colors">Montecito 38, Piso 33, Nápoles, CDMX</span>
               </li>
               <li className="flex items-center gap-3 group">
                 <Mail size={18} className="text-esoft-accent shrink-0 group-hover:text-white transition-colors" />
@@ -162,8 +197,8 @@ export default function Footer() {
             &copy; {currentYear} eSoft Pasion. {t('footer.rights')}
           </p>
           <div className="flex gap-6 text-xs text-esoft-gray-light">
-            <a href="#" className="hover:text-white transition-colors">{t('footer.privacy')}</a>
-            <a href="#" className="hover:text-white transition-colors">{t('footer.cookies')}</a>
+            <Link to="/privacidad" className="hover:text-white transition-colors">{t('footer.privacy')}</Link>
+            <Link to="/cookies" className="hover:text-white transition-colors">{t('footer.cookies')}</Link>
           </div>
         </div>
       </div>
