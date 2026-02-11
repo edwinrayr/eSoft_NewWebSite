@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import Hero from '../components/layout/Hero';
 import BentoGrid from '../components/features/BentoGrid';
 import Architecture from '../components/sections/Architecture';
-// Se eliminó la importación de ContactSection para que no cargue el formulario
 
 // --- COMPONENTE INTERNO: CINTA DE SOCIOS ---
 const PartnersMarquee = () => {
@@ -43,12 +42,11 @@ const PartnersMarquee = () => {
 const AboutTeaser = () => {
   const { t } = useTranslation();
   
-  // Iconos mapeados para las estadísticas
   const statsIcons = [
-    <Clock size={20} />,    // Para Años de experiencia
-    <Globe2 size={20} />,   // Para Presencia Latam
-    <Users size={20} />,    // Para Ingenieros
-    <Award size={20} />     // Para Innovación/Calidad
+    <Clock size={20} />,    
+    <Globe2 size={20} />,   
+    <Users size={20} />,    
+    <Award size={20} />     
   ];
 
   const statsKeys = ['exp', 'region', 'team', 'focus'];
@@ -92,7 +90,6 @@ const AboutTeaser = () => {
             {t('aboutTeaser.description')}
           </p>
           
-          {/* Grid de Estadísticas con Iconos Nuevos */}
           <div className="grid grid-cols-2 gap-6">
             {statsKeys.map((key, i) => (
               <div key={i} className="flex items-center gap-3 text-sm text-gray-300 font-medium">
@@ -115,6 +112,8 @@ const AboutTeaser = () => {
 
 // --- PÁGINA PRINCIPAL ---
 export default function Home() {
+  const { t } = useTranslation(); // <--- Necesitamos el hook aquí también
+
   return (
     <div className="bg-esoft-dark min-h-screen">
       
@@ -145,18 +144,16 @@ export default function Home() {
         <Architecture />
       </div>
 
-      {/* 6. CTA FINAL (REEMPLAZO DEL FORMULARIO) */}
-      {/* En lugar del formulario gigante, ponemos un banner elegante que invita a ir a la página de contacto */}
+      {/* 6. CTA FINAL (AHORA TRADUCIDO) */}
       <section className="py-24 px-6 relative overflow-hidden">
-        {/* Fondo decorativo */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
         
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
            <h2 className="text-4xl md:text-5xl font-heading font-bold text-white">
-             ¿Listo para dar el <span className="text-esoft-accent">siguiente paso?</span>
+             {t('homePage.ctaFinal.titleLine1')} <span className="text-esoft-accent">{t('homePage.ctaFinal.titleLine2')}</span>
            </h2>
            <p className="text-xl text-esoft-gray-light font-light">
-             Descubre cómo nuestras soluciones pueden transformar tu infraestructura hoy mismo.
+             {t('homePage.ctaFinal.subtitle')}
            </p>
            
            <div className="pt-4">
@@ -164,7 +161,7 @@ export default function Home() {
                to="/contacto"
                className="inline-flex items-center gap-3 px-10 py-5 bg-esoft-accent text-white font-bold rounded-full hover:bg-emerald-600 transition-all shadow-lg hover:shadow-esoft-accent/30 hover:-translate-y-1"
              >
-               Contáctanos Ahora <ArrowRight />
+               {t('homePage.ctaFinal.btn')} <ArrowRight />
              </Link>
            </div>
         </div>

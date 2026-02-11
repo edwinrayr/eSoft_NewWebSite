@@ -1,4 +1,12 @@
 {
+  "homePage": {
+    "ctaFinal": {
+      "titleLine1": "¿Listo para dar el",
+      "titleLine2": "siguiente paso?",
+      "subtitle": "Descubre cómo nuestras soluciones pueden transformar tu infraestructura hoy mismo.",
+      "btn": "Contáctanos Ahora"
+    }
+  },
   "solutionsPage": {
     "hero": {
       "badge": "Casos de Éxito",

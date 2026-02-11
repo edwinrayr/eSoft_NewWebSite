@@ -1,4 +1,12 @@
 {
+  "homePage": {
+    "ctaFinal": {
+      "titleLine1": "Ready to take the",
+      "titleLine2": "next step?",
+      "subtitle": "Discover how our solutions can transform your infrastructure today.",
+      "btn": "Contact Us Now"
+    }
+  },
   "solutionsPage": {
     "hero": {
       "badge": "Success Stories",
