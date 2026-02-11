@@ -8,27 +8,27 @@ export default function Team() {
   const teamMembers = [
     {
       key: 'jesus',
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800", 
+      image: "/equipo/Jesus_Rivas.webp", 
       link: "https://www.linkedin.com/" 
     },
     {
       key: 'brandon',
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
+      image: "/equipo/Brandon_Cosio.webp",
       link: "https://www.linkedin.com/"
     },
     {
       key: 'orlando',
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800",
+      image: "/equipo/Orlando_Palacios.webp",
       link: "https://www.linkedin.com/"
     },
     {
       key: 'brenda',
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
+      image: "/equipo/Brenda_Meza.webp",
       link: "https://www.linkedin.com/"
     },
     {
       key: 'itzel',
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
+      image: "/equipo/Tania.webp",
       link: "https://www.linkedin.com/"
     }
   ];

@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom'; // <--- AGREGADO
-import { ArrowLeft } from 'lucide-react'; // <--- AGREGADO
 
 export default function History() {
   const { t } = useTranslation();
@@ -31,30 +29,21 @@ export default function History() {
   ];
 
   return (
-    // MODIFICADO: Ahora es un div de página completa (min-h-screen)
-    <div className="pt-24 min-h-screen bg-esoft-dark relative overflow-hidden">
+    <div className="pt-24 min-h-screen bg-esoft-dark relative overflow-hidden pb-20">
       
       {/* Luz decorativa de fondo */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-esoft-accent/5 blur-[120px] pointer-events-none" />
 
-      {/* Agregamos padding vertical (py-12) para que el contenido respire mejor */}
-      <div className="max-w-4xl mx-auto px-6 py-12 relative z-10">
-
-        {/* AGREGADO: Botón de regreso a la página de Nosotros */}
-        <Link to="/nosotros" className="inline-flex items-center gap-2 text-esoft-gray-light hover:text-esoft-accent transition-colors mb-16 group">
-          <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-          Volver a Nosotros
-        </Link>
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }} // Usamos animate en vez de whileInView porque se ve apenas carga la página
-          className="text-center mb-16"
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-16 pt-8"
         >
           <span className="text-esoft-accent font-bold tracking-widest uppercase text-sm mb-2 block">
             {t('aboutPage.history.badge')}
           </span>
-          {/* MODIFICADO: Cambiado de h2 a h1 por ser el título principal de la ruta */}
           <h1 className="text-5xl md:text-6xl font-heading font-bold text-white">
             {t('aboutPage.history.titleStart')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-esoft-accent to-emerald-400">{t('aboutPage.history.titleEnd')}</span>
           </h1>
