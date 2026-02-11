@@ -24,49 +24,43 @@ export default function Navbar() {
     i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en');
   };
 
-  // NAVEGACIÓN CONECTADA A LAS TRADUCCIONES (i18n)
   const navLinks = [
     {
       id: 'about',
-      title: t('navbar.about'), // "About Us" / "Nosotros"
+      title: t('navbar.about', 'Nosotros'),
       path: '/nosotros',
       submenu: [
-        { title: t('navbar.history'), path: '/nosotros#historia' },
-        { title: t('navbar.ceo'), path: '/nosotros#ceo' },
-        { title: t('navbar.team'), path: '/nosotros#equipo' },
-        { title: t('navbar.values'), path: '/nosotros#valores' },
+        { title: t('navbar.history', 'Historia'), path: '/nosotros#historia' },
+        { title: t('navbar.ceo', 'Nuestro CEO'), path: '/nosotros#ceo' },
+        { title: t('navbar.team', 'Equipo'), path: '/nosotros#equipo' },
+        { title: t('navbar.values', 'Valores'), path: '/nosotros#valores' },
       ]
     },
     {
       id: 'services',
-      title: t('navbar.services'), // "Services" / "Servicios"
+      title: t('navbar.services', 'Servicios'),
       path: '/servicios',
       submenu: [
-        { title: t('navbar.cybersecurity'), path: '/servicios#security' },
-        { title: t('navbar.consulting'), path: '/servicios#consulting' },
-        { title: t('navbar.infrastructure'), path: '/servicios#infra' },
+        { title: t('navbar.cybersecurity', 'Ciberseguridad'), path: '/servicios#security' },
+        { title: t('navbar.consulting', 'Consultoría'), path: '/servicios#consulting' },
+        { title: t('navbar.infrastructure', 'Infraestructura'), path: '/servicios#infra' },
       ]
     },
     {
       id: 'solutions',
-      title: t('navbar.solutions'), // "Solutions" / "Soluciones"
+      title: t('navbar.solutions', 'Soluciones'),
       path: '/soluciones',
-      // Actualizado para coincidir con tu JSON (DevSecOps, Automic, Mainframe)
       submenu: [
-        { title: t('navbar.devsecops'), path: '/soluciones/devsecops' },
-        { title: t('navbar.automic'), path: '/soluciones/automic' },
-        { title: t('navbar.mainframe'), path: '/soluciones/mainframe' },
+        { title: t('navbar.cases', 'Casos de Éxito'), path: '/soluciones#casos' },
+        { title: t('navbar.sectors', 'Sectores'), path: '/soluciones#sectores' },
+        { title: t('navbar.benefits', 'Beneficios'), path: '/soluciones#beneficios' }
       ]
     },
     {
       id: 'contact',
-      title: t('navbar.contact'), // "Contact" / "Contáctanos"
+      title: t('navbar.contact', 'Contáctanos'),
       path: '/contacto',
-      submenu: [
-         { title: t('navbar.support'), path: '/contacto#soporte' }, // "Technical Support"
-         { title: t('navbar.sales'), path: '/contacto#ventas' },    // "Sales"
-         { title: t('navbar.location'), path: '/contacto#ubicacion' }, // "Location"
-      ]
+      submenu: [] // ¡LISTO! Submenú vacío = Enlace directo
     }
   ];
 
@@ -96,6 +90,7 @@ export default function Navbar() {
                 }`}
               >
                 {item.title}
+                {/* Solo mostramos la flecha si hay submenú */}
                 {item.submenu.length > 0 && (
                   <ChevronDown 
                     size={14} 
@@ -104,7 +99,7 @@ export default function Navbar() {
                 )}
               </Link>
 
-              {/* DROPDOWN MENU FLOTANTE */}
+              {/* DROPDOWN MENU FLOTANTE (Solo si hay submenú) */}
               <AnimatePresence>
                 {item.submenu.length > 0 && hoveredItem === item.id && (
                   <motion.div
@@ -114,12 +109,8 @@ export default function Navbar() {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 w-64 pt-2 z-50" 
                   >
-                    {/* Contenido Real del Menú */}
                     <div className="bg-esoft-charcoal border border-white/10 rounded-xl shadow-2xl overflow-hidden backdrop-blur-md relative">
-                        
-                        {/* Triangulito decorativo */}
                         <div className="absolute top-0 left-8 -mt-1 w-4 h-4 bg-esoft-charcoal border-t border-l border-white/10 transform rotate-45"></div>
-
                         <div className="relative z-10 py-2">
                            {item.submenu.map((subItem, index) => (
                             <Link 

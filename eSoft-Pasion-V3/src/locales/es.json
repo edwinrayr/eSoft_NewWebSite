@@ -1,4 +1,51 @@
 {
+  "solutionsPage": {
+    "hero": {
+      "badge": "Casos de Éxito",
+      "titleLine1": "Transformamos Problemas en",
+      "titleLine2": "Ventajas Competitivas",
+      "subtitle": "No vendemos software, vendemos eficiencia, seguridad y escalabilidad. Así es como ayudamos a empresas líderes."
+    },
+    "cases": {
+      "fintech": {
+        "sector": "FinTech",
+        "title": "Plataforma de Pagos Segura",
+        "challenge": "El cliente necesitaba procesar 10,000 transacciones simultáneas sin latencia y con seguridad bancaria.",
+        "solution": "Implementamos una arquitectura de microservicios en AWS con encriptación de extremo a extremo y balanceo de carga automático.",
+        "result": "99.99% de Uptime y reducción del fraude en un 40%."
+      },
+      "ecommerce": {
+        "sector": "E-Commerce",
+        "title": "Tienda Online Escalable",
+        "challenge": "Un retail de moda sufría caídas del servidor cada vez que lanzaban ofertas o en Black Friday.",
+        "solution": "Migración a una solución Headless con Next.js y Shopify Plus, separando el frontend del backend.",
+        "result": "Cargas de página en 0.8s y ventas récord sin caídas."
+      },
+      "healthtech": {
+        "sector": "Salud (HealthTech)",
+        "title": "Gestión de Pacientes en Tiempo Real",
+        "challenge": "Hospitales con sistemas obsoletos y expedientes en papel que retrasaban la atención.",
+        "solution": "WebApp progresiva (PWA) para doctores con acceso instantáneo a historiales clínicos desde tablets.",
+        "result": "30% más eficiencia en consultas y digitalización total."
+      }
+    },
+    "sectors": {
+      "title": "Sectores donde innovamos",
+      "finance": "Finanzas & Banca",
+      "elearning": "E-Learning",
+      "logistics": "Logística",
+      "retail": "Retail"
+    },
+    "benefits": {
+      "title": "¿Por qué software a la medida?",
+      "desc": "Las soluciones 'enlatadas' te obligan a adaptar tu negocio al software. Nosotros construimos software que se adapta a tu negocio, permitiéndote escalar sin límites.",
+      "list": {
+        "item1": "Propiedad intelectual 100% tuya",
+        "item2": "Sin pagos mensuales por licencia",
+        "item3": "Seguridad personalizada"
+      }
+    }
+  },
   "contact": {
     "titleLine1": "¿Listo para",
     "titleLine2": "iniciar el cambio?",
@@ -149,30 +196,6 @@
       "terms": "Términos Legales"
     }
   },
-  "contact": {
-    "titleLine1": "¿Listo para innovar",
-    "titleLine2": "con nosotros?",
-    "subtitle": "Cuéntanos tus desafíos tecnológicos. Desde CDMX para toda Latinoamérica, aplicamos nuestra Pasión por la Tecnología para escalar tu negocio.",
-    "response": "Respuesta garantizada en < 24h",
-    "list": {
-      "item1": "Asesoría Técnica Especializada",
-      "item2": "Soluciones de Ciberseguridad",
-      "item3": "Transformación Digital a Medida"
-    },
-    "form": {
-      "name": "Nombre Completo",
-      "namePh": "Tu nombre o empresa",
-      "email": "Correo Corporativo",
-      "emailPh": "ejemplo@empresa.com",
-      "message": "Detalles del Proyecto",
-      "messagePh": "¿Necesitas desarrollo, seguridad o infraestructura? Cuéntanos...",
-      "btn": "Iniciar Conversación"
-    },
-    "info": {
-      "address": "Montecito 38, Piso 33, Nápoles, CDMX",
-      "phone": "+52 55 6460 4183"
-    }
-  },
   "architecture": {
     "badge": "Por qué elegirnos",
     "titleLine1": "Valor Estratégico",
@@ -236,28 +259,27 @@
     }
   },
   "navbar": {
-  "about": "Nosotros",
-  "history": "Historia",
-  "team": "Equipo",
-  "values": "Valores",
-  "careers": "Carreras",
-  "ceo": "Nuestro Ceo",
-  "services": "Servicios",
-  "renewal": "Renovación de Licencias",
-  "support": "Soporte Técnico",
-  "presales": "Preventa",
-  "consulting": "Consultoría",
-  "solutions": "Soluciones",
-  "devsecops": "Soluciones DevSecOps",
-  "automic": "Soluciones Automic",
-  "mainframe": "Mainframe",
-  "cybersecurity": "Ciberseguridad",
-  "infrastructure": "Infraestructura",
-  "business_mgmt": "Business Management",
-  "contact": "Contáctanos",
-  "sales": "Ventas",
-  "location": "Ubicación"
-},
+    "about": "Nosotros",
+    "history": "Historia",
+    "team": "Equipo",
+    "values": "Valores",
+    "careers": "Carreras",
+    "ceo": "Nuestro CEO",
+    "services": "Servicios",
+    "renewal": "Renovación de Licencias",
+    "support": "Soporte Técnico",
+    "presales": "Preventa",
+    "consulting": "Consultoría",
+    "solutions": "Soluciones",
+    "cases": "Casos de Éxito",
+    "sectors": "Sectores",
+    "benefits": "Beneficios",
+    "cybersecurity": "Ciberseguridad",
+    "infrastructure": "Infraestructura",
+    "contact": "Contáctanos",
+    "sales": "Ventas",
+    "location": "Ubicación"
+  },
   "hero": {
     "badge": "eSoft - Pasión por la Tecnología",
     "titleMain": "Tu Aliado Estratégico en",

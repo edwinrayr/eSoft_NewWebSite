@@ -1,4 +1,51 @@
 {
+  "solutionsPage": {
+    "hero": {
+      "badge": "Success Stories",
+      "titleLine1": "Turning Problems into",
+      "titleLine2": "Competitive Advantages",
+      "subtitle": "We don't sell software, we sell efficiency, security, and scalability. This is how we help leading companies."
+    },
+    "cases": {
+      "fintech": {
+        "sector": "FinTech",
+        "title": "Secure Payment Platform",
+        "challenge": "The client needed to process 10,000 simultaneous transactions with zero latency and banking-grade security.",
+        "solution": "We implemented a microservices architecture on AWS with end-to-end encryption and automatic load balancing.",
+        "result": "99.99% Uptime and 40% fraud reduction."
+      },
+      "ecommerce": {
+        "sector": "E-Commerce",
+        "title": "Scalable Online Store",
+        "challenge": "A fashion retailer suffered server crashes whenever they launched offers or on Black Friday.",
+        "solution": "Migration to a Headless solution with Next.js and Shopify Plus, separating frontend from backend.",
+        "result": "0.8s page loads and record sales without crashes."
+      },
+      "healthtech": {
+        "sector": "Health (HealthTech)",
+        "title": "Real-Time Patient Management",
+        "challenge": "Hospitals with obsolete systems and paper records delayed care.",
+        "solution": "Progressive Web App (PWA) for doctors with instant access to clinical records from tablets.",
+        "result": "30% more efficiency in consultations and total digitization."
+      }
+    },
+    "sectors": {
+      "title": "Sectors where we innovate",
+      "finance": "Finance & Banking",
+      "elearning": "E-Learning",
+      "logistics": "Logistics",
+      "retail": "Retail"
+    },
+    "benefits": {
+      "title": "Why custom software?",
+      "desc": "'Canned' solutions force you to adapt your business to the software. We build software that adapts to your business, allowing you to scale without limits.",
+      "list": {
+        "item1": "100% Intellectual Property yours",
+        "item2": "No monthly license fees",
+        "item3": "Customized Security"
+      }
+    }
+  },
   "contact": {
     "titleLine1": "Ready to",
     "titleLine2": "start the change?",
@@ -149,30 +196,6 @@
       "terms": "Legal Terms"
     }
   },
-  "contact": {
-    "titleLine1": "Ready to innovate",
-    "titleLine2": "with us?",
-    "subtitle": "Tell us about your tech challenges. From CDMX to all of Latin America, we apply our Passion for Technology to scale your business.",
-    "response": "Guaranteed response in < 24h",
-    "list": {
-      "item1": "Specialized Technical Advisory",
-      "item2": "Cybersecurity Solutions",
-      "item3": "Tailored Digital Transformation"
-    },
-    "form": {
-      "name": "Full Name",
-      "namePh": "Your name or company",
-      "email": "Corporate Email",
-      "emailPh": "name@company.com",
-      "message": "Project Details",
-      "messagePh": "Do you need development, security, or infrastructure? Tell us...",
-      "btn": "Start Conversation"
-    },
-    "info": {
-      "address": "Montecito 38, Floor 33, Nápoles, CDMX",
-      "phone": "+52 55 6460 4183"
-    }
-  },
   "architecture": {
     "badge": "Why Choose Us",
     "titleLine1": "Strategic Business",
@@ -236,28 +259,27 @@
     }
   },
   "navbar": {
-  "about": "About Us",
-  "history": "History",
-  "team": "Team",
-  "values": "Values",
-  "careers": "Careers",
-  "ceo": "Our CEO",
-  "services": "Services",
-  "renewal": "License Renewal",
-  "support": "Technical Support",
-  "presales": "Pre-sales",
-  "consulting": "Consulting",
-  "solutions": "Solutions",
-  "devsecops": "DevSecOps Solutions",
-  "automic": "Automic Solutions",
-  "mainframe": "Mainframe",
-  "cybersecurity": "Cybersecurity",
-  "infrastructure": "Infrastructure",
-  "business_mgmt": "Business Management",
-  "contact": "Contact",
-  "sales": "Sales",
-  "location": "Location"
-},
+    "about": "About Us",
+    "history": "History",
+    "team": "Team",
+    "values": "Values",
+    "careers": "Careers",
+    "ceo": "Our CEO",
+    "services": "Services",
+    "renewal": "License Renewal",
+    "support": "Technical Support",
+    "presales": "Pre-sales",
+    "consulting": "Consulting",
+    "solutions": "Solutions",
+    "cases": "Success Stories",
+    "sectors": "Sectors",
+    "benefits": "Benefits",
+    "cybersecurity": "Cybersecurity",
+    "infrastructure": "Infrastructure",
+    "contact": "Contact",
+    "sales": "Sales",
+    "location": "Location"
+  },
   "hero": {
     "badge": "eSoft - Passion for Technology",
     "titleMain": "We Transform",
