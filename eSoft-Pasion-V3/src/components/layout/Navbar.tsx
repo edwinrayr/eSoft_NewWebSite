@@ -31,7 +31,7 @@ export default function Navbar() {
       path: '/nosotros',
       submenu: [
         { title: t('navbar.history', 'Historia'), path: '/nosotros#historia' },
-        { title: t('navbar.ceo', 'Nuestro CEO'), path: '/nosotros#ceo' },
+        { title: t('navbar.ceo', 'Nuestro CEO'), path: 'https://soyjesusrivas.com/', isExternal: true },
         { title: t('navbar.team', 'Equipo'), path: '/nosotros#equipo' },
         { title: t('navbar.values', 'Valores'), path: '/nosotros#valores' },
       ]
@@ -66,7 +66,6 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-esoft-dark/95 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'}`}>
-      {/* Usamos 'relative' aquí para que el posicionamiento absoluto del menú funcione respecto a este contenedor */}
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
         
         {/* 1. IZQUIERDA: LOGO */}
@@ -76,7 +75,7 @@ export default function Navbar() {
             </Link>
         </div>
 
-        {/* 2. CENTRO: MENÚ DE ESCRITORIO (Posicionamiento Absoluto para centrado perfecto) */}
+        {/* 2. CENTRO: MENÚ DE ESCRITORIO */}
         <div className="hidden lg:flex items-center gap-8 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
           {navLinks.map((item) => (
             <div 
@@ -109,22 +108,36 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 5 }}
                     transition={{ duration: 0.2 }}
-                    // left-1/2 y -translate-x-1/2 centra el submenú respecto a su padre (la opción del menú)
                     className="absolute top-full left-1/2 -translate-x-1/2 w-64 pt-2 z-50" 
                   >
                     <div className="bg-esoft-charcoal border border-white/10 rounded-xl shadow-2xl overflow-hidden backdrop-blur-md relative">
-                        {/* Triangulito centrado */}
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-1 w-4 h-4 bg-esoft-charcoal border-t border-l border-white/10 transform rotate-45"></div>
                         <div className="relative z-10 py-2">
-                           {item.submenu.map((subItem, index) => (
-                            <Link 
-                                key={index}
-                                to={subItem.path}
-                                className="block px-6 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-esoft-accent"
-                            >
-                                {subItem.title}
-                            </Link>
-                           ))}
+                           {item.submenu.map((subItem, index) => {
+                             // AGREGADO: Condición para saber si renderizar un enlace externo (<a>) o interno (<Link>)
+                             if (subItem.isExternal) {
+                               return (
+                                 <a 
+                                    key={index}
+                                    href={subItem.path}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block px-6 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-esoft-accent"
+                                 >
+                                    {subItem.title}
+                                 </a>
+                               );
+                             }
+                             return (
+                              <Link 
+                                  key={index}
+                                  to={subItem.path}
+                                  className="block px-6 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-esoft-accent"
+                              >
+                                  {subItem.title}
+                              </Link>
+                             );
+                           })}
                         </div>
                     </div>
                   </motion.div>
@@ -136,7 +149,6 @@ export default function Navbar() {
 
         {/* 3. DERECHA: IDIOMA Y HAMBURGUESA MÓVIL */}
         <div className="flex items-center gap-4 z-20">
-            {/* Selector de Idioma */}
             <button 
                 onClick={toggleLanguage}
                 className="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white border border-white/20 px-3 py-1.5 rounded-full text-xs uppercase font-bold transition-all hover:border-esoft-accent hover:bg-white/5"
@@ -145,7 +157,6 @@ export default function Navbar() {
                 <span>{i18n.language.toUpperCase()}</span>
             </button>
 
-            {/* Botón Móvil */}
             <button 
                 className="lg:hidden text-white hover:text-esoft-accent transition-colors"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -156,7 +167,7 @@ export default function Navbar() {
 
       </div>
 
-      {/* --- MOBILE MENU (Mismo de siempre) --- */}
+      {/* --- MOBILE MENU --- */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
@@ -177,16 +188,33 @@ export default function Navbar() {
                     </Link>
                     {item.submenu.length > 0 && (
                         <div className="pl-4 border-l-2 border-white/10 space-y-3 ml-2">
-                            {item.submenu.map((sub, i) => (
-                                <Link 
-                                    key={i} 
-                                    to={sub.path}
-                                    className="block text-sm text-gray-400 hover:text-esoft-accent"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    {sub.title}
-                                </Link>
-                            ))}
+                            {item.submenu.map((sub, i) => {
+                                // AGREGADO: Lógica externa para el menú móvil también
+                                if (sub.isExternal) {
+                                  return (
+                                    <a 
+                                        key={i} 
+                                        href={sub.path}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block text-sm text-gray-400 hover:text-esoft-accent"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        {sub.title}
+                                    </a>
+                                  );
+                                }
+                                return (
+                                  <Link 
+                                      key={i} 
+                                      to={sub.path}
+                                      className="block text-sm text-gray-400 hover:text-esoft-accent"
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                  >
+                                      {sub.title}
+                                  </Link>
+                                );
+                            })}
                         </div>
                     )}
                 </div>
