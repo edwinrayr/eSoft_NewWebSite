@@ -1,4 +1,25 @@
 {
+  "navbar": {
+    "about": "Nosotros",
+    "history": "Historia",
+    "team": "Equipo",
+    "values": "Valores",
+    "services": "Servicios",
+    "cybersecurity": "Ciberseguridad",
+    "consulting": "Consultoría",
+    "packaged": "Soluciones Empaquetadas",
+    "solutions": "Soluciones",
+    "cases": "Casos de Éxito",
+    "sectors": "Sectores",
+    "benefits": "Beneficios",
+    "contact": "Contáctanos",
+    "internships": "Prácticas",
+    "careers": "Carreras",
+    "searchPlaceholder": "Buscar en eSoft...",
+    "results": "Resultados",
+    "suggestions": "Sugerencias Rápidas",
+    "noResults": "No se encontraron resultados para"
+  },
   "searchResults": {
     "title": "Resultados de búsqueda:",
     "count": "coincidencias encontradas.",
@@ -8,15 +29,42 @@
       "service": "Servicio",
       "case": "Caso de Éxito",
       "about": "Nosotros",
-      "contact": "Contacto"
+      "contact": "Contacto",
+      "career": "Carreras"
     }
   },
-  "homePage": {
-    "ctaFinal": {
-      "titleLine1": "¿Listo para dar el",
-      "titleLine2": "siguiente paso?",
-      "subtitle": "Descubre cómo nuestras soluciones pueden transformar tu infraestructura hoy mismo.",
-      "btn": "Contáctanos Ahora"
+  "internshipsPage": {
+    "hero": {
+      "badge": "Talento Joven",
+      "title": "Inicia tu Carrera Profesional",
+      "highlight": "Con Nosotros",
+      "subtitle": "Buscamos estudiantes apasionados por la tecnología y el marketing que quieran transformar el futuro digital de Latinoamérica.",
+      "btn": "Aplicar Ahora"
+    },
+    "tech": {
+      "title": "Área de Tecnología",
+      "desc": "Participa en la creación e implementación de estrategias tecnológicas de alto nivel.",
+      "roles": [
+        "Desarrollo de Software Full Stack",
+        "Gestión y Estrategia de Ciberseguridad",
+        "Consultoría de Soluciones Tecnológicas",
+        "Integración de Sistemas Empresariales"
+      ]
+    },
+    "marketing": {
+      "title": "Área de Marketing",
+      "desc": "Impulsa nuestra marca con estrategias digitales, contenido y diseño creativo.",
+      "roles": [
+        "Creación de Contenido & Copywriting",
+        "Diseño Gráfico y UI/UX",
+        "Gestión de Redes Sociales",
+        "Análisis de Datos de Marketing"
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para el reto?",
+      "desc": "Envíanos tu CV y cuéntanos por qué quieres unirte a eSoft.",
+      "email": "talento@esoftpasion.com"
     }
   },
   "solutionsPage": {
@@ -318,33 +366,6 @@
         "desc": "Ofrecemos soluciones listas para implementar que automatizan y optimizan procesos clave de TI, como gestión, monitoreo y operación."
       }
     }
-  },
-  "navbar": {
-    "about": "Nosotros",
-    "history": "Historia",
-    "team": "Equipo",
-    "values": "Valores",
-    "careers": "Carreras",
-    "ceo": "Nuestro CEO",
-    "services": "Servicios",
-    "renewal": "Renovación de Licencias",
-    "support": "Soporte Técnico",
-    "presales": "Preventa",
-    "consulting": "Consultoría",
-    "solutions": "Soluciones",
-    "cases": "Casos de Éxito",
-    "sectors": "Sectores",
-    "benefits": "Beneficios",
-    "cybersecurity": "Ciberseguridad",
-    "infrastructure": "Infraestructura",
-    "packaged": "Soluciones Empaquetadas",
-    "contact": "Contáctanos",
-    "sales": "Ventas",
-    "location": "Ubicación",
-    "searchPlaceholder": "Buscar en eSoft...",
-    "results": "Resultados",
-    "suggestions": "Sugerencias Rápidas",
-    "noResults": "No se encontraron resultados para"
   },
   "hero": {
     "badge": "eSoft - Pasión por la Tecnología",

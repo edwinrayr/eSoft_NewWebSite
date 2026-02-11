@@ -19,93 +19,106 @@ export default function Navbar() {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
-  // 1. BASE DE DATOS COMPLETA (Keywords Bilingües)
+  // 1. BASE DE DATOS COMPLETA (Incluye Prácticas Profesionales)
   const searchItems = useMemo(() => [
-    // --- SECCIÓN: SERVICIOS ---
+    // --- SERVICIOS ---
     { 
       title: t('navbar.cybersecurity', 'Ciberseguridad'), 
       category: t('navbar.services', 'Servicios'), 
       url: "/servicios#security", 
-      keywords: ["security", "protection", "antivirus", "ransomware", "seguridad", "protección", "cyber"]
+      keywords: ["security", "protection", "antivirus", "ransomware", "seguridad"]
     },
     { 
       title: t('navbar.consulting', 'Consultoría'), 
       category: t('navbar.services', 'Servicios'), 
       url: "/servicios#consulting", 
-      keywords: ["software", "cloud", "nube", "migración", "asesoría", "aws", "consulting", "migration"]
+      keywords: ["software", "cloud", "nube", "migración", "asesoría", "aws"]
     },
     { 
       title: t('navbar.packaged', 'Soluciones Empaquetadas'), 
       category: t('navbar.services', 'Servicios'), 
       url: "/servicios#infra", 
-      keywords: ["infraestructura", "soporte", "automic", "broadcom", "symantec", "packaged", "solutions", "infrastructure"]
+      keywords: ["infraestructura", "soporte", "automic", "broadcom", "symantec"]
     },
 
-    // --- SECCIÓN: SOLUCIONES ---
+    // --- SOLUCIONES ---
     { 
       title: t('navbar.fintech', 'FinTech'), 
       category: t('navbar.solutions', 'Soluciones'), 
       url: "/soluciones#fintech", 
-      keywords: ["banca", "finance", "pagos", "seguridad bancaria", "payments", "banking"]
+      keywords: ["banca", "finance", "pagos", "seguridad bancaria"]
     },
     { 
       title: t('navbar.ecommerce', 'E-Commerce'), 
       category: t('navbar.solutions', 'Soluciones'), 
       url: "/soluciones#ecommerce", 
-      keywords: ["tienda", "online", "retail", "ventas", "shopify", "store", "sales"]
+      keywords: ["tienda", "online", "retail", "ventas", "shopify"]
     },
     { 
       title: t('navbar.healthtech', 'HealthTech'), 
       category: t('navbar.solutions', 'Soluciones'), 
       url: "/soluciones#healthtech", 
-      keywords: ["salud", "hospital", "médico", "pacientes", "health", "patients", "medical"]
+      keywords: ["salud", "hospital", "médico", "pacientes"]
     },
     { 
       title: t('navbar.sectors', 'Sectores'), 
       category: t('navbar.solutions', 'Soluciones'), 
       url: "/soluciones#sectores", 
-      keywords: ["industrias", "mercados", "retail", "logística", "logistics", "industries", "markets"]
+      keywords: ["industrias", "mercados", "retail", "logística"]
     },
     { 
       title: t('navbar.benefits', 'Beneficios'), 
       category: t('navbar.solutions', 'Soluciones'), 
       url: "/soluciones#beneficios", 
-      keywords: ["ventajas", "roi", "por qué", "medida", "custom", "software", "benefits", "why"]
+      keywords: ["ventajas", "roi", "por qué", "medida", "custom"]
     },
 
-    // --- SECCIÓN: NOSOTROS ---
+    // --- PRÁCTICAS PROFESIONALES (En el buscador) ---
+    { 
+      title: t('navbar.internships', 'Prácticas Profesionales'), 
+      category: t('navbar.careers', 'Carreras'), 
+      url: "/practicas", 
+      popular: true, 
+      keywords: [
+        "becarios", "interns", "students", "estudiantes", "marketing", 
+        "diseño", "design", "developer", "programación", "trainee", 
+        "servicio social", "prácticas"
+      ]
+    },
+
+    // --- NOSOTROS ---
     { 
       title: t('navbar.history', 'Historia'), 
       category: t('navbar.about', 'Nosotros'), 
       url: "/nosotros#historia", 
-      keywords: ["trayectoria", "origen", "2006", "fundación", "history", "roots", "trajectory"]
+      keywords: ["trayectoria", "origen", "2006", "fundación"]
     },
     { 
       title: t('navbar.team', 'Equipo'), 
       category: t('navbar.about', 'Nosotros'), 
       url: "/nosotros#equipo", 
-      keywords: ["staff", "ingenieros", "expertos", "talento", "team", "engineers", "experts", "talent"]
+      keywords: ["staff", "ingenieros", "expertos", "talento"]
     },
     { 
       title: t('navbar.ceo', 'Nuestro CEO'), 
       category: t('navbar.about', 'Nosotros'), 
       url: "https://soyjesusrivas.com/", 
       isExternal: true,
-      keywords: ["jesús rivas", "director", "líder", "fundador", "leader", "founder"]
+      keywords: ["jesús rivas", "director", "líder", "fundador"]
     },
     { 
       title: t('navbar.values', 'Valores'), 
       category: t('navbar.about', 'Nosotros'), 
       url: "/nosotros#valores", 
-      keywords: ["misión", "visión", "cultura", "filosofía", "mission", "vision", "culture", "philosophy", "values"]
+      keywords: ["misión", "visión", "cultura", "filosofía"]
     },
 
-    // --- SECCIÓN: CONTACTO ---
+    // --- CONTACTO ---
     { 
       title: t('navbar.contact', 'Contáctanos'), 
       category: "General", 
       url: "/contacto", 
-      keywords: ["email", "teléfono", "dirección", "ubicación", "soporte", "ventas", "phone", "address", "location", "support", "sales"]
+      keywords: ["email", "teléfono", "dirección", "ubicación", "soporte", "ventas"]
     }
   ], [t]); 
 
@@ -182,6 +195,7 @@ export default function Navbar() {
       }
   };
 
+  // MENU PRINCIPAL (Actualizado con Prácticas)
   const navLinks = [
     {
       id: 'about',
@@ -213,6 +227,13 @@ export default function Navbar() {
         { title: t('navbar.sectors', 'Sectores'), path: '/soluciones#sectores' },
         { title: t('navbar.benefits', 'Beneficios'), path: '/soluciones#beneficios' }
       ]
+    },
+    // --- NUEVO APARTADO EN EL NAVBAR ---
+    {
+      id: 'internships',
+      title: t('navbar.internships', 'Prácticas'),
+      path: '/practicas',
+      submenu: [] 
     },
     {
       id: 'contact',
@@ -327,6 +348,7 @@ export default function Navbar() {
                             </form>
                         </div>
 
+                        {/* SCROLL PERSONALIZADO (Verde y sutil) */}
                         <div className="max-h-[350px] overflow-y-auto pr-1 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-esoft-accent/40 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-esoft-accent">
                             
                             <div className="px-4 py-2 text-[10px] font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2 bg-black/10 sticky top-0 z-10 backdrop-blur-sm">

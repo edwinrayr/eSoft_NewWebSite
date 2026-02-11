@@ -1,14 +1,70 @@
 {
+  "navbar": {
+    "about": "About Us",
+    "history": "History",
+    "team": "Team",
+    "values": "Values",
+    "services": "Services",
+    "cybersecurity": "Cybersecurity",
+    "consulting": "Consulting",
+    "packaged": "Packaged Solutions",
+    "solutions": "Solutions",
+    "cases": "Success Stories",
+    "sectors": "Sectors",
+    "benefits": "Benefits",
+    "contact": "Contact Us",
+    "internships": "Internships",
+    "careers": "Careers",
+    "searchPlaceholder": "Search eSoft...",
+    "results": "Results",
+    "suggestions": "Quick Suggestions",
+    "noResults": "No results found for"
+  },
   "searchResults": {
     "title": "Search Results:",
     "count": "matches found.",
-    "noResultsTitle": "NO RESULTS FOUND",
+    "noResultsTitle": "NOTHING FOUND",
     "noResultsDesc": "Try using other keywords like \"Cybersecurity\", \"Cloud\", or \"Team\".",
     "categories": {
       "service": "Service",
       "case": "Success Story",
       "about": "About Us",
-      "contact": "Contact"
+      "contact": "Contact",
+      "career": "Careers"
+    }
+  },
+  "internshipsPage": {
+    "hero": {
+      "badge": "Young Talent",
+      "title": "Kickstart Your Career",
+      "highlight": "With Us",
+      "subtitle": "We are looking for students passionate about technology and marketing who want to transform Latin America's digital future.",
+      "btn": "Apply Now"
+    },
+    "tech": {
+      "title": "Technology Area",
+      "desc": "Participate in the creation and implementation of high-level technological strategies.",
+      "roles": [
+        "Full Stack Software Development",
+        "Cybersecurity Strategy & Management",
+        "Technology Solutions Consulting",
+        "Enterprise Systems Integration"
+      ]
+    },
+    "marketing": {
+      "title": "Marketing Area",
+      "desc": "Boost our brand with digital strategies, content, and creative design.",
+      "roles": [
+        "Content Creation & Copywriting",
+        "Graphic Design & UI/UX",
+        "Social Media Management",
+        "Marketing Data Analysis"
+      ]
+    },
+    "cta": {
+      "title": "Ready for the challenge?",
+      "desc": "Send us your CV and tell us why you want to join eSoft.",
+      "email": "talent@esoftpasion.com"
     }
   },
   "homePage": {
@@ -318,33 +374,6 @@
         "desc": "We offer ready-to-implement solutions that automate and optimize key IT processes, such as management, monitoring, and operations."
       }
     }
-  },
-  "navbar": {
-    "about": "About Us",
-    "history": "History",
-    "team": "Team",
-    "values": "Values",
-    "careers": "Careers",
-    "ceo": "Our CEO",
-    "services": "Services",
-    "renewal": "License Renewal",
-    "support": "Technical Support",
-    "presales": "Pre-sales",
-    "consulting": "Consulting",
-    "solutions": "Solutions",
-    "cases": "Success Stories",
-    "sectors": "Sectors",
-    "benefits": "Benefits",
-    "cybersecurity": "Cybersecurity",
-    "infrastructure": "Infrastructure",
-    "packaged": "Packaged Solutions",
-    "contact": "Contact Us",
-    "sales": "Sales",
-    "location": "Location",
-    "searchPlaceholder": "Search eSoft...",
-    "results": "Results",
-    "suggestions": "Quick Suggestions",
-    "noResults": "No results found for"
   },
   "hero": {
     "badge": "eSoft - Passion for Technology",
