@@ -1,5 +1,22 @@
-import { Facebook, Instagram, Linkedin, Twitter, Mail, MapPin, Phone } from 'lucide-react';
+import { Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+
+// Icono de TikTok personalizado
+const TikTokIcon = ({ size = 20, className = "" }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -29,15 +46,53 @@ export default function Footer() {
             </p>
             
             <div className="flex gap-4">
-              {[Facebook, Instagram, Linkedin, Twitter].map((Icon, i) => (
-                <a key={i} href="#" className="text-esoft-gray-light hover:text-esoft-accent transition-colors p-2 hover:bg-white/5 rounded-full">
-                  <Icon size={20} />
-                </a>
-              ))}
+              {/* Instagram */}
+              <a 
+                href="https://www.instagram.com/esoftpasion?igsh=ZzlsOG1sNjJrejVt" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-esoft-gray-light hover:text-esoft-accent transition-colors p-2 hover:bg-white/5 rounded-full"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </a>
+
+              {/* LinkedIn */}
+              <a 
+                href="https://www.linkedin.com/company/esoft-pasi%C3%B3n-por-la-tecnolog%C3%ADa-2006/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-esoft-gray-light hover:text-esoft-accent transition-colors p-2 hover:bg-white/5 rounded-full"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} />
+              </a>
+
+              {/* TikTok */}
+              <a 
+                href="https://www.tiktok.com/@esoft.pasion" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-esoft-gray-light hover:text-esoft-accent transition-colors p-2 hover:bg-white/5 rounded-full"
+                aria-label="TikTok"
+              >
+                <TikTokIcon size={20} />
+              </a>
+
+              {/* YouTube */}
+              <a 
+                href="https://www.youtube.com/@PasionPorLaTecnologia" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-esoft-gray-light hover:text-esoft-accent transition-colors p-2 hover:bg-white/5 rounded-full"
+                aria-label="YouTube"
+              >
+                <Youtube size={20} />
+              </a>
             </div>
           </div>
 
-          {/* Columna 2: Servicios (ACTUALIZADO con datos de servicios.html) */}
+          {/* Columna 2: Servicios */}
           <div>
             <h4 className="text-white font-heading font-bold uppercase tracking-wider mb-6 text-sm border-b border-esoft-accent/30 pb-2 w-fit">
               {t('footer.col1')}
