@@ -4,42 +4,40 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', 
   theme: {
     extend: {
-      // 1. TIPOGRAFÍAS
       fontFamily: {
-        sans: ['Rubik', 'sans-serif'],   // Texto general
-        heading: ['Oswald', 'sans-serif'], // Títulos
+        sans: ['Rubik', 'sans-serif'],
+        heading: ['Oswald', 'sans-serif'],
       },
-      
-      // 2. COLORES DE ESOFT
       colors: {
-        esoft: {
-          dark: '#171717',        // Fondo principal (Eerie Black)
-          charcoal: '#262626',    // Fondo secundario / Tarjetas
-          accent: '#1b9f88',      // Color principal (Verde/Teal)
-          gray: {
-            light: 'hsl(0, 0%, 80%)',   // Textos claros
-            lighter: 'hsl(0, 0%, 94%)', // Blancos suaves
-          },
-          white: '#ffffff',
-        }
+        'esoft-dark': '#171717',
+        'esoft-charcoal': '#262626',
+        'esoft-accent': '#1b9f88',
+        'esoft-gray-light': 'hsl(0, 0%, 80%)',
+        'esoft-gray-lighter': 'hsl(0, 0%, 94%)',
+        'esoft-white': '#ffffff',
       },
-
-      // 3. IMÁGENES DE FONDO (Efectos de luz)
       backgroundImage: {
         'tech-glow': 'radial-gradient(circle at 50% 0%, rgba(27, 159, 136, 0.15) 0%, transparent 70%)',
       },
-
-      // 4. ANIMACIONES (Para el Marquee/Cinta infinita)
       keyframes: {
-        scroll: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' }, // Se mueve a la mitad para dar efecto infinito
-        }
+        // PERMITE EL MOVIMIENTO DE PATRONES (ESCUDOS/GRIDS)
+        'shield-scroll': {
+          '0%': { 'background-position': '0 0' },
+          '100%': { 'background-position': '35px 40px' },
+        },
+        'gradient-x': {
+          '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
+          '50%': { 'background-size': '200% 200%', 'background-position': 'right center' },
+        },
       },
       animation: {
-        scroll: 'scroll 30s linear infinite', // Velocidad ajustable (30s es suave)
+        scroll: 'scroll 30s linear infinite',
+        'shield-scroll': 'shield-scroll 10s linear infinite', // NUEVA
+        'gradient-x': 'gradient-x 8s ease infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       }
     },
   },

@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, Globe, Search, ArrowRight, CornerDownLeft, Sparkles, ExternalLink } from 'lucide-react';
+import { Menu, X, ChevronDown, Globe, Search, ExternalLink, CornerDownLeft, Sparkles } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import ThemeToggle from '../ui/ThemeToggle'; 
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
@@ -13,118 +14,31 @@ export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   
-  // --- ESTADOS DEL BUSCADOR ---
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
-  // 1. BASE DE DATOS COMPLETA (Incluye Prácticas Profesionales)
+  // BASE DE DATOS DEL BUSCADOR (Recuperada completa)
   const searchItems = useMemo(() => [
-    // --- SERVICIOS ---
-    { 
-      title: t('navbar.cybersecurity', 'Ciberseguridad'), 
-      category: t('navbar.services', 'Servicios'), 
-      url: "/servicios#security", 
-      keywords: ["security", "protection", "antivirus", "ransomware", "seguridad"]
-    },
-    { 
-      title: t('navbar.consulting', 'Consultoría'), 
-      category: t('navbar.services', 'Servicios'), 
-      url: "/servicios#consulting", 
-      keywords: ["software", "cloud", "nube", "migración", "asesoría", "aws"]
-    },
-    { 
-      title: t('navbar.packaged', 'Soluciones Empaquetadas'), 
-      category: t('navbar.services', 'Servicios'), 
-      url: "/servicios#infra", 
-      keywords: ["infraestructura", "soporte", "automic", "broadcom", "symantec"]
-    },
-
-    // --- SOLUCIONES ---
-    { 
-      title: t('navbar.fintech', 'FinTech'), 
-      category: t('navbar.solutions', 'Soluciones'), 
-      url: "/soluciones#fintech", 
-      keywords: ["banca", "finance", "pagos", "seguridad bancaria"]
-    },
-    { 
-      title: t('navbar.ecommerce', 'E-Commerce'), 
-      category: t('navbar.solutions', 'Soluciones'), 
-      url: "/soluciones#ecommerce", 
-      keywords: ["tienda", "online", "retail", "ventas", "shopify"]
-    },
-    { 
-      title: t('navbar.healthtech', 'HealthTech'), 
-      category: t('navbar.solutions', 'Soluciones'), 
-      url: "/soluciones#healthtech", 
-      keywords: ["salud", "hospital", "médico", "pacientes"]
-    },
-    { 
-      title: t('navbar.sectors', 'Sectores'), 
-      category: t('navbar.solutions', 'Soluciones'), 
-      url: "/soluciones#sectores", 
-      keywords: ["industrias", "mercados", "retail", "logística"]
-    },
-    { 
-      title: t('navbar.benefits', 'Beneficios'), 
-      category: t('navbar.solutions', 'Soluciones'), 
-      url: "/soluciones#beneficios", 
-      keywords: ["ventajas", "roi", "por qué", "medida", "custom"]
-    },
-
-    // --- PRÁCTICAS PROFESIONALES (En el buscador) ---
-    { 
-      title: t('navbar.internships', 'Prácticas Profesionales'), 
-      category: t('navbar.careers', 'Carreras'), 
-      url: "/practicas", 
-      popular: true, 
-      keywords: [
-        "becarios", "interns", "students", "estudiantes", "marketing", 
-        "diseño", "design", "developer", "programación", "trainee", 
-        "servicio social", "prácticas"
-      ]
-    },
-
-    // --- NOSOTROS ---
-    { 
-      title: t('navbar.history', 'Historia'), 
-      category: t('navbar.about', 'Nosotros'), 
-      url: "/nosotros#historia", 
-      keywords: ["trayectoria", "origen", "2006", "fundación"]
-    },
-    { 
-      title: t('navbar.team', 'Equipo'), 
-      category: t('navbar.about', 'Nosotros'), 
-      url: "/nosotros#equipo", 
-      keywords: ["staff", "ingenieros", "expertos", "talento"]
-    },
-    { 
-      title: t('navbar.ceo', 'Nuestro CEO'), 
-      category: t('navbar.about', 'Nosotros'), 
-      url: "https://soyjesusrivas.com/", 
-      isExternal: true,
-      keywords: ["jesús rivas", "director", "líder", "fundador"]
-    },
-    { 
-      title: t('navbar.values', 'Valores'), 
-      category: t('navbar.about', 'Nosotros'), 
-      url: "/nosotros#valores", 
-      keywords: ["misión", "visión", "cultura", "filosofía"]
-    },
-
-    // --- CONTACTO ---
-    { 
-      title: t('navbar.contact', 'Contáctanos'), 
-      category: "General", 
-      url: "/contacto", 
-      keywords: ["email", "teléfono", "dirección", "ubicación", "soporte", "ventas"]
-    }
+    { title: t('navbar.cybersecurity', 'Ciberseguridad'), category: t('navbar.services', 'Servicios'), url: "/servicios#security", keywords: ["security", "seguridad"] },
+    { title: t('navbar.consulting', 'Consultoría'), category: t('navbar.services', 'Servicios'), url: "/servicios#consulting", keywords: ["cloud", "nube"] },
+    { title: t('navbar.packaged', 'Soluciones Empaquetadas'), category: t('navbar.services', 'Servicios'), url: "/servicios#infra", keywords: ["infraestructura"] },
+    { title: t('navbar.fintech', 'FinTech'), category: t('navbar.solutions', 'Soluciones'), url: "/soluciones#fintech", keywords: ["banca"] },
+    { title: t('navbar.ecommerce', 'E-Commerce'), category: t('navbar.solutions', 'Soluciones'), url: "/soluciones#ecommerce", keywords: ["tienda"] },
+    { title: t('navbar.healthtech', 'HealthTech'), category: t('navbar.solutions', 'Soluciones'), url: "/soluciones#healthtech", keywords: ["salud"] },
+    { title: t('navbar.sectors', 'Sectores'), category: t('navbar.solutions', 'Soluciones'), url: "/soluciones#sectores", keywords: ["industrias"] },
+    { title: t('navbar.benefits', 'Beneficios'), category: t('navbar.solutions', 'Soluciones'), url: "/soluciones#beneficios", keywords: ["ventajas"] },
+    { title: t('navbar.internships', 'Prácticas'), category: t('navbar.careers', 'Carreras'), url: "/practicas", popular: true, keywords: ["becarios"] },
+    { title: t('navbar.history', 'Historia'), category: t('navbar.about', 'Nosotros'), url: "/nosotros#historia", keywords: ["trayectoria"] },
+    { title: t('navbar.team', 'Equipo'), category: t('navbar.about', 'Nosotros'), url: "/nosotros#equipo", keywords: ["staff"] },
+    { title: t('navbar.ceo', 'Nuestro CEO'), category: t('navbar.about', 'Nosotros'), url: "https://soyjesusrivas.com/", isExternal: true, keywords: ["jesús rivas"] },
+    { title: t('navbar.values', 'Valores'), category: t('navbar.about', 'Nosotros'), url: "/nosotros#valores", keywords: ["misión"] },
+    { title: t('navbar.contact', 'Contáctanos'), category: "General", url: "/contacto", keywords: ["email"] }
   ], [t]); 
 
   const [filteredResults, setFilteredResults] = useState<typeof searchItems>([]);
 
-  // Efecto: Cuando se abre el buscador, mostramos sugerencias
   useEffect(() => {
     if (isSearchOpen) {
         setFilteredResults(searchItems.slice(0, 6)); 
@@ -161,7 +75,6 @@ export default function Navbar() {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(e.target.value);
-
     if (query.length === 0) {
         setFilteredResults(searchItems.slice(0, 6));
     } else {
@@ -195,7 +108,6 @@ export default function Navbar() {
       }
   };
 
-  // MENU PRINCIPAL (Actualizado con Prácticas)
   const navLinks = [
     {
       id: 'about',
@@ -228,29 +140,31 @@ export default function Navbar() {
         { title: t('navbar.benefits', 'Beneficios'), path: '/soluciones#beneficios' }
       ]
     },
-    // --- NUEVO APARTADO EN EL NAVBAR ---
-    {
-      id: 'internships',
-      title: t('navbar.internships', 'Prácticas'),
-      path: '/practicas',
-      submenu: [] 
-    },
-    {
-      id: 'contact',
-      title: t('navbar.contact', 'Contáctanos'),
-      path: '/contacto',
-      submenu: [] 
-    }
+    { id: 'internships', title: t('navbar.internships', 'Prácticas'), path: '/practicas', submenu: [] },
+    { id: 'contact', title: t('navbar.contact', 'Contáctanos'), path: '/contacto', submenu: [] }
   ];
 
+  const isHome = location.pathname === '/';
+  
+  // --- LÓGICA DE TRANSPARENCIA REFINADA ---
+  const navBackgroundClass = isScrolled
+    ? 'bg-esoft-dark/30 backdrop-blur-xl border-b border-white/5 py-3 shadow-2xl' // SCROLL: Muy transparente, mucho blur
+    : isHome
+      ? 'bg-transparent py-6' // TOP HOME: Invisible para que luzca el Hero
+      : 'bg-esoft-dark py-5 border-b border-white/10'; // TOP INTERNAS: Sólido para legibilidad
+
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-esoft-dark/95 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out ${navBackgroundClass}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative h-10">
         
         {/* LOGO */}
         <div className="flex-shrink-0 z-20">
             <Link to="/" className="flex items-center gap-2 group">
-                <img src="/esoftlogo.png" alt="eSoft Logo" className="h-10 w-auto group-hover:opacity-80 transition-opacity" />
+                <img 
+                  src="/esoftlogo.png" 
+                  alt="eSoft Logo" 
+                  className="h-10 w-auto group-hover:scale-105 transition-transform" 
+                />
             </Link>
         </div>
 
@@ -266,7 +180,9 @@ export default function Navbar() {
               <Link 
                 to={item.path}
                 className={`flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors py-4 ${
-                    hoveredItem === item.id ? 'text-esoft-accent' : 'text-gray-300 hover:text-white'
+                    hoveredItem === item.id 
+                    ? 'text-esoft-accent' 
+                    : 'text-gray-300 hover:text-white'
                 }`}
               >
                 {item.title}
@@ -287,21 +203,15 @@ export default function Navbar() {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-1/2 -translate-x-1/2 w-64 pt-2 z-50" 
                   >
-                    <div className="bg-esoft-charcoal border border-white/10 rounded-xl shadow-2xl overflow-hidden backdrop-blur-md relative">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-1 w-4 h-4 bg-esoft-charcoal border-t border-l border-white/10 transform rotate-45"></div>
+                    <div className="bg-white dark:bg-esoft-charcoal border border-gray-200 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden backdrop-blur-md relative">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-1 w-4 h-4 bg-white dark:bg-esoft-charcoal border-t border-l border-gray-200 dark:border-white/10 transform rotate-45"></div>
                         <div className="relative z-10 py-2">
                            {item.submenu.map((subItem, index) => {
-                             if (subItem.isExternal) {
-                               return (
-                                 <a key={index} href={subItem.path} target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-esoft-accent">
-                                   {subItem.title}
-                                 </a>
-                               );
-                             }
-                             return (
-                                <Link key={index} to={subItem.path} className="block px-6 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-esoft-accent">
-                                    {subItem.title}
-                                </Link>
+                             const linkClasses = "block px-6 py-3 text-sm text-gray-600 dark:text-gray-400 hover:text-esoft-accent dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-esoft-accent";
+                             return subItem.isExternal ? (
+                               <a key={index} href={subItem.path} target="_blank" rel="noopener noreferrer" className={linkClasses}>{subItem.title}</a>
+                             ) : (
+                               <Link key={index} to={subItem.path} className={linkClasses}>{subItem.title}</Link>
                              );
                            })}
                         </div>
@@ -315,15 +225,17 @@ export default function Navbar() {
 
         {/* DERECHA */}
         <div className="flex items-center gap-4 z-20 relative" ref={searchContainerRef}>
-            
             <button 
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className={`transition-colors p-2 hover:bg-white/5 rounded-full ${isSearchOpen ? 'text-esoft-accent' : 'text-gray-300 hover:text-white'}`}
+                className={`transition-colors p-2 hover:bg-white/10 rounded-full ${isSearchOpen ? 'text-esoft-accent' : 'text-gray-300 hover:text-white'}`}
             >
                 {isSearchOpen ? <X size={20} /> : <Search size={20} />}
             </button>
 
-            {/* === VENTANA FLOTANTE DE BÚSQUEDA === */}
+            <div className="hidden lg:block">
+                <ThemeToggle />
+            </div>
+
             <AnimatePresence>
                 {isSearchOpen && (
                     <motion.div
@@ -331,9 +243,9 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full right-0 mt-4 w-[320px] md:w-[400px] bg-esoft-charcoal border border-white/10 rounded-xl shadow-2xl overflow-hidden backdrop-blur-md z-50 ring-1 ring-white/10"
+                        className="absolute top-full right-0 mt-4 w-[320px] md:w-[400px] bg-white dark:bg-esoft-charcoal border border-gray-200 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden backdrop-blur-md z-50 ring-1 ring-black/5 dark:ring-white/10"
                     >
-                        <div className="p-3 border-b border-white/10 bg-white/5">
+                        <div className="p-3 border-b border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5">
                             <form onSubmit={handleEnterKey} className="relative flex items-center">
                                 <Search className="absolute left-3 text-gray-400" size={16} />
                                 <input 
@@ -342,35 +254,24 @@ export default function Navbar() {
                                     value={searchQuery}
                                     onChange={handleSearchChange}
                                     placeholder={t('navbar.searchPlaceholder', 'Buscar...')}
-                                    className="w-full bg-black/30 border border-white/10 rounded-lg py-2 pl-9 pr-3 text-white text-sm focus:border-esoft-accent focus:ring-1 focus:ring-esoft-accent outline-none placeholder-gray-500"
+                                    className="w-full bg-white dark:bg-black/30 border border-gray-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-gray-900 dark:text-white text-sm focus:border-esoft-accent focus:ring-1 focus:ring-esoft-accent outline-none placeholder-gray-500"
                                     autoComplete="off"
                                 />
                             </form>
                         </div>
-
-                        {/* SCROLL PERSONALIZADO (Verde y sutil) */}
                         <div className="max-h-[350px] overflow-y-auto pr-1 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-esoft-accent/40 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-esoft-accent">
-                            
-                            <div className="px-4 py-2 text-[10px] font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2 bg-black/10 sticky top-0 z-10 backdrop-blur-sm">
+                            <div className="px-4 py-2 text-[10px] font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2 bg-gray-50 dark:bg-black/10 sticky top-0 z-10 backdrop-blur-sm">
                                 <Sparkles size={10} />
                                 {searchQuery ? t('navbar.results', 'Resultados') : t('navbar.suggestions', 'Sugerencias Rápidas')}
                             </div>
-
                             {filteredResults.length > 0 ? (
                                 <ul>
                                     {filteredResults.map((item, index) => (
-                                        <li key={index} className="border-b border-white/5 last:border-none">
-                                            <button
-                                                onClick={() => handleSuggestionClick(item)}
-                                                className="w-full text-left px-4 py-3 hover:bg-white/5 transition-all group flex items-center justify-between"
-                                            >
+                                        <li key={index} className="border-b border-gray-100 dark:border-white/5 last:border-none">
+                                            <button onClick={() => handleSuggestionClick(item)} className="w-full text-left px-4 py-3 hover:bg-gray-50 dark:hover:bg-white/5 transition-all group flex items-center justify-between">
                                                 <div>
-                                                    <span className="text-white text-sm font-medium block group-hover:text-esoft-accent transition-colors">
-                                                        {item.title}
-                                                    </span>
-                                                    <span className="text-[11px] text-gray-500 uppercase tracking-wider mt-0.5">
-                                                        {item.category}
-                                                    </span>
+                                                    <span className="text-gray-800 dark:text-white text-sm font-medium block group-hover:text-esoft-accent transition-colors">{item.title}</span>
+                                                    <span className="text-[11px] text-gray-500 uppercase tracking-wider mt-0.5">{item.category}</span>
                                                 </div>
                                                 <div className="opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
                                                     {item.isExternal ? <ExternalLink size={14} className="text-gray-400" /> : <CornerDownLeft size={14} className="text-gray-400" />}
@@ -380,63 +281,47 @@ export default function Navbar() {
                                     ))}
                                 </ul>
                             ) : (
-                                <div className="p-6 text-center text-gray-500 text-sm">
-                                    {t('navbar.noResults')} "{searchQuery}"
-                                </div>
+                                <div className="p-6 text-center text-gray-500 text-sm">{t('navbar.noResults')} "{searchQuery}"</div>
                             )}
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
 
-            <button 
-                onClick={toggleLanguage}
-                className="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white border border-white/20 px-3 py-1.5 rounded-full text-xs uppercase font-bold transition-all hover:border-esoft-accent hover:bg-white/5"
-            >
+            <button onClick={toggleLanguage} className="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white border border-white/20 px-3 py-1.5 rounded-full text-xs uppercase font-bold transition-all hover:border-esoft-accent hover:bg-white/5">
                 <Globe size={14} /> 
                 <span>{i18n.language.toUpperCase()}</span>
             </button>
 
-            <button 
-                className="lg:hidden text-white hover:text-esoft-accent transition-colors"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
+            <button className="lg:hidden text-white hover:text-esoft-accent transition-colors" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                 {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
         </div>
-
       </div>
 
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-esoft-dark border-t border-white/10 overflow-hidden shadow-2xl"
+            className="lg:hidden bg-white dark:bg-esoft-dark border-t border-gray-200 dark:border-white/10 overflow-hidden shadow-2xl"
           >
             <div className="px-6 py-8 space-y-6">
               {navLinks.map((item) => (
                 <div key={item.id}>
-                    <Link 
-                        to={item.path} 
-                        className="block text-lg font-bold text-white mb-2"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    >
+                    <Link to={item.path} className="block text-lg font-bold text-gray-900 dark:text-white mb-2" onClick={() => setIsMobileMenuOpen(false)}>
                         {item.title}
                     </Link>
                     {item.submenu.length > 0 && (
-                        <div className="pl-4 border-l-2 border-white/10 space-y-3 ml-2">
+                        <div className="pl-4 border-l-2 border-gray-200 dark:border-white/10 space-y-3 ml-2">
                             {item.submenu.map((sub, i) => (
                                 <div key={i}> 
                                 {sub.isExternal ? (
-                                    <a href={sub.path} target="_blank" rel="noopener noreferrer" className="block text-sm text-gray-400 hover:text-esoft-accent" onClick={() => setIsMobileMenuOpen(false)}>
-                                        {sub.title}
-                                    </a>
+                                    <a href={sub.path} target="_blank" rel="noopener noreferrer" className="block text-sm text-gray-600 dark:text-gray-400 hover:text-esoft-accent" onClick={() => setIsMobileMenuOpen(false)}>{sub.title}</a>
                                 ) : (
-                                    <Link to={sub.path} className="block text-sm text-gray-400 hover:text-esoft-accent" onClick={() => setIsMobileMenuOpen(false)}>
-                                        {sub.title}
-                                    </Link>
+                                    <Link to={sub.path} className="block text-sm text-gray-600 dark:text-gray-400 hover:text-esoft-accent" onClick={() => setIsMobileMenuOpen(false)}>{sub.title}</Link>
                                 )}
                                 </div>
                             ))}
@@ -444,10 +329,9 @@ export default function Navbar() {
                     )}
                 </div>
               ))}
-              <div className="pt-4 border-t border-white/10">
-                <button onClick={toggleLanguage} className="text-sm font-bold text-gray-400 uppercase">
-                    Change Language ({i18n.language.toUpperCase()})
-                </button>
+              <div className="pt-4 border-t border-gray-200 dark:border-white/10 flex justify-between items-center">
+                <button onClick={toggleLanguage} className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase">Change Language ({i18n.language.toUpperCase()})</button>
+                <ThemeToggle />
               </div>
             </div>
           </motion.div>

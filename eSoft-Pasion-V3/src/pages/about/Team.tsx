@@ -34,14 +34,23 @@ export default function Team() {
   ];
 
   return (
-    <div className="pt-24 min-h-screen bg-esoft-dark relative overflow-hidden pb-20">
+    // CONTENEDOR: Adaptable con animación menta
+    <div className="pt-24 min-h-screen bg-white dark:bg-esoft-dark relative overflow-hidden pb-20 transition-colors duration-300">
       
-      {/* Decoración de fondo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-esoft-accent/5 blur-[100px] rounded-full pointer-events-none" />
+      {/* CAPA DE ANIMACIÓN VERDE MENTA (Solo visible en Light Mode) */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-100 dark:opacity-0 transition-opacity duration-500">
+         <div className="absolute inset-0 bg-gradient-to-br from-white via-emerald-50/50 to-white bg-[length:200%_200%] animate-gradient-x" />
+         <div className="absolute inset-0 opacity-[0.03]" 
+              style={{ backgroundImage: 'linear-gradient(#1b9f88 1px, transparent 1px), linear-gradient(to right, #1b9f88 1px, transparent 1px)', backgroundSize: '60px 60px' }} 
+         />
+      </div>
+
+      {/* Decoración de fondo (Modo Oscuro) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-esoft-accent/5 blur-[100px] rounded-full pointer-events-none hidden dark:block" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-        {/* Encabezado de la página */}
+        {/* Encabezado adaptable */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,10 +59,10 @@ export default function Team() {
           <span className="text-esoft-accent font-bold tracking-widest uppercase text-sm mb-2 block">
             {t('navbar.team', 'Nuestro Talento')}
           </span>
-          <h1 className="text-5xl md:text-6xl font-heading font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-heading font-bold text-gray-900 dark:text-white mb-6">
             {t('aboutPage.team.title', 'Conoce al Equipo')}
           </h1>
-          <p className="text-xl text-esoft-gray-light font-light max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-esoft-gray-light font-light max-w-2xl mx-auto leading-relaxed">
             {t('aboutPage.team.subtitle', 'Ingenieros, estrategas y especialistas apasionados por resolver los desafíos tecnológicos más complejos.')}
           </p>
         </motion.div>
@@ -69,10 +78,10 @@ export default function Team() {
               transition={{ delay: index * 0.1 }}
               className="group relative"
             >
-              {/* TARJETA */}
-              <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-esoft-accent/50 transition-all duration-300 hover:-translate-y-2 h-full flex flex-col">
+              {/* TARJETA: Blanco traslúcido en Light | Oscuro en Dark */}
+              <div className="bg-white/80 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden hover:border-esoft-accent/50 transition-all duration-300 hover:-translate-y-2 h-full flex flex-col shadow-xl dark:shadow-none backdrop-blur-md">
                 
-                {/* 1. FOTO (Clickable) */}
+                {/* 1. FOTO */}
                 <a 
                   href={member.link} 
                   target="_blank" 
@@ -85,31 +94,29 @@ export default function Team() {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110 grayscale group-hover/image:grayscale-0"
                   />
                   
-                  {/* Overlay al pasar el mouse sobre la foto */}
                   <div className="absolute inset-0 bg-esoft-accent/80 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="text-white flex items-center gap-2 font-bold uppercase tracking-wider transform translate-y-4 group-hover/image:translate-y-0 transition-transform duration-300">
-                      {/* TRADUCCIÓN APLICADA: Ver Perfil */}
                       <span>{t('aboutPage.team.viewProfile')}</span>
                       <ExternalLink size={18} />
                     </div>
                   </div>
                 </a>
 
-                {/* 2. INFO */}
+                {/* 2. INFO ADAPTABLE */}
                 <div className="p-6 text-center flex-1 flex flex-col">
-                  <h3 className="text-xl font-heading font-bold text-white mb-1">
+                  <h3 className="text-xl font-heading font-bold text-gray-900 dark:text-white mb-1">
                     {t(`aboutPage.team.members.${member.key}.name`)}
                   </h3>
                   <p className="text-esoft-accent text-sm font-bold uppercase tracking-wider mb-4">
                     {t(`aboutPage.team.members.${member.key}.role`)}
                   </p>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-1">
                     {t(`aboutPage.team.members.${member.key}.desc`)}
                   </p>
                   
                   {/* Redes Sociales */}
-                  <div className="flex justify-center gap-4 pt-4 border-t border-white/10">
-                    <a href={member.link} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
+                  <div className="flex justify-center gap-4 pt-4 border-t border-gray-100 dark:border-white/10">
+                    <a href={member.link} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-esoft-accent transition-colors">
                       <Linkedin size={20} />
                     </a>
                   </div>
@@ -120,24 +127,24 @@ export default function Team() {
           ))}
         </div>
 
-        {/* SECCIÓN INVITACIÓN (CARRERAS) - TRADUCIDA */}
+        {/* SECCIÓN INVITACIÓN (CARRERAS) - Estilo impacto oscuro */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-32 bg-gradient-to-br from-esoft-charcoal to-black border border-white/10 p-12 rounded-3xl text-center relative overflow-hidden"
+          className="mt-32 bg-gray-900 dark:bg-gradient-to-br dark:from-esoft-charcoal dark:to-black border border-gray-800 dark:border-white/10 p-12 rounded-3xl text-center relative overflow-hidden shadow-2xl"
         >
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-3xl font-heading font-bold text-white mb-4">
                 {t('aboutPage.team.cta.title')}
             </h2>
-            <p className="text-esoft-gray-light mb-8">
+            <p className="text-gray-300 mb-8">
                 {t('aboutPage.team.cta.desc')}
             </p>
             <a 
               href="mailto:talento@esoftpasion.com" 
-              className="inline-flex items-center gap-2 px-8 py-3 bg-white text-esoft-dark font-bold rounded-full hover:bg-esoft-gray-light transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-esoft-accent text-white font-bold rounded-full hover:bg-emerald-600 transition-colors shadow-lg shadow-esoft-accent/20"
             >
               <Mail size={18} /> {t('aboutPage.team.cta.btn')}
             </a>

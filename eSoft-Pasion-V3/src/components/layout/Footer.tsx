@@ -2,8 +2,8 @@ import { Instagram, Linkedin, Mail, MapPin, Phone, Youtube, ChevronRight } from 
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-// Icono de TikTok personalizado
-const TikTokIcon = ({ size = 20, className = "" }) => (
+// Icono de TikTok personalizado (SVG inline)
+const TikTokIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
   <svg 
     width={size} 
     height={size} 
@@ -24,9 +24,14 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-esoft-dark border-t border-white/10 pt-20 pb-10 relative overflow-hidden">
+    /* CAMBIO: 
+       - bg-esoft-dark/80: Da transparencia en modo claro.
+       - dark:bg-esoft-dark: Vuelve al color sólido en modo oscuro.
+       - backdrop-blur-md: Hace que el fondo se vea como cristal esmerilado.
+    */
+    <footer className="bg-esoft-dark/80 dark:bg-esoft-dark border-t border-white/10 pt-20 pb-10 relative overflow-hidden z-10 backdrop-blur-md transition-colors duration-500">
       
-      {/* Luz de fondo sutil */}
+      {/* Luz de fondo sutil (Efecto Glow) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-esoft-accent/10 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -99,7 +104,6 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link to="/servicios#security" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
-                  {/* Animación corregida: Ancho 0 a Ancho X */}
                   <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
                     <ChevronRight size={16} />
                   </span>
@@ -213,8 +217,8 @@ export default function Footer() {
           </p>
           <div className="flex gap-6 text-xs text-esoft-gray-light">
             <Link to="/privacidad" className="hover:text-esoft-accent transition-colors">
-            {t('footer.privacy')}
-          </Link>
+              {t('footer.privacy')}
+            </Link>
             <Link to="/cookies" className="hover:text-white transition-colors">{t('footer.cookies')}</Link>
           </div>
         </div>
