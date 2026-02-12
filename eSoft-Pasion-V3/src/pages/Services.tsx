@@ -63,7 +63,7 @@ export default function Services() {
   return (
     <div className="pt-24 min-h-screen bg-white dark:bg-esoft-dark relative overflow-hidden transition-colors duration-300">
       
-      {/* CAPA DE ANIMACIÓN VERDE MENTA (Solo visible en Light Mode) */}
+      {/* CAPA DE ANIMACIÓN VERDE MENTA */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-100 dark:opacity-0 transition-opacity duration-500">
          <div className="absolute inset-0 bg-gradient-to-br from-white via-emerald-50/50 to-white bg-[length:200%_200%] animate-gradient-x" />
          <div className="absolute inset-0 opacity-[0.03]" 
@@ -105,19 +105,15 @@ export default function Services() {
                 index % 2 === 1 ? 'md:flex-row-reverse' : ''
               }`}
             >
-              {/* --- SECCIÓN VISUAL --- */}
               <div className="w-full md:w-1/2 relative group">
                 <div className="absolute inset-0 bg-esoft-accent/20 blur-3xl rounded-full opacity-0 group-hover:opacity-70 transition-opacity duration-700 -z-10" />
-                
                 <div className="relative h-[400px] rounded-3xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-2xl group-hover:border-esoft-accent/50 transition-all duration-500">
                   <img 
                     src={service.image} 
                     alt={service.title}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0"
                   />
-                  
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent mix-blend-multiply"></div>
-                  
                   <div className="absolute bottom-8 left-8 z-20">
                      <div className="text-esoft-accent bg-white/20 dark:bg-white/10 backdrop-blur-md p-4 rounded-2xl inline-block shadow-lg border border-white/20">
                         {service.icon}
@@ -126,16 +122,12 @@ export default function Services() {
                 </div>
               </div>
 
-              {/* --- CONTENIDO DE TEXTO --- */}
               <div className="w-full md:w-1/2 space-y-6">
                 <h2 className="text-4xl font-heading font-bold text-gray-900 dark:text-white">{service.title}</h2>
                 <p className="text-lg text-gray-600 dark:text-esoft-gray-light leading-relaxed border-l-2 border-esoft-accent/50 pl-4">
                   {service.desc}
                 </p>
-                
-                {/* Caja de capacidades adaptable */}
                 <div className="bg-white/40 dark:bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-gray-200 dark:border-white/5 hover:border-esoft-accent/30 transition-colors">
-                  {/* TÍTULO RESALTADO: text-lg, mb-6 y gap-3 */}
                   <h4 className="text-lg font-bold text-gray-900 dark:text-white uppercase mb-6 flex items-center gap-3 tracking-wide">
                     <Layers size={20} className="text-esoft-accent" /> {t('servicesPage.capabilitiesTitle')}
                   </h4>
@@ -148,7 +140,6 @@ export default function Services() {
                     ))}
                   </ul>
                 </div>
-
                 <Link 
                   to="/contacto"
                   className="inline-flex items-center gap-2 text-gray-900 dark:text-white border-b-2 border-esoft-accent/30 pb-1 hover:text-esoft-accent hover:border-esoft-accent transition-all group mt-4 font-bold"
@@ -160,21 +151,24 @@ export default function Services() {
           ))}
         </section>
 
-        {/* 3. ALIADOS ESTRATÉGICOS */}
-        <section className="py-24 bg-gray-50/50 dark:bg-esoft-charcoal/50 backdrop-blur-sm border-y border-gray-200 dark:border-white/5 overflow-hidden relative transition-colors">
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white dark:from-esoft-dark to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white dark:from-esoft-dark to-transparent z-10 pointer-events-none"></div>
+        {/* 3. CINTA DE ALIADOS ESTRATÉGICOS (IGUAL A HOME) */}
+        {/* MODIFICACIÓN: py-8 para igualar exactamente el tamaño de la cinta de Home */}
+        <section className="py-8 bg-esoft-accent dark:bg-[#0a3d34] border-y border-white/10 overflow-hidden relative transition-all duration-500 shadow-2xl">
+          
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-esoft-accent dark:from-[#0a3d34] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-esoft-accent dark:from-[#0a3d34] to-transparent z-10 pointer-events-none"></div>
 
-          <div className="max-w-7xl mx-auto px-6 text-center mb-16 relative z-20">
-            <h2 className="text-3xl font-heading font-bold text-gray-900 dark:text-white uppercase tracking-wider relative inline-block">
+          {/* MODIFICACIÓN: mb-6 para un diseño más compacto y alineado con la cinta de Home */}
+          <div className="max-w-7xl mx-auto px-6 text-center mb-6 relative z-20">
+            <h2 className="text-xl md:text-2xl font-heading font-bold text-white uppercase tracking-wider relative inline-block">
               {t('servicesPage.partnersTitle')}
-              <span className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-12 h-1 bg-esoft-accent rounded-full"></span>
+              <span className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-10 h-1 bg-white/30 rounded-full"></span>
             </h2>
           </div>
             
-          <div className="flex relative overflow-hidden py-8">
+          <div className="flex relative overflow-hidden py-2">
             <motion.div
-              className="flex gap-16 md:gap-24 items-center min-w-max pr-16 md:pr-24"
+              className="flex gap-20 md:gap-32 items-center min-w-max pr-20 md:pr-32"
               animate={{ x: ["0%", "-50%"] }}
               transition={{
                 repeat: Infinity,
@@ -185,12 +179,13 @@ export default function Services() {
               {duplicatedPartners.map((partner, index) => (
                 <div 
                   key={index} 
-                  className="flex items-center justify-center w-32 md:w-48 h-12 md:h-16 flex-shrink-0"
+                  /* MODIFICACIÓN: h-10 md:h-14 para igualar el tamaño de logos de Home */
+                  className="flex items-center justify-center w-28 md:w-40 h-10 md:h-14 flex-shrink-0"
                 >
                   <img 
                     src={partner.logo}
                     alt={`Logo ${partner.name}`}
-                    className="max-w-full max-h-full object-contain opacity-60 dark:opacity-50 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0 cursor-pointer"
+                    className="max-w-full max-h-full object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer scale-105"
                   />
                 </div>
               ))}
@@ -198,7 +193,7 @@ export default function Services() {
           </div>
         </section>
 
-        {/* 4. CTA SECCIÓN ADAPTABLE */}
+        {/* 4. CTA SECCIÓN */}
         <section className="py-20 px-6 text-center relative z-10">
           <div className="max-w-3xl mx-auto bg-white/60 dark:bg-gradient-to-b dark:from-esoft-charcoal dark:to-black border border-gray-200 dark:border-white/10 p-12 rounded-3xl relative overflow-hidden shadow-2xl backdrop-blur-md transition-colors">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-esoft-accent to-transparent"></div>

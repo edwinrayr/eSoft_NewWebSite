@@ -10,31 +10,27 @@ export default function Hero() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-500 bg-[#050d0a] dark:bg-esoft-dark">
       
-      {/* 1. ANIMACIÓN DE FONDO (Escudos) */}
+      {/* 1. Animación de Fondo (Escudos) */}
       <div className="absolute inset-0 z-0">
         <MatrixBackground />
       </div>
 
-      {/* 2. CAPA PARA MODO CLARO (Mantiene el brillo menta y profundidad) */}
+      {/* 2. Capas de profundidad para legibilidad */}
       <div className="absolute inset-0 z-0 pointer-events-none dark:hidden">
-         <div className="absolute inset-0 bg-gradient-to-br from-esoft-accent/20 via-transparent to-emerald-500/10 bg-[length:200%_200%] animate-gradient-x" />
-         <div className="absolute inset-0 bg-gradient-to-b from-[#050d0a]/60 via-transparent to-[#050d0a]" />
+         <div className="absolute inset-0 bg-gradient-to-b from-[#050d0a]/40 via-transparent to-[#050d0a]" />
       </div>
-
-      {/* 3. CAPA PARA MODO OSCURO (Mantiene las sombras originales) */}
       <div className="absolute inset-0 z-0 hidden dark:block">
         <div className="absolute inset-0 bg-gradient-to-b from-esoft-dark/80 via-transparent to-esoft-dark pointer-events-none" />
-        <div className="absolute inset-0 bg-black/40 pointer-events-none" />
       </div>
 
-      {/* CONTENIDO */}
+      {/* Contenido principal */}
       <div className="max-w-7xl mx-auto px-6 relative z-10 pt-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="inline-block py-1 px-4 rounded-full bg-esoft-accent/10 border border-esoft-accent/30 text-esoft-accent text-sm font-bold mb-6 backdrop-blur-md uppercase tracking-widest animate-pulse-slow">
+          <span className="inline-block py-1 px-4 rounded-full bg-esoft-accent/10 border border-esoft-accent/30 text-esoft-accent text-sm font-bold mb-6 backdrop-blur-md uppercase tracking-widest">
             {t('hero.badge')}
           </span>
           
@@ -69,6 +65,8 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
+
+      {/* El indicador ovalado ha sido removido de aquí */}
     </div>
   );
 }

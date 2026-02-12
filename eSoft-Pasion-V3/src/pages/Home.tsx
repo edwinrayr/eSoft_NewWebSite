@@ -21,15 +21,20 @@ const PartnersMarquee = () => {
   const duplicatedPartners = [...partners, ...partners, ...partners, ...partners, ...partners, ...partners];
 
   return (
-    // MODIFICACIÓN: bg-white/60 y backdrop-blur para dejar pasar la animación de App.tsx
-    <div className="w-full bg-white/60 dark:bg-black/20 border-y border-gray-200 dark:border-white/5 py-10 overflow-hidden relative flex z-10 backdrop-blur-sm transition-colors shadow-sm dark:shadow-none">
+    /* CAMBIO DEFINITIVO:
+       - mt-20: Espacio amplio en móvil para que no choque con los botones del Hero.
+       - bg-esoft-accent: Fondo verde vibrante en modo claro.
+       - dark:bg-[#0a3d34]: Verde muy oscuro y elegante para el modo noche.
+       - shadow-[0_0_30px_rgba(27,159,136,0.2)]: Brillo sutil para que la cinta "flote".
+    */
+    <div className="w-full mt-20 lg:mt-0 bg-esoft-accent dark:bg-[#0a3d34] border-y border-white/10 py-12 overflow-hidden relative flex z-10 transition-all duration-500 shadow-2xl">
       
-      {/* Degradados laterales suavizados */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white/80 dark:from-esoft-dark to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white/80 dark:from-esoft-dark to-transparent z-10 pointer-events-none" />
+      {/* Degradados laterales: Ahora transicionan hacia el verde para no ensuciar los bordes */}
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-esoft-accent dark:from-[#0a3d34] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-esoft-accent dark:from-[#0a3d34] to-transparent z-10 pointer-events-none" />
       
       <motion.div 
-        className="flex gap-16 md:gap-24 items-center min-w-max pr-16 md:pr-24"
+        className="flex gap-20 md:gap-32 items-center min-w-max pr-20 md:pr-32"
         animate={{ x: ["0%", "-50%"] }}
         transition={{ ease: "linear", duration: 80, repeat: Infinity }}
       >
@@ -38,7 +43,11 @@ const PartnersMarquee = () => {
             <img 
               src={partner.logo}
               alt={`Logo ${partner.name}`}
-              className="max-w-full max-h-full object-contain opacity-60 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0 cursor-pointer"
+              /* Ajuste de visibilidad: 
+                 - brightness-0 invert: Hace que los logos sean blancos para resaltar sobre el fondo verde.
+                 - drop-shadow-md: Pequeña sombra para dar relieve.
+              */
+              className="max-w-full max-h-full object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer scale-110"
             />
           </div>
         ))}
@@ -54,26 +63,12 @@ const AboutTeaser = () => {
   const statsKeys = ['exp', 'region', 'team', 'focus'];
 
   return (
-    // MODIFICACIÓN: bg-white/40 para que el fondo menta "respire" a través de esta sección
     <section className="py-24 px-6 relative bg-white/40 dark:bg-esoft-dark border-t border-gray-200 dark:border-white/5 transition-colors duration-300 backdrop-blur-sm">
-      
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 dark:opacity-0 pointer-events-none"></div>
-
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-        
-        {/* IMAGEN */}
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="relative"
-        >
+        <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
           <div className="absolute inset-0 bg-esoft-accent/10 blur-[100px] rounded-full" />
-          <img 
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" 
-            alt="Equipo eSoft" 
-            className="relative z-10 rounded-2xl border border-gray-300 dark:border-white/10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
-          />
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Equipo eSoft" className="relative z-10 rounded-2xl border border-gray-300 dark:border-white/10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
           <div className="absolute -bottom-6 -right-6 bg-white dark:bg-esoft-charcoal border border-gray-100 dark:border-white/10 p-6 rounded-xl shadow-xl z-20 hidden md:block">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-3 h-3 rounded-full bg-esoft-accent animate-pulse" />
@@ -82,17 +77,12 @@ const AboutTeaser = () => {
             <p className="text-gray-900 dark:text-white font-heading text-lg">{t('aboutTeaser.leaderBadge')}</p>
           </div>
         </motion.div>
-
-        {/* TEXTO */}
         <div className="space-y-8">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">
             {t('aboutTeaser.titleLine1')} <br />
             <span className="text-esoft-accent">{t('aboutTeaser.titleLine2')}</span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-esoft-gray-light leading-relaxed">
-            {t('aboutTeaser.description')}
-          </p>
-          
+          <p className="text-lg text-gray-600 dark:text-esoft-gray-light leading-relaxed">{t('aboutTeaser.description')}</p>
           <div className="grid grid-cols-2 gap-6">
             {statsKeys.map((key, i) => (
               <div key={i} className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 font-medium">
@@ -103,7 +93,6 @@ const AboutTeaser = () => {
               </div>
             ))}
           </div>
-
           <Link to="/nosotros" className="inline-flex items-center gap-2 text-gray-900 dark:text-white font-bold border-b border-esoft-accent pb-1 hover:text-esoft-accent transition-colors group pt-4">
             {t('aboutTeaser.cta')} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </Link>
@@ -113,28 +102,17 @@ const AboutTeaser = () => {
   );
 };
 
-// --- PÁGINA PRINCIPAL ---
 export default function Home() {
   const { t } = useTranslation(); 
 
   return (
-    // MODIFICACIÓN: bg-transparent para que se vea el fondo animado de App.tsx
     <div className="min-h-screen transition-colors duration-300 bg-transparent">
-      
-      {/* Grid técnico sutil mantenido */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-20 dark:opacity-0" 
            style={{ backgroundImage: 'linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(to right, #e5e7eb 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
       />
-
       <div className="relative z-10">
-        
-        {/* 1. HERO */}
         <Hero />
-
-        {/* 2. PARTNERS */}
         <PartnersMarquee />
-        
-        {/* 3. SERVICIOS (Bento Grid) */}
         <div className="relative py-20">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <BentoGrid />
@@ -145,39 +123,25 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* 4. SOBRE NOSOTROS */}
         <AboutTeaser />
-
-        {/* 5. ARQUITECTURA */}
         <div className="relative bg-white/40 dark:bg-transparent py-20 transition-colors duration-300 border-t border-gray-100 dark:border-none backdrop-blur-sm">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-esoft-accent/5 blur-[120px] pointer-events-none" />
           <Architecture />
         </div>
-
-        {/* 6. CTA FINAL */}
         <section className="py-24 px-6 relative overflow-hidden bg-white/60 dark:bg-transparent border-t border-gray-200 dark:border-white/5 backdrop-blur-md">
           <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-emerald-50/10 dark:from-transparent dark:to-black/40" />
-          
           <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
              <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">
                {t('homePage.ctaFinal.titleLine1')} <span className="text-esoft-accent">{t('homePage.ctaFinal.titleLine2')}</span>
              </h2>
-             <p className="text-xl text-gray-600 dark:text-esoft-gray-light font-light">
-               {t('homePage.ctaFinal.subtitle')}
-             </p>
-             
+             <p className="text-xl text-gray-600 dark:text-esoft-gray-light font-light">{t('homePage.ctaFinal.subtitle')}</p>
              <div className="pt-4">
-               <Link 
-                 to="/contacto"
-                 className="inline-flex items-center gap-3 px-10 py-5 bg-esoft-accent text-white font-bold rounded-full hover:bg-emerald-600 transition-all shadow-xl hover:shadow-esoft-accent/30 hover:-translate-y-1"
-               >
+               <Link to="/contacto" className="inline-flex items-center gap-3 px-10 py-5 bg-esoft-accent text-white font-bold rounded-full hover:bg-emerald-600 transition-all shadow-xl hover:shadow-esoft-accent/30 hover:-translate-y-1">
                  {t('homePage.ctaFinal.btn')} <ArrowRight />
                </Link>
              </div>
           </div>
         </section>
-
       </div>
     </div>
   );
