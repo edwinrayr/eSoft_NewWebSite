@@ -19,7 +19,7 @@ export default function Navbar() {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
-  // BASE DE DATOS DEL BUSCADOR (Recuperada completa)
+  // BASE DE DATOS DEL BUSCADOR
   const searchItems = useMemo(() => [
     { title: t('navbar.cybersecurity', 'Ciberseguridad'), category: t('navbar.services', 'Servicios'), url: "/servicios#security", keywords: ["security", "seguridad"] },
     { title: t('navbar.consulting', 'Consultoría'), category: t('navbar.services', 'Servicios'), url: "/servicios#consulting", keywords: ["cloud", "nube"] },
@@ -146,12 +146,11 @@ export default function Navbar() {
 
   const isHome = location.pathname === '/';
   
-  // --- LÓGICA DE TRANSPARENCIA REFINADA ---
   const navBackgroundClass = isScrolled
-    ? 'bg-esoft-dark/30 backdrop-blur-xl border-b border-white/5 py-3 shadow-2xl' // SCROLL: Muy transparente, mucho blur
+    ? 'bg-esoft-dark/30 backdrop-blur-xl border-b border-white/5 py-3 shadow-2xl' 
     : isHome
-      ? 'bg-transparent py-6' // TOP HOME: Invisible para que luzca el Hero
-      : 'bg-esoft-dark py-5 border-b border-white/10'; // TOP INTERNAS: Sólido para legibilidad
+      ? 'bg-transparent py-6' 
+      : 'bg-esoft-dark py-5 border-b border-white/10'; 
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out ${navBackgroundClass}`}>
@@ -224,7 +223,7 @@ export default function Navbar() {
         </div>
 
         {/* DERECHA */}
-        <div className="flex items-center gap-4 z-20 relative" ref={searchContainerRef}>
+        <div className="flex items-center gap-2 md:gap-4 z-20 relative" ref={searchContainerRef}>
             <button 
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
                 className={`transition-colors p-2 hover:bg-white/10 rounded-full ${isSearchOpen ? 'text-esoft-accent' : 'text-gray-300 hover:text-white'}`}
@@ -232,7 +231,8 @@ export default function Navbar() {
                 {isSearchOpen ? <X size={20} /> : <Search size={20} />}
             </button>
 
-            <div className="hidden lg:block">
+            {/* CAMBIO: Se eliminó 'hidden lg:block' para que sea visible en móvil siempre */}
+            <div className="flex items-center">
                 <ThemeToggle />
             </div>
 
@@ -306,7 +306,8 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white dark:bg-esoft-dark border-t border-gray-200 dark:border-white/10 overflow-hidden shadow-2xl"
+            /* CAMBIO: Se añadió max-h y scroll para que no se corte el menú en pantallas pequeñas */
+            className="lg:hidden bg-white dark:bg-esoft-dark border-t border-gray-200 dark:border-white/10 overflow-y-auto max-h-[90vh] shadow-2xl"
           >
             <div className="px-6 py-8 space-y-6">
               {navLinks.map((item) => (
