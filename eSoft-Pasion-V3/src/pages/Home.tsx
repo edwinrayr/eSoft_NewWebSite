@@ -9,6 +9,9 @@ import Architecture from '../components/sections/Architecture';
 
 // --- COMPONENTE: MARQUEE DE PARTNERS ---
 const PartnersMarquee = () => {
+  // AGREGADO: Iniciamos el hook de traducción aquí para usarlo en el título
+  const { t } = useTranslation();
+
   const partners = [
     { name: "Broadcom", logo: "/marcas/broadcom.webp" },
     { name: "VMware", logo: "/marcas/Vmware.webp" },
@@ -21,10 +24,19 @@ const PartnersMarquee = () => {
   const duplicatedPartners = [...partners, ...partners, ...partners, ...partners, ...partners, ...partners];
 
   return (
-    <div className="w-full mt-20 lg:mt-0 bg-black/5 dark:bg-black/20 border-y border-gray-200 dark:border-white/10 py-12 overflow-hidden relative flex z-10 transition-all duration-500 shadow-2xl backdrop-blur-sm">
+    // MODIFICADO: Cambiamos a 'flex-col' para que el título quede arriba de la cinta
+    <section className="w-full mt-20 lg:mt-0 bg-black/5 dark:bg-black/20 border-y border-gray-200 dark:border-white/10 py-12 overflow-hidden relative flex flex-col z-10 transition-all duration-500 shadow-2xl backdrop-blur-sm">
 
       <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-50 dark:from-esoft-dark to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 dark:from-esoft-dark to-transparent z-10 pointer-events-none" />
+
+      {/* AGREGADO: Título con el mismo diseño que en Servicios */}
+      <div className="max-w-7xl mx-auto px-6 text-center mb-10 relative z-20 w-full">
+        <h2 className="text-xl md:text-2xl font-heading font-bold text-gray-900 dark:text-white uppercase tracking-wider relative inline-block">
+          {t('homePage.partnersTitle', 'Marcas con las que trabajamos')}
+          <span className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-12 h-1 bg-esoft-accent rounded-full"></span>
+        </h2>
+      </div>
 
       <motion.div
         className="flex gap-16 md:gap-24 items-center min-w-max pr-16 md:pr-24"
@@ -34,10 +46,6 @@ const PartnersMarquee = () => {
         {duplicatedPartners.map((partner, i) => (
           <div key={i} className="relative flex items-center justify-center w-32 md:w-48 h-12 md:h-16 flex-shrink-0 group">
 
-            {/* MODIFICADO: Diseño Premium sin cajas. 
-                - dark:drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]: Crea un mini borde de luz blanca en modo oscuro para que el texto negro no se pierda.
-                - hover:!drop-shadow-[0_0_20px_rgba(16,185,129,0.8)]: El Neón verde perfecto que abraza la forma exacta del logo.
-            */}
             <img
               src={partner.logo}
               alt={`Logo ${partner.name}`}
@@ -47,7 +55,7 @@ const PartnersMarquee = () => {
           </div>
         ))}
       </motion.div>
-    </div>
+    </section>
   );
 };
 
@@ -108,9 +116,7 @@ export default function Home() {
       />
       <div className="relative z-10">
 
-        {/* Aquí está mandando llamar tu Hero.tsx que ya tiene el ícono del mouse responsivo */}
         <Hero />
-
         <PartnersMarquee />
 
         <div className="relative py-20">
