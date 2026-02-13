@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Linkedin, ExternalLink, Mail } from 'lucide-react';
+import { Linkedin, ExternalLink, Mail, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Team() {
@@ -8,8 +8,8 @@ export default function Team() {
   const teamMembers = [
     {
       key: 'jesus',
-      image: "/equipo/Jesus_Rivas.webp", 
-      link: "https://www.linkedin.com/in/jesusalexisrivas/" 
+      image: "/equipo/Jesus_Rivas.webp",
+      link: "https://www.linkedin.com/in/jesusalexisrivas/"
     },
     {
       key: 'brandon',
@@ -34,120 +34,153 @@ export default function Team() {
   ];
 
   return (
-    // CONTENEDOR: Adaptable con animación menta
-    <div className="pt-24 min-h-screen bg-white dark:bg-esoft-dark relative overflow-hidden pb-20 transition-colors duration-300">
-      
-      {/* CAPA DE ANIMACIÓN VERDE MENTA (Solo visible en Light Mode) */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-100 dark:opacity-0 transition-opacity duration-500">
-         <div className="absolute inset-0 bg-gradient-to-br from-white via-emerald-50/50 to-white bg-[length:200%_200%] animate-gradient-x" />
-         <div className="absolute inset-0 opacity-[0.03]" 
-              style={{ backgroundImage: 'linear-gradient(#1b9f88 1px, transparent 1px), linear-gradient(to right, #1b9f88 1px, transparent 1px)', backgroundSize: '60px 60px' }} 
-         />
-      </div>
+    <div className="pt-32 min-h-screen bg-[#f8fafc] dark:bg-[#050d0a] relative overflow-hidden pb-32 transition-colors duration-500">
 
-      {/* Decoración de fondo (Modo Oscuro) */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-esoft-accent/5 blur-[100px] rounded-full pointer-events-none hidden dark:block" />
+      {/* FONDO PREMIUM */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-esoft-accent/10 dark:bg-esoft-accent/5 blur-[120px] mix-blend-multiply dark:mix-blend-screen transition-all duration-1000" />
+        <div className="absolute bottom-[20%] right-[-10%] w-[800px] h-[800px] rounded-full bg-emerald-400/10 dark:bg-emerald-500/5 blur-[150px] mix-blend-multiply dark:mix-blend-screen transition-all duration-1000" />
+        <div
+          className="absolute inset-0 opacity-[0.5] dark:opacity-[0.15] transition-opacity duration-500"
+          style={{
+            backgroundImage: 'radial-gradient(circle at center, #1b9f88 1.5px, transparent 1.5px)',
+            backgroundSize: '32px 32px',
+            WebkitMaskImage: 'radial-gradient(ellipse at 50% 50%, black 20%, transparent 80%)'
+          }}
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-        {/* Encabezado adaptable */}
-        <motion.div 
+        {/* Encabezado Nivel Apple */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-20 pt-8"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-24 flex flex-col items-center"
         >
-          <span className="text-esoft-accent font-bold tracking-widest uppercase text-sm mb-2 block">
-            {t('navbar.team', 'Nuestro Talento')}
-          </span>
-          <h1 className="text-5xl md:text-6xl font-heading font-bold text-gray-900 dark:text-white mb-6">
-            {t('aboutPage.team.title', 'Conoce al Equipo')}
+          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/50 dark:bg-white/5 border border-gray-200 dark:border-white/10 backdrop-blur-md mb-8 shadow-sm">
+            <div className="w-1.5 h-1.5 rounded-full bg-esoft-accent animate-pulse" />
+            <span className="text-gray-600 dark:text-gray-200 text-xs font-bold uppercase tracking-[0.2em]">
+              {t('navbar.team', 'Nuestro Talento')}
+            </span>
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-heading font-extrabold tracking-tight leading-tight text-gray-900 dark:text-white max-w-4xl mb-6">
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-gray-900 to-gray-600 dark:from-white dark:to-gray-400">
+              {t('aboutPage.team.title', 'Conoce al Equipo')}
+            </span>
           </h1>
-          <p className="text-xl text-gray-600 dark:text-esoft-gray-light font-light max-w-2xl mx-auto leading-relaxed">
+
+          <p className="text-xl text-gray-600 dark:text-gray-400 font-light max-w-2xl mx-auto leading-relaxed">
             {t('aboutPage.team.subtitle', 'Ingenieros, estrategas y especialistas apasionados por resolver los desafíos tecnológicos más complejos.')}
           </p>
         </motion.div>
 
-        {/* Grid de Miembros */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        {/* GRID DE RETRATOS EDITORIALES */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 justify-center">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.key}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.1, duration: 0.7 }}
+              className="group relative h-[450px] md:h-[500px] w-full rounded-[2.5rem] overflow-hidden bg-gray-100 dark:bg-[#0a110e] border border-gray-200/50 dark:border-white/5 shadow-xl hover:shadow-2xl dark:shadow-[0_10px_30px_-15px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 hover:border-esoft-accent/30 cursor-pointer"
+              onClick={() => window.open(member.link, '_blank')}
             >
-              {/* TARJETA: Blanco traslúcido en Light | Oscuro en Dark */}
-              <div className="bg-white/80 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden hover:border-esoft-accent/50 transition-all duration-300 hover:-translate-y-2 h-full flex flex-col shadow-xl dark:shadow-none backdrop-blur-md">
-                
-                {/* 1. FOTO */}
-                <a 
-                  href={member.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="relative block aspect-[4/5] overflow-hidden cursor-pointer group/image"
-                >
-                  <img 
-                    src={member.image} 
-                    alt={t(`aboutPage.team.members.${member.key}.name`)} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110 grayscale group-hover/image:grayscale-0"
-                  />
-                  
-                  <div className="absolute inset-0 bg-esoft-accent/80 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="text-white flex items-center gap-2 font-bold uppercase tracking-wider transform translate-y-4 group-hover/image:translate-y-0 transition-transform duration-300">
-                      <span>{t('aboutPage.team.viewProfile')}</span>
-                      <ExternalLink size={18} />
-                    </div>
-                  </div>
-                </a>
+              {/* IMAGEN DE FONDO COMPLETA */}
+              <div className="absolute inset-0">
+                <img
+                  src={member.image}
+                  alt={t(`aboutPage.team.members.${member.key}.name`)}
+                  className="w-full h-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105"
+                />
+              </div>
 
-                {/* 2. INFO ADAPTABLE */}
-                <div className="p-6 text-center flex-1 flex flex-col">
-                  <h3 className="text-xl font-heading font-bold text-gray-900 dark:text-white mb-1">
-                    {t(`aboutPage.team.members.${member.key}.name`)}
-                  </h3>
-                  <p className="text-esoft-accent text-sm font-bold uppercase tracking-wider mb-4">
-                    {t(`aboutPage.team.members.${member.key}.role`)}
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-1">
+              {/* CAPA OSCURA DE LECTURA (Fade to Black) */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
+
+              {/* CAPA VERDE ESMERALDA (Solo en Hover) */}
+              <div className="absolute inset-0 bg-esoft-accent/0 mix-blend-overlay z-10 group-hover:bg-esoft-accent/40 transition-all duration-700" />
+
+              {/* CONTENIDO DE TEXTO Y SOCIALES */}
+              <div className="absolute bottom-0 left-0 w-full p-8 z-20 flex flex-col justify-end h-full">
+
+                {/* Elementos que suben al hacer hover */}
+                <div className="transform translate-y-16 group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col">
+
+                  {/* Nombre y Puesto */}
+                  <div className="mb-4">
+                    <h3 className="text-3xl font-heading font-bold text-white tracking-tight mb-1 group-hover:text-esoft-accent transition-colors">
+                      {t(`aboutPage.team.members.${member.key}.name`)}
+                    </h3>
+                    <p className="text-esoft-accent text-xs font-bold uppercase tracking-[0.2em] opacity-90">
+                      {t(`aboutPage.team.members.${member.key}.role`)}
+                    </p>
+                  </div>
+
+                  {/* Descripción oculta que aparece */}
+                  <p className="text-gray-300 text-sm leading-relaxed font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 mb-6 line-clamp-3">
                     {t(`aboutPage.team.members.${member.key}.desc`)}
                   </p>
-                  
-                  {/* Redes Sociales */}
-                  <div className="flex justify-center gap-4 pt-4 border-t border-gray-100 dark:border-white/10">
-                    <a href={member.link} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-esoft-accent transition-colors">
-                      <Linkedin size={20} />
-                    </a>
-                  </div>
-                </div>
 
+                  {/* Acciones */}
+                  <div className="flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                    <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20 hover:bg-esoft-accent hover:border-transparent transition-colors">
+                      <Linkedin size={18} />
+                    </div>
+                    <span className="text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+                      Ver Perfil <ArrowRight size={14} className="text-esoft-accent" />
+                    </span>
+                  </div>
+
+                </div>
               </div>
+
+              {/* Icono superior derecho (Solo para indicar que es clickeable desde antes del hover) */}
+              <div className="absolute top-6 right-6 z-20 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <ExternalLink size={16} />
+              </div>
+
             </motion.div>
           ))}
         </div>
 
-        {/* SECCIÓN INVITACIÓN (CARRERAS) - Estilo impacto oscuro */}
-        <motion.div 
+        {/* SECCIÓN INVITACIÓN (CARRERAS) - Diseño Isla */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-32 bg-gray-900 dark:bg-gradient-to-br dark:from-esoft-charcoal dark:to-black border border-gray-800 dark:border-white/10 p-12 rounded-3xl text-center relative overflow-hidden shadow-2xl"
+          className="mt-32 max-w-5xl mx-auto relative group"
         >
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="text-3xl font-heading font-bold text-white mb-4">
-                {t('aboutPage.team.cta.title')}
-            </h2>
-            <p className="text-gray-300 mb-8">
-                {t('aboutPage.team.cta.desc')}
-            </p>
-            <a 
-              href="mailto:talento@esoftpasion.com" 
-              className="inline-flex items-center gap-2 px-8 py-3 bg-esoft-accent text-white font-bold rounded-full hover:bg-emerald-600 transition-colors shadow-lg shadow-esoft-accent/20"
-            >
-              <Mail size={18} /> {t('aboutPage.team.cta.btn')}
-            </a>
+          {/* Sombra de la Isla */}
+          <div className="absolute inset-0 bg-esoft-accent/10 blur-[60px] rounded-[3rem] pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-50" />
+
+          <div className="relative bg-gradient-to-br from-gray-900 to-black dark:from-[#0a110e] dark:to-[#050d0a] border border-gray-800 dark:border-white/5 rounded-[3rem] p-12 md:p-20 overflow-hidden shadow-2xl text-center">
+
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-esoft-accent/20 via-transparent to-transparent pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col items-center">
+              <div className="w-20 h-20 bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center text-esoft-accent mb-8 shadow-inner border border-white/5">
+                <Mail size={40} />
+              </div>
+
+              <h2 className="text-3xl md:text-5xl font-heading font-extrabold mb-6 text-white tracking-tight">
+                {t('aboutPage.team.cta.title', '¿Quieres ser parte del equipo?')}
+              </h2>
+
+              <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed font-light mb-10">
+                {t('aboutPage.team.cta.desc', 'Buscamos mentes inquietas listas para enfrentar retos tecnológicos complejos. Si te apasiona la innovación, hay un lugar para ti.')}
+              </p>
+
+              <a
+                href="mailto:talento@esoftpasion.com"
+                className="inline-flex items-center gap-3 px-10 py-4 bg-esoft-accent text-white font-bold rounded-full hover:bg-emerald-600 transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(27,159,136,0.6)] hover:shadow-[0_15px_40px_-10px_rgba(27,159,136,0.8)] hover:-translate-y-1"
+              >
+                {t('aboutPage.team.cta.btn', 'Enviar Currículum')} <ArrowRight size={18} />
+              </a>
+            </div>
           </div>
         </motion.div>
 
