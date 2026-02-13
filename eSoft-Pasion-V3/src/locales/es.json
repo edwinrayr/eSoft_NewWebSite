@@ -47,7 +47,7 @@
     "sectors": "Sectores",
     "benefits": "Beneficios",
     "contact": "Contáctanos",
-    "internships": "Prácticas",
+    "internships": "Prácticas Profesionales",
     "careers": "Carreras",
     "searchPlaceholder": "Buscar en eSoft...",
     "results": "Resultados",
@@ -69,6 +69,7 @@
   },
   "homePage": {
     "exploreServices": "Explorar todos los servicios",
+    "partnersTitle": "Marcas con las que trabajamos",
     "ctaFinal": {
       "titleLine1": "¿Listo para dar el",
       "titleLine2": "siguiente paso?",
@@ -281,7 +282,7 @@
     "team": {
       "title": "Conoce a los Expertos",
       "subtitle": "El talento humano detrás de nuestras soluciones tecnológicas.",
-      "viewProfile": "Ver Perfil",  
+      "viewProfile": "Ver Perfil",
       "cta": {
         "title": "¿Quieres unirte a eSoft Pasión?",
         "desc": "Buscamos mentes brillantes que compartan nuestra visión. Si eres especialista en TI, ciberseguridad o desarrollo, queremos conocerte.",
@@ -302,11 +303,6 @@
           "name": "Tania Moreno",
           "role": "Consultor Senior",
           "desc": "Especialista con amplia experiencia en consultoría estratégica y optimización de procesos tecnológicos."
-        },
-        "itzel": {
-          "name": "Itzel Hernández",
-          "role": "Account Manager",
-          "desc": "Especialista en relaciones estratégicas y éxito del cliente a largo plazo."
         },
         "brenda": {
           "name": "Brenda Meza",
@@ -408,7 +404,7 @@
     "col3": "Contacto",
     "rights": "Todos los derechos reservados.",
     "privacy": "Política de Privacidad",
-    "cookies": "",
+    "cookies": "Política de Cookies",
     "links": {
       "renewal": "Renovación con Fabricantes",
       "support": "Soporte Técnico",
