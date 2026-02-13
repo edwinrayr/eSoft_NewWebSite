@@ -1,18 +1,18 @@
-import { Instagram, Linkedin, Mail, MapPin, Phone, Youtube, ChevronRight } from 'lucide-react';
+import { Instagram, Linkedin, Mail, MapPin, Phone, Youtube, ChevronRight, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-// Icono de TikTok personalizado (SVG inline)
+// Icono de TikTok personalizado estilizado
 const TikTokIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
-  <svg 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={className}
   >
     <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
@@ -24,185 +24,127 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    /* CAMBIO: 
-       - bg-esoft-dark/80: Da transparencia en modo claro.
-       - dark:bg-esoft-dark: Vuelve al color sólido en modo oscuro.
-       - backdrop-blur-md: Hace que el fondo se vea como cristal esmerilado.
-    */
-    <footer className="bg-esoft-dark/80 dark:bg-esoft-dark border-t border-white/10 pt-20 pb-10 relative overflow-hidden z-10 backdrop-blur-md transition-colors duration-500">
-      
-      {/* Luz de fondo sutil (Efecto Glow) */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-esoft-accent/10 blur-[100px] pointer-events-none" />
+    <footer className="relative bg-white/30 dark:bg-[#050d0a]/60 border-t border-gray-200 dark:border-white/5 pt-24 pb-12 overflow-hidden backdrop-blur-2xl transition-colors duration-500">
+
+      {/* Luces de ambiente sincronizadas con el Home */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[300px] bg-esoft-accent/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[200px] bg-emerald-500/5 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
-          {/* Columna 1: Marca y Misión */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <Link to="/">
-                <img 
-                  src="/esoftlogo.png" 
-                  alt="Logo eSoft Pasion" 
-                  className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" 
-                />
-              </Link>
-            </div>
-            
-            <p className="text-esoft-gray-light text-sm leading-relaxed">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+
+          {/* Columna 1: Marca y Presencia Digital */}
+          <div className="space-y-8">
+            <Link to="/" className="inline-block transform hover:scale-105 transition-transform duration-300">
+              <img
+                src="/esoftlogo.png"
+                alt="Logo eSoft Pasion"
+                className="h-14 w-auto object-contain dark:brightness-110"
+              />
+            </Link>
+
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-light">
               {t('footer.description')}
             </p>
-            
-            <div className="flex gap-4">
-              <a 
-                href="https://www.instagram.com/esoftpasion?igsh=ZzlsOG1sNjJrejVt" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-esoft-gray-light hover:text-esoft-accent transition-colors p-2 hover:bg-white/5 rounded-full"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
-              </a>
 
-              <a 
-                href="https://www.linkedin.com/company/esoft-pasi%C3%B3n-por-la-tecnolog%C3%ADa-2006/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-esoft-gray-light hover:text-esoft-accent transition-colors p-2 hover:bg-white/5 rounded-full"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-
-              <a 
-                href="https://www.tiktok.com/@esoft.pasion" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-esoft-gray-light hover:text-esoft-accent transition-colors p-2 hover:bg-white/5 rounded-full"
-                aria-label="TikTok"
-              >
-                <TikTokIcon size={20} />
-              </a>
-
-              <a 
-                href="https://www.youtube.com/@PasionPorLaTecnologia" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-esoft-gray-light hover:text-esoft-accent transition-colors p-2 hover:bg-white/5 rounded-full"
-                aria-label="YouTube"
-              >
-                <Youtube size={20} />
-              </a>
+            {/* Redes Sociales Estilo Apple (Glass Buttons) */}
+            <div className="flex gap-3">
+              {[
+                { icon: <Instagram size={18} />, href: "https://www.instagram.com/esoftpasion", label: "Instagram" },
+                { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/esoft-pasi%C3%B3n-por-la-tecnolog%C3%ADa-2006/", label: "LinkedIn" },
+                { icon: <TikTokIcon size={18} />, href: "https://www.tiktok.com/@esoft.pasion", label: "TikTok" },
+                { icon: <Youtube size={18} />, href: "https://www.youtube.com/@PasionPorLaTecnologia", label: "YouTube" }
+              ].map((social, idx) => (
+                <a
+                  key={idx}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-gray-400 hover:bg-esoft-accent hover:text-white dark:hover:bg-esoft-accent transition-all duration-300 border border-transparent hover:border-esoft-accent/20 shadow-sm"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Columna 2: Servicios & Soluciones */}
+          {/* Columna 2: Servicios con Hover Inteligente */}
           <div>
-            <h4 className="text-white font-heading font-bold uppercase tracking-wider mb-6 text-sm border-b border-esoft-accent/30 pb-2 w-fit">
+            <h4 className="text-gray-900 dark:text-white font-heading font-bold uppercase tracking-[0.15em] mb-8 text-xs">
               {t('footer.col1')}
             </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/servicios#security" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
-                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
-                    <ChevronRight size={16} />
-                  </span>
-                  <span>{t('navbar.cybersecurity', 'Ciberseguridad')}</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/servicios#consulting" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
-                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
-                    <ChevronRight size={16} />
-                  </span>
-                  <span>{t('navbar.consulting', 'Consultoría')}</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/servicios#infra" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
-                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
-                    <ChevronRight size={16} />
-                  </span>
-                  <span>{t('navbar.packaged', 'Soluciones Empaquetadas')}</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/soluciones" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
-                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
-                    <ChevronRight size={16} />
-                  </span>
-                  <span>{t('navbar.cases', 'Casos de Éxito')}</span>
-                </Link>
-              </li>
+            <ul className="space-y-4">
+              {[
+                { to: "/servicios#security", label: t('navbar.cybersecurity') },
+                { to: "/servicios#consulting", label: t('navbar.consulting') },
+                { to: "/servicios#infra", label: t('navbar.packaged') },
+                { to: "/soluciones", label: t('navbar.cases') }
+              ].map((link, idx) => (
+                <li key={idx}>
+                  <Link to={link.to} className="group flex items-center text-gray-600 dark:text-gray-400 hover:text-esoft-accent dark:hover:text-white transition-all duration-300 text-sm">
+                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-esoft-accent mr-2" />
+                    <span className="font-light">{link.label}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Columna 3: Compañía */}
           <div>
-            <h4 className="text-white font-heading font-bold uppercase tracking-wider mb-6 text-sm border-b border-esoft-accent/30 pb-2 w-fit">
+            <h4 className="text-gray-900 dark:text-white font-heading font-bold uppercase tracking-[0.15em] mb-8 text-xs">
               {t('footer.col2')}
             </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/nosotros" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
-                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
-                    <ChevronRight size={16} />
-                  </span>
-                  <span>{t('navbar.about', 'Acerca de Nosotros')}</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/nosotros/historia" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
-                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
-                    <ChevronRight size={16} />
-                  </span>
-                  <span>{t('navbar.history', 'Nuestra Historia')}</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/nosotros/equipo" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
-                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
-                    <ChevronRight size={16} />
-                  </span>
-                  <span>{t('navbar.team', 'Nuestro Equipo')}</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/contacto" className="group flex items-center text-esoft-gray-light hover:text-esoft-accent transition-colors text-sm">
-                  <span className="w-0 overflow-hidden group-hover:w-5 transition-all duration-300 ease-out text-esoft-accent">
-                    <ChevronRight size={16} />
-                  </span>
-                  <span>{t('navbar.contact', 'Contáctanos')}</span>
-                </Link>
-              </li>
+            <ul className="space-y-4">
+              {[
+                { to: "/nosotros", label: t('navbar.about') },
+                { to: "/nosotros/historia", label: t('navbar.history') },
+                { to: "/nosotros/equipo", label: t('navbar.team') },
+                { to: "/contacto", label: t('navbar.contact') }
+              ].map((link, idx) => (
+                <li key={idx}>
+                  <Link to={link.to} className="group flex items-center text-gray-600 dark:text-gray-400 hover:text-esoft-accent dark:hover:text-white transition-all duration-300 text-sm">
+                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-esoft-accent mr-2" />
+                    <span className="font-light">{link.label}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Columna 4: Contacto */}
+          {/* Columna 4: Contacto Estilizado */}
           <div>
-            <h4 className="text-white font-heading font-bold uppercase tracking-wider mb-6 text-sm border-b border-esoft-accent/30 pb-2 w-fit">
+            <h4 className="text-gray-900 dark:text-white font-heading font-bold uppercase tracking-[0.15em] mb-8 text-xs">
               {t('footer.col3')}
             </h4>
-            <ul className="space-y-4 text-sm text-esoft-gray-light">
-              <li className="flex items-start gap-3 group cursor-default">
-                <MapPin size={18} className="text-esoft-accent shrink-0 mt-0.5 group-hover:text-white transition-colors" />
-                <span className="group-hover:text-white transition-colors">Montecito 38, Piso 33, Nápoles, CDMX</span>
+            <ul className="space-y-6">
+              <li className="flex gap-4">
+                <div className="w-8 h-8 rounded-lg bg-esoft-accent/10 flex items-center justify-center text-esoft-accent shrink-0">
+                  <MapPin size={16} />
+                </div>
+                <span className="text-sm text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+                  Montecito 38, Piso 33, Nápoles, CDMX
+                </span>
               </li>
-              <li className="flex items-center gap-3 group">
-                <Mail size={18} className="text-esoft-accent shrink-0 group-hover:text-white transition-colors" />
-                <a href="mailto:orlando.palacios@esoftpasion.com" className="hover:text-white transition-colors break-all">
-                  orlando.palacios@esoftpasion.com
-                </a>
+              <li className="flex gap-4 group">
+                <div className="w-8 h-8 rounded-lg bg-esoft-accent/10 flex items-center justify-center text-esoft-accent shrink-0 group-hover:bg-esoft-accent group-hover:text-white transition-colors">
+                  <Mail size={16} />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <a href="mailto:orlando.palacios@esoftpasion.com" className="text-sm text-gray-600 dark:text-gray-400 hover:text-esoft-accent transition-colors font-light">
+                    orlando.palacios@esoftpasion.com
+                  </a>
+                  <a href="mailto:karla.garcia@esoftpasion.com" className="text-sm text-gray-600 dark:text-gray-400 hover:text-esoft-accent transition-colors font-light">
+                    karla.garcia@esoftpasion.com
+                  </a>
+                </div>
               </li>
-              <li className="flex items-center gap-3 group">
-                <Mail size={18} className="text-esoft-accent shrink-0 group-hover:text-white transition-colors" />
-                <a href="mailto:karla.garcia@esoftpasion.com" className="hover:text-white transition-colors break-all">
-                  karla.garcia@esoftpasion.com
-                </a>
-              </li>
-              <li className="flex items-center gap-3 group">
-                <Phone size={18} className="text-esoft-accent shrink-0 group-hover:text-white transition-colors" />
-                <a href="tel:+525564604183" className="hover:text-white transition-colors">
+              <li className="flex gap-4 group">
+                <div className="w-8 h-8 rounded-lg bg-esoft-accent/10 flex items-center justify-center text-esoft-accent shrink-0 group-hover:bg-esoft-accent group-hover:text-white transition-colors">
+                  <Phone size={16} />
+                </div>
+                <a href="tel:+525564604183" className="text-sm text-gray-600 dark:text-gray-400 hover:text-esoft-accent transition-colors font-light pt-1">
                   +52 55 6460 4183
                 </a>
               </li>
@@ -210,16 +152,21 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Barra Inferior */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-esoft-gray-light">
-            &copy; {currentYear} eSoft Pasion. {t('footer.rights')}
-          </p>
-          <div className="flex gap-6 text-xs text-esoft-gray-light">
-            <Link to="/privacidad" className="hover:text-esoft-accent transition-colors">
+        {/* Barra Inferior Premium */}
+        <div className="pt-10 border-t border-gray-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-2 text-[11px] text-gray-500 dark:text-gray-500 font-medium tracking-wide">
+            <span>&copy; {currentYear} eSoft Pasion.</span>
+            <span className="hidden md:block">|</span>
+            <span>{t('footer.rights')}</span>
+          </div>
+
+          <div className="flex gap-8 text-[11px] font-bold uppercase tracking-widest">
+            <Link to="/privacidad" className="text-gray-500 dark:text-gray-500 hover:text-esoft-accent transition-colors">
               {t('footer.privacy')}
             </Link>
-            <Link to="/cookies" className="hover:text-white transition-colors">{t('footer.cookies')}</Link>
+            <Link to="/cookies" className="text-gray-500 dark:text-gray-500 hover:text-esoft-accent transition-colors">
+              {t('footer.cookies')}
+            </Link>
           </div>
         </div>
       </div>
