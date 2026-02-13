@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Globe2, Users, Clock, Award } from 'lucide-react'; 
+import { ArrowRight, Globe2, Users, Clock, Award } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import Hero from '../components/layout/Hero';
@@ -11,7 +11,7 @@ import Architecture from '../components/sections/Architecture';
 const PartnersMarquee = () => {
   const partners = [
     { name: "Broadcom", logo: "/marcas/broadcom.webp" },
-    { name: "VMware", logo: "/marcas/Vmware.webp" }, 
+    { name: "VMware", logo: "/marcas/Vmware.webp" },
     { name: "Symantec", logo: "/marcas/symantec.webp" },
     { name: "CA Technologies", logo: "/marcas/ca.webp" },
     { name: "Brocade", logo: "/marcas/brocade.webp" },
@@ -21,34 +21,29 @@ const PartnersMarquee = () => {
   const duplicatedPartners = [...partners, ...partners, ...partners, ...partners, ...partners, ...partners];
 
   return (
-    /* CAMBIO DEFINITIVO:
-       - mt-20: Espacio amplio en móvil para que no choque con los botones del Hero.
-       - bg-esoft-accent: Fondo verde vibrante en modo claro.
-       - dark:bg-[#0a3d34]: Verde muy oscuro y elegante para el modo noche.
-       - shadow-[0_0_30px_rgba(27,159,136,0.2)]: Brillo sutil para que la cinta "flote".
-    */
-    <div className="w-full mt-20 lg:mt-0 bg-esoft-accent dark:bg-[#0a3d34] border-y border-white/10 py-12 overflow-hidden relative flex z-10 transition-all duration-500 shadow-2xl">
-      
-      {/* Degradados laterales: Ahora transicionan hacia el verde para no ensuciar los bordes */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-esoft-accent dark:from-[#0a3d34] to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-esoft-accent dark:from-[#0a3d34] to-transparent z-10 pointer-events-none" />
-      
-      <motion.div 
-        className="flex gap-20 md:gap-32 items-center min-w-max pr-20 md:pr-32"
+    <div className="w-full mt-20 lg:mt-0 bg-black/5 dark:bg-black/20 border-y border-gray-200 dark:border-white/10 py-12 overflow-hidden relative flex z-10 transition-all duration-500 shadow-2xl backdrop-blur-sm">
+
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-50 dark:from-esoft-dark to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 dark:from-esoft-dark to-transparent z-10 pointer-events-none" />
+
+      <motion.div
+        className="flex gap-16 md:gap-24 items-center min-w-max pr-16 md:pr-24"
         animate={{ x: ["0%", "-50%"] }}
         transition={{ ease: "linear", duration: 80, repeat: Infinity }}
       >
         {duplicatedPartners.map((partner, i) => (
-          <div key={i} className="flex items-center justify-center w-32 md:w-48 h-12 md:h-16 flex-shrink-0">
-            <img 
+          <div key={i} className="relative flex items-center justify-center w-32 md:w-48 h-12 md:h-16 flex-shrink-0 group">
+
+            {/* MODIFICADO: Diseño Premium sin cajas. 
+                - dark:drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]: Crea un mini borde de luz blanca en modo oscuro para que el texto negro no se pierda.
+                - hover:!drop-shadow-[0_0_20px_rgba(16,185,129,0.8)]: El Neón verde perfecto que abraza la forma exacta del logo.
+            */}
+            <img
               src={partner.logo}
               alt={`Logo ${partner.name}`}
-              /* Ajuste de visibilidad: 
-                 - brightness-0 invert: Hace que los logos sean blancos para resaltar sobre el fondo verde.
-                 - drop-shadow-md: Pequeña sombra para dar relieve.
-              */
-              className="max-w-full max-h-full object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer scale-110"
+              className="max-w-full max-h-full object-contain opacity-60 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer hover:scale-110 drop-shadow-none dark:drop-shadow-[0_0_5px_rgba(255,255,255,0.2)] hover:!drop-shadow-[0_0_20px_rgba(16,185,129,0.8)]"
             />
+
           </div>
         ))}
       </motion.div>
@@ -102,17 +97,22 @@ const AboutTeaser = () => {
   );
 };
 
+// --- PÁGINA PRINCIPAL ---
 export default function Home() {
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen transition-colors duration-300 bg-transparent">
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-20 dark:opacity-0" 
-           style={{ backgroundImage: 'linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(to right, #e5e7eb 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-20 dark:opacity-0"
+        style={{ backgroundImage: 'linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(to right, #e5e7eb 1px, transparent 1px)', backgroundSize: '40px 40px' }}
       />
       <div className="relative z-10">
+
+        {/* Aquí está mandando llamar tu Hero.tsx que ya tiene el ícono del mouse responsivo */}
         <Hero />
+
         <PartnersMarquee />
+
         <div className="relative py-20">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <BentoGrid />
@@ -123,23 +123,26 @@ export default function Home() {
             </div>
           </div>
         </div>
+
         <AboutTeaser />
+
         <div className="relative bg-white/40 dark:bg-transparent py-20 transition-colors duration-300 border-t border-gray-100 dark:border-none backdrop-blur-sm">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-esoft-accent/5 blur-[120px] pointer-events-none" />
           <Architecture />
         </div>
+
         <section className="py-24 px-6 relative overflow-hidden bg-white/60 dark:bg-transparent border-t border-gray-200 dark:border-white/5 backdrop-blur-md">
           <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-emerald-50/10 dark:from-transparent dark:to-black/40" />
           <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-             <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">
-               {t('homePage.ctaFinal.titleLine1')} <span className="text-esoft-accent">{t('homePage.ctaFinal.titleLine2')}</span>
-             </h2>
-             <p className="text-xl text-gray-600 dark:text-esoft-gray-light font-light">{t('homePage.ctaFinal.subtitle')}</p>
-             <div className="pt-4">
-               <Link to="/contacto" className="inline-flex items-center gap-3 px-10 py-5 bg-esoft-accent text-white font-bold rounded-full hover:bg-emerald-600 transition-all shadow-xl hover:shadow-esoft-accent/30 hover:-translate-y-1">
-                 {t('homePage.ctaFinal.btn')} <ArrowRight />
-               </Link>
-             </div>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">
+              {t('homePage.ctaFinal.titleLine1')} <span className="text-esoft-accent">{t('homePage.ctaFinal.titleLine2')}</span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-esoft-gray-light font-light">{t('homePage.ctaFinal.subtitle')}</p>
+            <div className="pt-4">
+              <Link to="/contacto" className="inline-flex items-center gap-3 px-10 py-5 bg-esoft-accent text-white font-bold rounded-full hover:bg-emerald-600 transition-all shadow-xl hover:shadow-esoft-accent/30 hover:-translate-y-1">
+                {t('homePage.ctaFinal.btn')} <ArrowRight />
+              </Link>
+            </div>
           </div>
         </section>
       </div>

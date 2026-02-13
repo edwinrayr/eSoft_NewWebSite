@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import MatrixBackground from '../ui/MatrixBackground'; 
+import MatrixBackground from '../ui/MatrixBackground';
 
 export default function Hero() {
   const { t } = useTranslation();
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-500 bg-[#050d0a] dark:bg-esoft-dark">
-      
+
       {/* 1. Animación de Fondo (Escudos) */}
       <div className="absolute inset-0 z-0">
         <MatrixBackground />
@@ -17,14 +17,15 @@ export default function Hero() {
 
       {/* 2. Capas de profundidad para legibilidad */}
       <div className="absolute inset-0 z-0 pointer-events-none dark:hidden">
-         <div className="absolute inset-0 bg-gradient-to-b from-[#050d0a]/40 via-transparent to-[#050d0a]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050d0a]/40 via-transparent to-[#050d0a]" />
       </div>
       <div className="absolute inset-0 z-0 hidden dark:block">
         <div className="absolute inset-0 bg-gradient-to-b from-esoft-dark/80 via-transparent to-esoft-dark pointer-events-none" />
       </div>
 
       {/* Contenido principal */}
-      <div className="max-w-7xl mx-auto px-6 relative z-10 pt-20 text-center">
+      {/* AGREGADO: pb-32 para darle espacio al mouse en la versión móvil y evitar superposiciones */}
+      <div className="max-w-7xl mx-auto px-6 relative z-10 pt-20 pb-32 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,7 +34,7 @@ export default function Hero() {
           <span className="inline-block py-1 px-4 rounded-full bg-esoft-accent/10 border border-esoft-accent/30 text-esoft-accent text-sm font-bold mb-6 backdrop-blur-md uppercase tracking-widest">
             {t('hero.badge')}
           </span>
-          
+
           <h1 className="text-5xl md:text-7xl font-heading font-bold text-white mb-6 leading-tight">
             {t('hero.titleMain')} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-esoft-accent to-emerald-400">
@@ -46,16 +47,16 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link 
-              to="/contacto" 
+            <Link
+              to="/contacto"
               className="px-10 py-4 bg-esoft-accent hover:bg-emerald-600 text-white font-bold rounded-full transition-all flex items-center gap-2 group shadow-[0_0_20px_rgba(27,159,136,0.4)] hover:-translate-y-1"
             >
               {t('hero.btnPrimary')}
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            
-            <a 
-              href="/Portafolio_Empresarial_eSoft.pdf" 
+
+            <a
+              href="/Portafolio_Empresarial_eSoft.pdf"
               download="Portafolio_eSoft.pdf"
               className="px-10 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold rounded-full transition-all flex items-center gap-2 backdrop-blur-sm"
             >
@@ -66,7 +67,17 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* El indicador ovalado ha sido removido de aquí */}
+      {/* AGREGADO: Ícono animado de Mouse responsivo */}
+      <motion.div
+        className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-20 pointer-events-none"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div className="w-5 h-8 md:w-6 md:h-10 border-2 border-white/30 rounded-full flex justify-center p-1.5 md:p-2 backdrop-blur-sm bg-black/10">
+          <div className="w-1 h-1.5 md:h-2 bg-esoft-accent rounded-full" />
+        </div>
+      </motion.div>
+
     </div>
   );
 }
