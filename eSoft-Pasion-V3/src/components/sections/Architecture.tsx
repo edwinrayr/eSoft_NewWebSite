@@ -52,42 +52,43 @@ const ArchitectureCard = ({ item, index, t }: { item: any, index: number, t: any
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.8 }}
-      className="group relative p-10 rounded-[2.5rem] bg-white/40 dark:bg-white/[0.02] backdrop-blur-3xl border border-gray-200/50 dark:border-white/5 flex flex-col items-center text-center transition-colors duration-500 hover:border-esoft-accent/40"
+      // MODIFICADO: Backgrounds y sombras adaptables (Light/Dark)
+      className="group relative p-10 rounded-[2.5rem] bg-white/80 dark:bg-white/[0.02] backdrop-blur-3xl border border-slate-200 dark:border-white/5 flex flex-col items-center text-center transition-colors duration-500 hover:border-esoft-accent/40 shadow-xl shadow-slate-200/50 dark:shadow-none"
     >
       {/* Luz de fondo (Spotlight) que sigue al mouse dentro de la tarjeta */}
       <motion.div
-        className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2.5rem]"
+        className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2.5rem] pointer-events-none"
         style={{
           background: `radial-gradient(600px circle at ${useTransform(x, [-0.5, 0.5], ["0%", "100%"])} ${useTransform(y, [-0.5, 0.5], ["0%", "100%"])}, rgba(27, 159, 136, 0.08), transparent 40%)`
         }}
       />
 
       <div className="relative z-10 flex flex-col items-center" style={{ transform: "translateZ(50px)" }}>
+
         {/* Icono con Aura Animada */}
+        {/* MODIFICADO: Estilo "Tecla" en Light Mode, cristal en Dark Mode */}
         <motion.div
           variants={iconVariants}
           whileHover="hover"
-          className="relative mb-8 w-16 h-16 bg-white dark:bg-white/5 rounded-2xl flex items-center justify-center text-esoft-accent shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:shadow-none border border-gray-100 dark:border-white/10"
+          className="relative mb-8 w-16 h-16 bg-white dark:bg-white/5 rounded-2xl flex items-center justify-center text-esoft-accent shadow-md shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-white/10 transition-colors"
         >
           <div className="absolute inset-0 bg-esoft-accent/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700" />
           {item.icon}
         </motion.div>
 
-        <h3 className="text-xl font-heading font-bold text-gray-900 dark:text-white mb-4 tracking-tight group-hover:text-esoft-accent transition-colors">
+        {/* MODIFICADO: Tipografía adaptable */}
+        <h3 className="text-xl font-heading font-bold text-slate-900 dark:text-white mb-4 tracking-tight group-hover:text-esoft-accent transition-colors">
           {t(`architecture.cards.${item.key}.title`)}
         </h3>
 
-        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-light opacity-80 group-hover:opacity-100 transition-opacity">
+        <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed font-light opacity-90 group-hover:opacity-100 transition-opacity">
           {t(`architecture.cards.${item.key}.desc`)}
         </p>
       </div>
 
-      {/* Indicador de esquina inteligente */}
+      {/* Indicador de esquina inteligente (decorativo) */}
       <div className="absolute top-6 right-6 overflow-hidden w-6 h-6">
-        <motion.div
-          animate={{ x: isActive => hovered ? 0 : 20 }}
-          className="w-full h-full border-t-2 border-r-2 border-esoft-accent/0 group-hover:border-esoft-accent/40 transition-all duration-500"
-        />
+        <div className="w-full h-full border-t-2 border-r-2 border-esoft-accent/0 group-hover:border-esoft-accent/40 transition-all duration-500 transform translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" />
       </div>
     </motion.div>
   );
@@ -126,11 +127,12 @@ export default function Architecture() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-heading font-extrabold tracking-tighter mb-8 text-gray-900 dark:text-white"
+            className="text-4xl md:text-6xl font-heading font-extrabold tracking-tighter mb-8 text-slate-900 dark:text-white transition-colors"
           >
-            <span className="opacity-70 dark:opacity-50">{t('architecture.titleLine1')}</span>
+            {/* Ajuste de opacidad para Light Mode */}
+            <span className="opacity-40 dark:opacity-50">{t('architecture.titleLine1')}</span>
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-esoft-accent to-emerald-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-esoft-accent to-emerald-400 drop-shadow-sm dark:drop-shadow-none">
               {t('architecture.titleLine2')}
             </span>
           </motion.h2>
@@ -138,12 +140,14 @@ export default function Architecture() {
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light"
+            // MODIFICADO: Contraste de párrafo
+            className="text-slate-500 dark:text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light transition-colors"
           >
             {t('architecture.subtitle')}
           </motion.p>
         </div>
 
+        {/* El perspective:1500px es crucial para que el efecto Tilt 3D funcione */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 [perspective:1500px]">
           {features.map((item, index) => (
             <ArchitectureCard key={item.key} item={item} index={index} t={t} />
