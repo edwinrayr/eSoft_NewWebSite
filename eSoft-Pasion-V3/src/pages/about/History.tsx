@@ -12,7 +12,6 @@ export default function History() {
     offset: ["start center", "end center"]
   });
 
-  // AGREGADO: Imágenes y Datos Clave para rellenar el espacio vacío de la línea de tiempo
   const milestones = [
     {
       year: t('aboutPage.history.items.2006.year', '2006'),
@@ -49,14 +48,26 @@ export default function History() {
   ];
 
   return (
+    // MODIFICADO: Fondo base Slate-50 (#f8fafc) en Light Mode
     <div className="pt-32 min-h-screen bg-[#f8fafc] dark:bg-[#050d0a] relative overflow-hidden pb-32 transition-colors duration-500">
 
-      {/* FONDO PREMIUM */}
+      {/* --- FONDO PREMIUM (Auroras + Dot Matrix Dinámica) --- */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-esoft-accent/10 dark:bg-esoft-accent/5 blur-[150px] mix-blend-multiply dark:mix-blend-screen transition-all duration-1000" />
-        <div className="absolute bottom-[10%] right-[-10%] w-[800px] h-[800px] rounded-full bg-emerald-400/10 dark:bg-emerald-500/5 blur-[150px] mix-blend-multiply dark:mix-blend-screen transition-all duration-1000" />
+        <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-emerald-100/50 dark:bg-esoft-accent/5 blur-[150px] mix-blend-multiply dark:mix-blend-screen transition-all duration-1000" />
+        <div className="absolute bottom-[10%] right-[-10%] w-[800px] h-[800px] rounded-full bg-teal-100/50 dark:bg-emerald-500/5 blur-[150px] mix-blend-multiply dark:mix-blend-screen transition-all duration-1000" />
+
+        {/* Matriz Gris Plata para Light Mode */}
         <div
-          className="absolute inset-0 opacity-[0.5] dark:opacity-[0.15] transition-opacity duration-500"
+          className="absolute inset-0 opacity-[0.7] dark:opacity-0 transition-opacity duration-500"
+          style={{
+            backgroundImage: 'radial-gradient(circle at center, #cbd5e1 1.5px, transparent 1.5px)',
+            backgroundSize: '32px 32px',
+            WebkitMaskImage: 'radial-gradient(ellipse at 50% 50%, black 20%, transparent 80%)'
+          }}
+        />
+        {/* Matriz Verde para Dark Mode */}
+        <div
+          className="absolute inset-0 opacity-0 dark:opacity-[0.15] transition-opacity duration-500"
           style={{
             backgroundImage: 'radial-gradient(circle at center, #1b9f88 1.5px, transparent 1.5px)',
             backgroundSize: '32px 32px',
@@ -74,16 +85,16 @@ export default function History() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-24 flex flex-col items-center"
         >
-          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/50 dark:bg-white/5 border border-gray-200 dark:border-white/10 backdrop-blur-md mb-8 shadow-sm">
-            <div className="w-1.5 h-1.5 rounded-full bg-esoft-accent animate-pulse" />
-            <span className="text-gray-600 dark:text-gray-200 text-xs font-bold uppercase tracking-[0.2em]">
+          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-md mb-8 shadow-sm transition-colors">
+            <div className="w-1.5 h-1.5 rounded-full bg-esoft-accent animate-pulse shadow-[0_0_8px_rgba(27,159,136,0.5)]" />
+            <span className="text-slate-600 dark:text-gray-200 text-xs font-bold uppercase tracking-[0.2em]">
               {t('aboutPage.history.badge', 'Trayectoria')}
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-heading font-extrabold tracking-tight leading-tight text-gray-900 dark:text-white max-w-3xl">
+          <h1 className="text-5xl md:text-7xl font-heading font-extrabold tracking-tight leading-tight text-slate-900 dark:text-white max-w-3xl transition-colors">
             {t('aboutPage.history.titleStart', 'Evolución con ')}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-esoft-accent via-emerald-400 to-teal-300 drop-shadow-sm">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-esoft-accent via-emerald-400 to-teal-300 drop-shadow-sm dark:drop-shadow-none">
               {t('aboutPage.history.titleEnd', 'Propósito')}
             </span>
           </h1>
@@ -92,8 +103,8 @@ export default function History() {
         {/* CONTENEDOR DE LA LÍNEA DE TIEMPO */}
         <div ref={containerRef} className="relative">
 
-          {/* Líneas de conexión central */}
-          <div className="absolute top-0 bottom-0 left-8 md:left-1/2 w-[2px] bg-gray-200 dark:bg-white/5 md:-translate-x-1/2 rounded-full" />
+          {/* Líneas de conexión central (Slate-200 en Claro) */}
+          <div className="absolute top-0 bottom-0 left-8 md:left-1/2 w-[2px] bg-slate-200 dark:bg-white/5 md:-translate-x-1/2 rounded-full transition-colors" />
           <motion.div
             className="absolute top-0 left-8 md:left-1/2 w-[2px] bg-gradient-to-b from-esoft-accent via-emerald-400 to-transparent md:-translate-x-1/2 rounded-full origin-top z-10"
             style={{ scaleY: scrollYProgress }}
@@ -108,7 +119,7 @@ export default function History() {
 
                   {/* NODO CENTRAL */}
                   <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 flex items-center justify-center z-20 transform -translate-x-[11px] md:translate-x-0 mt-6 md:mt-0">
-                    <div className="w-6 h-6 rounded-full bg-[#f8fafc] dark:bg-[#050d0a] border-4 border-gray-200 dark:border-white/10 group-hover:border-esoft-accent transition-colors duration-500 flex items-center justify-center">
+                    <div className="w-6 h-6 rounded-full bg-[#f8fafc] dark:bg-[#050d0a] border-4 border-slate-200 dark:border-white/10 group-hover:border-esoft-accent transition-colors duration-500 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-transparent group-hover:bg-esoft-accent transition-colors duration-500 shadow-[0_0_10px_rgba(27,159,136,0.8)]" />
                     </div>
                   </div>
@@ -124,31 +135,34 @@ export default function History() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.7 }}
-                        className="w-full relative bg-white/60 dark:bg-white/[0.02] backdrop-blur-3xl border border-gray-200/50 dark:border-white/5 p-8 md:p-10 rounded-[2.5rem] shadow-xl hover:shadow-2xl dark:shadow-[0_10px_30px_-15px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 overflow-hidden hover:border-esoft-accent/30 pl-20 md:pl-10 mt-0"
+                        // MODIFICADO: Backgrounds y sombras
+                        className="w-full relative bg-white/80 dark:bg-white/[0.02] backdrop-blur-3xl border border-slate-200/50 dark:border-white/5 p-8 md:p-10 rounded-[2.5rem] shadow-xl shadow-slate-200/50 dark:shadow-[0_10px_30px_-15px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 overflow-hidden hover:border-esoft-accent/30 pl-20 md:pl-10 mt-0"
                       >
-                        <span className="absolute -top-6 -right-4 text-[8rem] font-heading font-bold text-gray-900 dark:text-white opacity-[0.03] select-none pointer-events-none tracking-tighter">
+                        {/* AÑO DE FONDO (Más oscuro en Dark Mode, muy suave en Light Mode) */}
+                        <span className="absolute -top-6 -right-4 text-[8rem] font-heading font-bold text-slate-900 dark:text-white opacity-[0.03] dark:opacity-[0.02] select-none pointer-events-none tracking-tighter transition-colors">
                           {milestone.year}
                         </span>
                         <div className="relative z-10">
-                          <span className="inline-block px-4 py-1.5 rounded-xl bg-gray-100 dark:bg-white/5 text-esoft-accent font-bold text-xl tracking-wider border border-gray-200 dark:border-white/10 mb-4">
+                          <span className="inline-block px-4 py-1.5 rounded-xl bg-slate-100 dark:bg-white/5 text-esoft-accent font-bold text-xl tracking-wider border border-slate-200 dark:border-white/10 mb-4 transition-colors">
                             {milestone.year}
                           </span>
-                          <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 dark:text-white mb-4 tracking-tight group-hover:text-esoft-accent transition-colors">
+                          <h3 className="text-2xl md:text-3xl font-heading font-bold text-slate-900 dark:text-white mb-4 tracking-tight group-hover:text-esoft-accent transition-colors">
                             {milestone.title}
                           </h3>
-                          <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-light text-sm md:text-base">
+                          <p className="text-slate-600 dark:text-gray-400 leading-relaxed font-light text-sm md:text-base transition-colors">
                             {milestone.description}
                           </p>
                         </div>
                       </motion.div>
                     ) : (
-                      // VENTANA VISUAL / IMAGEN (IMPAR) - Oculta en móvil para no romper la lectura
+                      // VENTANA VISUAL / IMAGEN (IMPAR)
                       <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.7 }}
-                        className="hidden md:block w-full aspect-video md:aspect-[4/3] relative rounded-[2.5rem] overflow-hidden border border-gray-200/50 dark:border-white/5 shadow-lg group-hover:shadow-esoft-accent/10 transition-all duration-500 group-hover:-translate-y-2"
+                        // MODIFICADO: Shadow
+                        className="hidden md:block w-full aspect-video md:aspect-[4/3] relative rounded-[2.5rem] overflow-hidden border border-slate-200/50 dark:border-white/5 shadow-xl shadow-slate-200/40 dark:shadow-lg group-hover:shadow-esoft-accent/10 transition-all duration-500 group-hover:-translate-y-2"
                       >
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
                         <img
@@ -176,7 +190,7 @@ export default function History() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.7 }}
-                        className="w-full aspect-[4/3] relative rounded-[2.5rem] overflow-hidden border border-gray-200/50 dark:border-white/5 shadow-lg group-hover:shadow-esoft-accent/10 transition-all duration-500 group-hover:-translate-y-2"
+                        className="w-full aspect-[4/3] relative rounded-[2.5rem] overflow-hidden border border-slate-200/50 dark:border-white/5 shadow-xl shadow-slate-200/40 dark:shadow-lg group-hover:shadow-esoft-accent/10 transition-all duration-500 group-hover:-translate-y-2"
                       >
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
                         <img
@@ -196,19 +210,19 @@ export default function History() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.7 }}
-                        className="w-full relative bg-white/60 dark:bg-white/[0.02] backdrop-blur-3xl border border-gray-200/50 dark:border-white/5 p-8 md:p-10 rounded-[2.5rem] shadow-xl hover:shadow-2xl dark:shadow-[0_10px_30px_-15px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 overflow-hidden hover:border-esoft-accent/30"
+                        className="w-full relative bg-white/80 dark:bg-white/[0.02] backdrop-blur-3xl border border-slate-200/50 dark:border-white/5 p-8 md:p-10 rounded-[2.5rem] shadow-xl shadow-slate-200/50 dark:shadow-[0_10px_30px_-15px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 overflow-hidden hover:border-esoft-accent/30"
                       >
-                        <span className="absolute -top-6 -right-4 text-[8rem] font-heading font-bold text-gray-900 dark:text-white opacity-[0.03] select-none pointer-events-none tracking-tighter">
+                        <span className="absolute -top-6 -right-4 text-[8rem] font-heading font-bold text-slate-900 dark:text-white opacity-[0.03] dark:opacity-[0.02] select-none pointer-events-none tracking-tighter transition-colors">
                           {milestone.year}
                         </span>
                         <div className="relative z-10">
-                          <span className="inline-block px-4 py-1.5 rounded-xl bg-gray-100 dark:bg-white/5 text-esoft-accent font-bold text-xl tracking-wider border border-gray-200 dark:border-white/10 mb-4">
+                          <span className="inline-block px-4 py-1.5 rounded-xl bg-slate-100 dark:bg-white/5 text-esoft-accent font-bold text-xl tracking-wider border border-slate-200 dark:border-white/10 mb-4 transition-colors">
                             {milestone.year}
                           </span>
-                          <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 dark:text-white mb-4 tracking-tight group-hover:text-esoft-accent transition-colors">
+                          <h3 className="text-2xl md:text-3xl font-heading font-bold text-slate-900 dark:text-white mb-4 tracking-tight group-hover:text-esoft-accent transition-colors">
                             {milestone.title}
                           </h3>
-                          <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-light text-sm md:text-base">
+                          <p className="text-slate-600 dark:text-gray-400 leading-relaxed font-light text-sm md:text-base transition-colors">
                             {milestone.description}
                           </p>
                         </div>
